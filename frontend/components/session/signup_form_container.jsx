@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { signup } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name_or_email: '',
+      username: '',
+      email: '',
       password: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +23,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.signup(this.state);
   }
 
   render () {
@@ -34,25 +35,29 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <div className="gutter-container">
-          <form className="rela-block login-form" onSubmit={this.handleSubmit}>
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
-              className="rela-block"
-              placeholder="Email address or username"
-              onChange={this.handleChange('name_or_email')}
-              value={this.state.name_or_email} />
+              placeholder="Username"
+              onChange={this.handleChange('username')}
+              value={this.state.username} />
+            <input
+              type="text"
+              placeholder="Email"
+              onChange={this.handleChange('email')}
+              value={this.state.email} />
             <input
               type="password"
-              className="rela-block"
               placeholder="Password"
               onChange={this.handleChange('password')}
               value={this.state.password} />
-            <div className="rela-block form-buttons-container">
-              <button className="rela-inline button">Log In</button>
+
+            <div className="form-buttons-container">
+              <button className="rela-inline button">Sign Up</button>
             </div>
           </form>
 
-          <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+          <p>Already have an account? <Link to="/login">Log In</Link></p>
         </div>
       </div>
     );
@@ -60,7 +65,7 @@ class LoginForm extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+  signup: user => dispatch(signup(user))
 });
 
-export default connect(null,mapDispatchToProps)(LoginForm);
+export default connect(null,mapDispatchToProps)(SignupForm);
