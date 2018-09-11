@@ -1,7 +1,12 @@
 // out: ../main.css
 
-@import 'reset.styl';
 @import 'colors.styl';
+@import 'text.styl';
+@import 'util.styl';
+
+*
+  box-sizing border-box
+  transition 0.25s ease-in-out
 
 body
   background-color #FFF
@@ -10,7 +15,40 @@ body
   font-size 16px
   line-height 1.5
 
-h1
-  font-size 40px
-  line-height 48px
+a
+  text-decoration none
+  color $green
+  transition 0s
+  &:hover
+    color $hover-green
+
+input
+  width 100%
+  padding 8px 12px
+  border 1px solid $lite
+  font-family 'Rubik', Helvetica, Arial, sans-serif;
+  font-size 16px
+  margin-bottom 10px
+  &::placeholder
+    color $light-grey
+  &:focus
+    outline none
+    border 1px solid $grey
+
+.button
+  min-width 160px
+  padding 8px 40px
+  background-color $green
+  cursor pointer
+  border-radius 50px
+  border none
+  text-transform uppercase
+  font-family 'Rubik', Helvetica, Arial, sans-serif;
+  font-size 12px
+  letter-spacing 2px
+  color $white
   font-weight 700
+  &:hover
+    background-color $hover-green
+
+@import 'form.styl';
