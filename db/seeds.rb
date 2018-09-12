@@ -11,6 +11,7 @@ User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 
 User.create([
+  { username: 'Guest User', email: 'guest@user.com', password: 'guestuser', img_url: '' },
   { username: 'Banana Bread', email: 'banana@bread.com', password: 'bananabread', img_url: '' },
   { username: 'kyle', email: 'kyle@apps.io', password: 'kylekylekyle', img_url: '' },
   { username: 'dan', email: 'dan@apps.io', password: 'dandandan', img_url: '' },

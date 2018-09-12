@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleChange(field) {
@@ -23,6 +24,14 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.setState({
+      name_or_email: 'Guest User',
+      password: 'guestuser'
+    },() => { this.props.login(this.state); });
   }
 
   render () {
@@ -50,6 +59,7 @@ class LoginForm extends React.Component {
               onChange={this.handleChange('password')}
               value={this.state.password} />
             <div className="rela-block form-buttons-container">
+              <button className="rela-inline button blue" onClick={this.handleDemo}>Demo User</button>
               <button className="rela-inline button">Log In</button>
             </div>
           </form>
