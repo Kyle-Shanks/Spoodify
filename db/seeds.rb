@@ -7,8 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Artist.destroy_all
+Album.destroy_all
+Track.destroy_all
+Playlist.destroy_all
+PlaylistTrack.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('artists')
+ApplicationRecord.connection.reset_pk_sequence!('albums')
+ApplicationRecord.connection.reset_pk_sequence!('tracks')
+ApplicationRecord.connection.reset_pk_sequence!('playlists')
+ApplicationRecord.connection.reset_pk_sequence!('playlist_tracks')
 
 User.create([
   { username: 'Guest User', email: 'guest@user.com', password: 'guestuser', img_url: '' },

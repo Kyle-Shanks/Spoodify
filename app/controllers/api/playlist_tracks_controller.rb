@@ -13,9 +13,9 @@ class Api::PlaylistTracksController < ApplicationController
   def destroy
     @playlist_track = PlaylistTrack.find_by(id: params[:id])
     if @playlist_track
-      pt_id = @playlist_track.id
+      pt = @playlist_track.dup
       @playlist_track.destroy
-      render json: { playlistTrackId: pt_id }
+      render json: { playlistTrack: pt }
     else
       render json: ["Connection could not be found"], status: 404
     end
