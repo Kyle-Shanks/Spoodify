@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  img_url         :string
+#  session_token   :string           not null
+#  password_digest :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   before_validation :ensure_session_token
 
@@ -5,6 +19,8 @@ class User < ApplicationRecord
   validates :session_token, :password_digest, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   validate :valid_email
+
+  has_many :playlists
 
   attr_reader :password
 
@@ -41,7 +57,7 @@ class User < ApplicationRecord
   end
 
   private
-  
+
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
