@@ -20,7 +20,9 @@ const Header = (props) => {
   }
   return (
     <div className="header">
-      <h1>Spoodify</h1>
+      <h1 className="logo">
+        <Link to="/">Spoodify</Link>
+      </h1>
       {headerInfo}
     </div>
   );

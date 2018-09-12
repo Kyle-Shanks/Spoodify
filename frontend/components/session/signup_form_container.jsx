@@ -31,18 +31,15 @@ class SignupForm extends React.Component {
       <div className="form-container">
         <div className="form-header">
           <div className="gutter-container">
-            <h1>Spoodify</h1>
+            <h1 className="logo">
+              <Link to="/">Spoodify</Link>
+            </h1>
           </div>
         </div>
         <div className="gutter-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
             <input
-              type="text"
-              placeholder="Username"
-              onChange={this.handleChange('username')}
-              value={this.state.username} />
-            <input
-              type="text"
+              type="email"
               placeholder="Email"
               onChange={this.handleChange('email')}
               value={this.state.email} />
@@ -51,6 +48,11 @@ class SignupForm extends React.Component {
               placeholder="Password"
               onChange={this.handleChange('password')}
               value={this.state.password} />
+            <input
+              type="text"
+              placeholder="What should we call you?"
+              onChange={this.handleChange('username')}
+              value={this.state.username} />
 
             <div className="form-buttons-container">
               <button className="rela-inline button">Sign Up</button>

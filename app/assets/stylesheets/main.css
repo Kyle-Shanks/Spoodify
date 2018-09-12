@@ -3,6 +3,18 @@ h1 {
   line-height: 48px;
   font-weight: 700;
 }
+.logo {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.logo a {
+  color: #191414;
+}
+.logo a:hover {
+  color: #191414;
+}
 p {
   font-size: 16px;
   line-height: 1.5;
@@ -54,16 +66,22 @@ input {
   font-size: 16px;
   margin-bottom: 10px;
 }
+input.error {
+  border: 1px solid #eb1e32;
+}
 input::placeholder {
-  color: #c1c3c6;
+  transition: 0.25s ease-in-out;
 }
 input:focus {
   outline: none;
   border: 1px solid #919496;
 }
+input:focus::placeholder {
+  color: #c1c3c6;
+}
 .button {
   min-width: 160px;
-  padding: 8px 40px;
+  padding: 11px 40px 9px;
   background-color: #1db954;
   cursor: pointer;
   border-radius: 50px;
@@ -88,6 +106,9 @@ input:focus {
   border-bottom: 1px solid #d9dadc;
 }
 form {
-  margin: 0 auto 30px;
-  max-width: 500px;
+  margin: 0 auto 40px;
+  max-width: 450px;
+}
+.form-buttons-container {
+  padding: 10px 0;
 }
