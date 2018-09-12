@@ -3,8 +3,7 @@ class Api::PlaylistTracksController < ApplicationController
   def create
     @playlist_track = PlaylistTrack.new(pt_params)
     if @playlist_track.save
-      @playlist = Playlist.find(pt_params[:playlist_id])
-      render 'api/playlists/show'
+      render 'api/playlist_tracks/show'
     else
       render json: ["Invalid credentials"], status: 401
     end

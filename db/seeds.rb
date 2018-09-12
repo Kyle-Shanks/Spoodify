@@ -27,3 +27,40 @@ User.create([
   { username: 'dan', email: 'dan@apps.io', password: 'dandandan', img_url: '' },
   { username: 'n00bkid', email: 'n00bkid@wow.com', password: 'hunter2', img_url: '' },
 ])
+
+Artist.create([
+  { name: 'Slacker', description: 'lofi', img_url: '' },
+  { name: 'Anamanaguchi', description: 'chiptunes', img_url: '' },
+])
+
+Album.create([
+  { title: 'OP-1', artist_id: 1, release_date: '2017', img_url: '' },
+  { title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: '' },
+  { title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: '' },
+])
+
+Track.create([
+  { title: 'Plswaveback', album_id: 1 },
+  { title: 'Daydream', album_id: 1 },
+  { title: 'Planet', album_id: 2 },
+  { title: 'Prom Night', album_id: 2 },
+  { title: 'Meow', album_id: 2 },
+  { title: 'Endless Fantasy', album_id: 2 },
+  { title: 'Helix Nebula', album_id: 3 },
+  { title: 'Fast Turtle', album_id: 3 },
+  { title: 'Flora/Fauna', album_id: 3 },
+])
+
+Playlist.create([
+  { title: 'Chill', user_id: 2 },
+  { title: 'Hype', user_id: 4 },
+])
+
+PlaylistTrack.create([
+  { playlist_id: 1, track_id: 1 },
+  { playlist_id: 1, track_id: 2 },
+  { playlist_id: 1, track_id: 9 },
+  { playlist_id: 2, track_id: 3 },
+  { playlist_id: 2, track_id: 4 },
+  { playlist_id: 2, track_id: 8 },
+])
