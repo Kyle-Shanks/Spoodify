@@ -16,7 +16,7 @@ const Splash = (props) => {
         </div>
       </div>
 
-      <div className="hero-container">
+      <div className="rela-block hero-container">
         <img src={window.heroSVG} className="abs-center hero-background-svg" />
         <div className="abs-center">
           <h1 className="splash-pop-text">Music for everyone.</h1>
@@ -24,7 +24,7 @@ const Splash = (props) => {
           <Link to="/signup" className="rela-inline button big">Get Spoodify Free</Link>
         </div>
       </div>
-      <footer className="splash-footer">
+      <footer className="rela-block splash-footer">
         <div className="gutter-container">
           Footer Stuff
         </div>

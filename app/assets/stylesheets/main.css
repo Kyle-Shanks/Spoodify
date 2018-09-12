@@ -197,6 +197,7 @@ form {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-60%, #f037a5), color-stop(140%, #fae62d));
   background: linear-gradient(#f037a5 -60%, #fae62d 140%);
   color: #fff;
+  overflow: hidden;
 }
 .hero-container h4 {
   margin-bottom: 30px;
