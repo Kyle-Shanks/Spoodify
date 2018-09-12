@@ -17,7 +17,7 @@ const Splash = (props) => {
       </div>
 
       <div className="hero-container">
-        <div className="hero-background-svg"></div>
+        <img src={window.heroSVG} className="abs-center hero-background-svg" />
         <div className="abs-center">
           <h1 className="splash-pop-text">Music for everyone.</h1>
           <h4>Millions of songs. No credit card needed.</h4>

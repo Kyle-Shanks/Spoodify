@@ -202,13 +202,8 @@ form {
   margin-bottom: 30px;
 }
 .hero-background-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("hero-burst.svg") no-repeat center;
-  background-size: 1610px 1523px;
+  height: 1610px;
+  width: 1523px;
 }
 .splash-pop-text {
   font-size: 80px;
