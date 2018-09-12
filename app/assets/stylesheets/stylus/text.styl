@@ -1,19 +1,59 @@
 // main: _main.styl
+
 h1
   font-size 40px
   line-height 48px
   font-weight 700
+  letter-spacing -2px
+
+h2
+  font-size 32px
+  line-height 40px
+  font-weight 700
+  letter-spacing -1px
+
+h3
+  font-size 24px
+  line-height 28px
+  text-transform uppercase
+
+h4
+  font-size 18px
+  line-height 24px
+
+p
+  font-size 16px
+  line-height 1.5
+
+a
+  text-decoration none
+  color $green
+  transition 0s
+  &.white
+    color $white
+  &:hover
+    color $hover-green
+  &.app-link
+    color $light-transparent
+    &:hover
+      color $white
+  &.upper
+    text-transform uppercase
 
 .logo
   font-size 40px
   line-height 48px
   font-weight 700
   letter-spacing -2px
+  &.small
+    font-size 26px
+    line-height 32px
+    font-weight 500
   & a
     color $black
     &:hover
       color $black
-
-p
-  font-size 16px
-  line-height 1.5
+  &.white a
+    color $white
+    &:hover
+      color $white

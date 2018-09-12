@@ -15,13 +15,6 @@ body
   font-size 16px
   line-height 1.5
 
-a
-  text-decoration none
-  color $green
-  transition 0s
-  &:hover
-    color $hover-green
-
 input
   width 100%
   padding 8px 12px
@@ -51,8 +44,21 @@ input
   font-size 12px
   letter-spacing 2px
   color $white
-  font-weight 700
+  font-weight 500
+  transition 0.25s ease-in-out
+  &:focus
+    outline none
   &:hover
     background-color $hover-green
+    color $white
+  &.big
+    padding 14px 40px
+    font-size 14px
+
+footer
+  background-color $black
+  color $white
 
 @import 'form.styl';
+@import 'nav.styl';
+@import 'splash.styl';

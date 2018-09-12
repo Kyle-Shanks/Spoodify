@@ -1,0 +1,23 @@
+// main: _main.styl
+
+.nav-bar
+  z-index 100
+  position fixed
+  top 0
+  left 0
+  right 0
+  height 80px
+  line-height @height
+  background-color rgba(0,0,0,0.6)
+  color $white
+  & .logo
+    line-height @height
+    & a
+      padding 25px 0
+  & .gutter-container
+    display flex
+    justify-content space-between
+
+.nav-links a
+  font-weight 500
+  padding 31px 17px
