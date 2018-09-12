@@ -30,7 +30,9 @@ class LoginForm extends React.Component {
       <div className="form-container">
         <div className="form-header">
           <div className="gutter-container">
-            <h1>Spoodify</h1>
+            <h1 className="logo">
+              <Link to="/">Spoodify</Link>
+            </h1>
           </div>
         </div>
         <div className="gutter-container">
