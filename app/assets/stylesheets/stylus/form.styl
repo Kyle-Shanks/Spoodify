@@ -15,10 +15,15 @@ form
 
 .form-buttons-container
   display flex
+  flex-direction row-reverse
   justify-content space-around
   padding 10px 0
   & button
     flex 1 1 0
     max-width 240px
     & + button
-      margin-left 20px
+      margin-right 20px
+
+ul.errors
+  color $red
+  margin-bottom 20px

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, clearErrors } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
@@ -35,15 +35,23 @@ class LoginForm extends React.Component {
   }
 
   render () {
+    let errors;
+    if (this.props.errors) {
+      errors = this.props.errors.map((msg,idx) => <li key={idx}>{msg}</li>)
+    }
+
     return (
       <div className="form-container">
         <div className="form-header">
           <div className="gutter-container">
             <h1 className="logo">
-              <Link to="/">Spoodify</Link>
+              <Link onClick={this.props.clearErrors} to="/">Spoodify</Link>
             </h1>
           </div>
         </div>
+
+        <ul className="errors">{errors}</ul>
+
         <div className="gutter-container">
           <form className="rela-block login-form" onSubmit={this.handleSubmit}>
             <input
@@ -59,20 +67,25 @@ class LoginForm extends React.Component {
               onChange={this.handleChange('password')}
               value={this.state.password} />
             <div className="rela-block form-buttons-container">
-              <button className="rela-inline button blue" onClick={this.handleDemo}>Demo User</button>
               <button className="rela-inline button">Log In</button>
+              <button className="rela-inline button blue" onClick={this.handleDemo}>Demo User</button>
             </div>
           </form>
 
-          <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+          <p>Don't have an account? <Link onClick={this.props.clearErrors} to="/signup">Sign Up</Link></p>
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+const mapStateToProps = state => ({
+  errors: state.errors.session
 });
 
-export default connect(null,mapDispatchToProps)(LoginForm);
+const mapDispatchToProps = dispatch => ({
+  login: user => dispatch(login(user)),
+  clearErrors: () => dispatch(clearErrors())
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginForm);

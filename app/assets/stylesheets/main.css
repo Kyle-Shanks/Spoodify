@@ -171,6 +171,7 @@ form {
 }
 .form-buttons-container {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-around;
   padding: 10px 0;
 }
@@ -179,7 +180,11 @@ form {
   max-width: 240px;
 }
 .form-buttons-container button + button {
-  margin-left: 20px;
+  margin-right: 20px;
+}
+ul.errors {
+  color: #eb1e32;
+  margin-bottom: 20px;
 }
 .nav-bar {
   z-index: 100;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, clearErrors } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
@@ -27,15 +27,23 @@ class SignupForm extends React.Component {
   }
 
   render () {
+    let errors;
+    if (this.props.errors) {
+      errors = this.props.errors.map((msg,idx) => <li key={idx}>{msg}</li>)
+    }
+
     return (
       <div className="form-container">
         <div className="form-header">
           <div className="gutter-container">
             <h1 className="logo">
-              <Link to="/">Spoodify</Link>
+              <Link onClick={this.props.clearErrors} to="/">Spoodify</Link>
             </h1>
           </div>
         </div>
+
+        <ul className="errors">{errors}</ul>
+
         <div className="gutter-container">
           <form className="login-form" onSubmit={this.handleSubmit}>
             <input
@@ -59,15 +67,20 @@ class SignupForm extends React.Component {
             </div>
           </form>
 
-          <p>Already have an account? <Link to="/login">Log In</Link></p>
+          <p>Already have an account? <Link onClick={this.props.clearErrors} to="/login">Log In</Link></p>
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  signup: user => dispatch(signup(user))
+const mapStateToProps = state => ({
+  errors: state.errors.session
 });
 
-export default connect(null,mapDispatchToProps)(SignupForm);
+const mapDispatchToProps = dispatch => ({
+  signup: user => dispatch(signup(user)),
+  clearErrors: () => dispatch(clearErrors())
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignupForm);
