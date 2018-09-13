@@ -25,8 +25,8 @@ export const createPlaylistTrack = playlistTrack => {
   );
 };
 
-export const deletePlaylistTrack = playlistTrackId => {
-  return dispatch => PlaylistTrackAPIUtil.deletePlaylistTrack(playlistTrackId).then(
+export const deletePlaylistTrack = playlistTrack => {
+  return dispatch => PlaylistTrackAPIUtil.deletePlaylistTrack(playlistTrack).then(
     res => dispatch(removePlaylistTrack(res))
   );
 };

@@ -6,9 +6,10 @@ export const createPlaylistTrack = playlistTrack => {
   });
 };
 
-export const deletePlaylistTrack = playlistTrackId => {
+export const deletePlaylistTrack = playlistTrack => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/playlist_tracks/${playlistTrackId}`
+    url: `api/playlist_tracks/${0}`,
+    data: { playlist_track: playlistTrack }
   });
 };

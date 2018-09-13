@@ -21,10 +21,11 @@ const playlistsReducer = (state = {}, action) => {
       addedState[action.playlistTrack.playlist_id].track_ids.push(action.playlistTrack.track_id);
       return addedState;
     case REMOVE_PLAYLIST_TRACK:
+      console.log(state,action)
       const removedState = merge({}, state);
-      const arr = addedState[action.playlistTrack.playlist_id].track_ids;
+      const arr = removedState[action.playlistTrack.playlist_id].track_ids;
       const trackIdx = arr.indexOf(action.playlistTrack.track_id);
-      removedState.splice(trackIdx,1);
+      removedState[action.playlistTrack.playlist_id].track_ids.splice(trackIdx,1);
       return removedState;
     default:
       return state;
