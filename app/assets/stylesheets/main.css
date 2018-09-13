@@ -303,12 +303,16 @@ ul.errors {
   background-color: rgba(0,0,0,0.5);
   margin-bottom: 10px;
 }
-.content-item .content-main-text,
+.content-item .content-primary-text,
 .content-item .content-secondary-text {
   font-size: 14px;
+  font-weight: 300;
 }
-.content-item .content-secondart-text {
+.content-item .content-secondary-text {
   color: rgba(255,255,255,0.6);
+}
+.content-item.artist .content-img {
+  border-radius: 100%;
 }
 .audio-player-container {
   position: fixed;
