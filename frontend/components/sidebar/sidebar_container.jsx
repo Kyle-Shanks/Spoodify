@@ -1,13 +1,13 @@
-import Header from './header.jsx';
+import Sidebar from './sidebar.jsx';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
-    currentUser: state.entities.users[state.session.currentUserId]
+  currentUser: state.entities.users[state.session.currentUserId]
 });
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
