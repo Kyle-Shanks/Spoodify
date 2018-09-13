@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Search = (props) => {
   return (
     <div className="search-container">
-      <p>Render other search components based on the route</p>
+      <p>Render search components based on the route</p>
     </div>
   );
 };

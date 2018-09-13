@@ -1,12 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import BrowseNav from './browse_nav';
+import ArtistIndex from '../util/artists/artist_container';
+// import AlbumIndex from '../util/album_index';
+// import TrackIndex from '../util/track_index';
+// import PlaylistIndex from '../util/playlist_index';
 
-// <Route path='/browse' component={BrowseNav} />
+// <Route path="/browse/albums" component={AlbumIndex} />
+// <Route path="/browse/tracks" component={TrackIndex} />
+// <Route path="/browse/playlists" component={PlaylistIndex} />
 
 const Browse = (props) => {
   return (
     <div className="browse-container">
-      <p>Render other browse components based on the route</p>
+      <Route path="/browse/:section" component={BrowseNav} />
+      <div className="browse-content">
+        <Route path="/browse/artists" component={ArtistIndex} />
+
+      </div>
     </div>
   );
 };

@@ -35,7 +35,7 @@ a:hover {
   color: #1ed760;
 }
 a.app-link {
-  transition: 0.25s ease-in-out;
+  transition: 0s, color 0.25s ease-in-out;
   color: rgba(255,255,255,0.6);
 }
 a.app-link:hover {
@@ -88,6 +88,14 @@ a.upper {
   transform: translate(-50%, -50%);
   width: 92%;
   text-align: center;
+}
+.flex-parent {
+  display: flex;
+  position: relative;
+}
+.flex {
+  position: relative;
+  flex: 1 1 0;
 }
 .gutter-container {
   width: 100%;
@@ -265,6 +273,42 @@ ul.errors {
   background-color: rgba(0,0,0,0.2);
   color: #fff;
   background-image: linear-gradient(#3c3e5d, #060609 85%);
+}
+.content-nav {
+  margin: 0 20px 20px;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.content-nav li {
+  margin: 0 20px;
+}
+.content-nav li a {
+  padding: 6px 0;
+  margin: 10px 0;
+  border-bottom: 2px solid transparent;
+}
+.content-nav li a.active {
+  color: #fff;
+  border-bottom: 2px solid #1db954;
+}
+.content-item {
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+.content-item .content-img {
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.content-item .content-main-text,
+.content-item .content-secondary-text {
+  font-size: 14px;
+}
+.content-item .content-secondart-text {
+  color: rgba(255,255,255,0.6);
 }
 .audio-player-container {
   position: fixed;
