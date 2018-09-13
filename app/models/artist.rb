@@ -15,4 +15,5 @@ class Artist < ApplicationRecord
 
   has_many :albums
   has_many :tracks, through: :albums
+  has_one_attached :photo
 end

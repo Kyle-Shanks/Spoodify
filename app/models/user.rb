@@ -21,6 +21,7 @@ class User < ApplicationRecord
   validate :valid_email
 
   has_many :playlists
+  has_one_attached :photo
 
   attr_reader :password
 

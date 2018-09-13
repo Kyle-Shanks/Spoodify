@@ -16,4 +16,5 @@ class Track < ApplicationRecord
   has_one :artist, through: :album
   has_many :playlist_tracks
   has_many :playlists, through: :playlist_tracks
+  has_one_attached :src
 end
