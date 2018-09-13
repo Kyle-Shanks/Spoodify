@@ -9,7 +9,6 @@ class ArtistIndex extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const artists = this.props.artists.map(artist => (
       <ArtistIndexItem key={artist.id} artist={artist} />
     ));

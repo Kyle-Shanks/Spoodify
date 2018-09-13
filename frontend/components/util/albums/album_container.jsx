@@ -9,7 +9,6 @@ class AlbumIndex extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const albums = this.props.albums.map(album => (
       <AlbumIndexItem key={album.id} album={album} />
     ));
