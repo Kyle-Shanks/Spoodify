@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/OscarAlvarez8830/EZDownload.git
+  revision: c4f20fb9545d7785d378b0e400e20c553fcf3748
+  specs:
+    ez_download (0.2.0)
+      rails (~> 5.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -241,6 +248,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  ez_download!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
