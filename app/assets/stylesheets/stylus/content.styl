@@ -18,10 +18,17 @@
     & a
       padding 6px 0
       margin 10px 0
-      border-bottom 2px solid transparent
       &.active
         color $white
-        border-bottom 2px solid $green
+        &::before
+          content ""
+          position absolute
+          left 50%
+          transform translateX(-50%)
+          bottom 0
+          height 2px
+          width 30px
+          background-color $green
 
 .content-item
   margin 10px
@@ -30,11 +37,72 @@
   & .content-img
     width 100%
     background-color rgba(0,0,0,0.5)
+    box-shadow 0 0 10px rgba(0,0,0,0.3)
+  & .img-container
     margin-bottom 10px
+    &::after
+      content ""
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      transition 0.2s ease-in-out
+    & .content-play
+      opacity 0
+      pointer-events none
+    &:hover
+      & .content-play
+        z-index 3
+        opacity 1
+        pointer-events all
+      &::after
+        background-color rgba(0,0,0,0.85)
   & .content-primary-text, & .content-secondary-text
     font-size 14px
     font-weight 300
-  & .content-secondary-text
-    color $light-transparent
-  &.artist .content-img
+  &.artist .content-img,
+  &.artist .img-container,
+  &.artist .img-container::after
     border-radius 100%
+  & .playlist-img
+    padding-top 100%
+    background-color #f037a5
+    background linear-gradient(#f037a5 -60%,#fae62d 140%)
+    &::before
+      content ""
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%,-50%)
+      height 60%
+      width 60%
+      background-color #fae62d
+      background linear-gradient(#fae62d -60%,#f037a5 140%)
+      border-radius 100%
+    & .playlist-title
+      padding 10px
+      text-transform uppercase
+      letter-spacing 3px
+      font-size 14px
+      border 2px solid
+
+.content-secondary-text
+  color $light-transparent
+
+.track-item
+  padding 10px 20px 14px
+  font-weight 300
+  & .content-secondary-text
+    line-height 1
+  &:hover
+    background-color rgba(0,0,0,0.3)
+  & a
+    font-size 14px
+    border-bottom 1px solid transparent
+    &:hover
+      border-bottom 1px solid $white
+
+.track-duration
+  font-size 14px
+  color $light-transparent

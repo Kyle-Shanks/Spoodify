@@ -64,17 +64,32 @@ file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_power
 album3.photo.attach(io: file, filename: 'anamanaguchi_power_supply_avatar.jpg')
 album3.save!
 
-Track.create([
-  { title: 'Plswaveback', album_id: 1 },
-  { title: 'Daydream', album_id: 1 },
-  { title: 'Planet', album_id: 2 },
-  { title: 'Prom Night', album_id: 2 },
-  { title: 'Meow', album_id: 2 },
-  { title: 'Endless Fantasy', album_id: 2 },
-  { title: 'Helix Nebula', album_id: 3 },
-  { title: 'Fast Turtle', album_id: 3 },
-  { title: 'Flora/Fauna', album_id: 3 },
-])
+# Track.create([
+#   { title: 'Plswaveback', album_id: 1 },
+#   { title: 'Daydream', album_id: 1 },
+#   { title: 'Planet', album_id: 2 },
+#   { title: 'Prom Night', album_id: 2 },
+#   { title: 'Meow', album_id: 2 },
+#   { title: 'Endless Fantasy', album_id: 2 },
+#   { title: 'Helix Nebula', album_id: 3 },
+#   { title: 'Fast Turtle', album_id: 3 },
+#   { title: 'Flora/Fauna', album_id: 3 },
+# ])
+
+track = Track.new({ title: 'Daydream', album_id: 1 })
+file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/slacker_op-1_daydream.wav')
+track.src.attach(io: file, filename: 'slacker_op-1_daydream.wav')
+track.save!
+
+track2 = Track.new({ title: 'Prom Night (ft Bianca Raquel)', album_id: 2 })
+file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_endless_fantasy_prom_night.mp3')
+track2.src.attach(io: file, filename: 'anamanaguchi_endless_fantasy_prom_night.mp3')
+track2.save!
+
+track3 = Track.new({ title: 'Fast Turtle', album_id: 3 })
+file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_fast_turtle.mp3')
+track3.src.attach(io: file, filename: 'anamanaguchi_fast_turtle.mp3')
+track3.save!
 
 Playlist.create([
   { title: 'Chill', user_id: 2 },
@@ -84,8 +99,8 @@ Playlist.create([
 PlaylistTrack.create([
   { playlist_id: 1, track_id: 1 },
   { playlist_id: 1, track_id: 2 },
-  { playlist_id: 1, track_id: 9 },
+  # { playlist_id: 1, track_id: 9 },
   { playlist_id: 2, track_id: 3 },
-  { playlist_id: 2, track_id: 4 },
-  { playlist_id: 2, track_id: 8 },
+  # { playlist_id: 2, track_id: 4 },
+  # { playlist_id: 2, track_id: 8 },
 ])
