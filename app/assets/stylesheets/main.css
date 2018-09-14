@@ -41,10 +41,23 @@ a.app-link {
 a.app-link:hover {
   color: #fff;
 }
+a.app-link:hover .svg {
+  stroke: #fff;
+}
 a.app-link.active {
   color: #1db954;
 }
+a.app-link.active .svg {
+  stroke-width: 10;
+  stroke: #1db954;
+}
+a.app-link.active .svg.home {
+  fill: #1db954;
+}
 a.thick {
+  font-weight: 500;
+}
+a.thicker {
   font-weight: 700;
 }
 a.upper {
@@ -263,18 +276,42 @@ ul.errors {
   position: fixed;
   height: 100vh;
   width: 220px;
-  padding: 20px 20px 120px;
+  padding: 25px 25px 125px;
   background-color: rgba(0,0,0,0.5);
   color: #fff;
 }
 .side-bar .logo {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .side-bar-nav {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .side-bar-nav li + li {
-  margin-top: 20px;
+  margin-top: 25px;
+}
+.svg-container.item {
+  height: 100%;
+  width: 100%;
+}
+.svg-container.item:hover {
+  transform: scale(1.1);
+}
+.svg-container.nav {
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+.svg {
+  width: 100%;
+  stroke: rgba(255,255,255,0.6);
+  fill: rgba(0,0,0,0);
+  stroke-width: 6;
+  transition: 0s;
+}
+.svg.item path {
+  stroke-width: 0;
+  fill: #fff;
 }
 .main-content-container {
   min-height: 100vh;
@@ -335,6 +372,10 @@ ul.errors {
 .content-item .img-container .content-play {
   opacity: 0;
   pointer-events: none;
+  text-align: center;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 100%;
 }
 .content-item .img-container:hover .content-play {
   z-index: 3;
@@ -377,6 +418,7 @@ ul.errors {
   letter-spacing: 3px;
   font-size: 14px;
   border: 2px solid;
+  width: 85%;
 }
 .content-secondary-text {
   color: rgba(255,255,255,0.6);

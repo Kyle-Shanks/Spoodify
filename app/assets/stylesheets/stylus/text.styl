@@ -38,9 +38,18 @@ a
     color $light-transparent
     &:hover
       color $white
+      & .svg
+        stroke $white          
     &.active
       color $green
+      & .svg
+        stroke-width 10
+        stroke $green
+        &.home
+          fill $green
   &.thick
+    font-weight 500
+  &.thicker
     font-weight 700
   &.upper
     text-transform uppercase
