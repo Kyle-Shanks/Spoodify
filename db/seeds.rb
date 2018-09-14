@@ -28,30 +28,41 @@ User.create([
   { username: 'n00bkid', email: 'n00bkid@wow.com', password: 'hunter2', img_url: '' },
 ])
 
-art = Artist.new({ name: 'Slacker', description: 'lofi', img_url: '' })
-file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/slacker_avatar.jpg')
-art.photo.attach(io: file, filename: 'slacker_avatar.jpg')
-art.save!
+Artist.create([
+  { name: 'Slacker', description: 'lofi', img_url: '' },
+  { name: 'Anamanaguchi', description: 'chiptunes', img_url: '' },
+])
 
-art2 = Artist.new({ name: 'Anamanaguchi', description: 'chiptunes', img_url: '' })
-file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_avatar.png')
-art2.photo.attach(io: file, filename: 'anamanaguchi_avatar.png')
-art2.save!
+Album.create([
+  { title: 'OP-1', artist_id: 1, release_date: '2017', img_url: '' },
+  { title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: '' },
+  { title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: '' },
+])
 
-album = Album.new({ title: 'OP-1', artist_id: 1, release_date: '2017', img_url: '' })
-file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/slacker_op-1_avatar.jpg')
-album.photo.attach(io: file, filename: 'slacker_op-1_avatar.jpg')
-album.save!
-
-album2 = Album.new({ title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: '' })
-file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_endless_fantasy_avatar.jpg')
-album2.photo.attach(io: file, filename: 'anamanaguchi_endless_fantasy_avatar.jpg')
-album2.save!
-
-album3 = Album.new({ title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: '' })
-file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_power_supply_avatar.jpg')
-album3.photo.attach(io: file, filename: 'anamanaguchi_power_supply_avatar.jpg')
-album3.save!
+# art = Artist.new({ name: 'Slacker', description: 'lofi', img_url: '' })
+# file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/slacker_avatar.jpg')
+# art.photo.attach(io: file, filename: 'slacker_avatar.jpg')
+# art.save!
+#
+# art2 = Artist.new({ name: 'Anamanaguchi', description: 'chiptunes', img_url: '' })
+# file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_avatar.png')
+# art2.photo.attach(io: file, filename: 'anamanaguchi_avatar.png')
+# art2.save!
+#
+# album = Album.new({ title: 'OP-1', artist_id: 1, release_date: '2017', img_url: '' })
+# file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/slacker_op-1_avatar.jpg')
+# album.photo.attach(io: file, filename: 'slacker_op-1_avatar.jpg')
+# album.save!
+#
+# album2 = Album.new({ title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: '' })
+# file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_endless_fantasy_avatar.jpg')
+# album2.photo.attach(io: file, filename: 'anamanaguchi_endless_fantasy_avatar.jpg')
+# album2.save!
+#
+# album3 = Album.new({ title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: '' })
+# file = EzDownload.open('https://s3.amazonaws.com/spoodify-dev/anamanaguchi_power_supply_avatar.jpg')
+# album3.photo.attach(io: file, filename: 'anamanaguchi_power_supply_avatar.jpg')
+# album3.save!
 
 
 Track.create([
