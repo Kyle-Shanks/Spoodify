@@ -12,7 +12,6 @@ const WebPlayer = (props) => {
       <div className="top-container">
         <Route path="/:section" component={ SidebarContainer } />
         <div className="main-content-container">
-          <div onClick={props.openModal}>Open Modal</div>
           <Route path="/browse" component={ Browse } />
           <Route path="/search" component={ Search } />
           <Route path="/collection" component={ Collection } />

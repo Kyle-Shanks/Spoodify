@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { openModal } from '../../actions/ui_actions';
 
 const BrowseNav = (props) => {
   return (
-    <div className="content-nav">
+    <div className="rela-block content-nav">
       <ul>
         <li className="rela-inline">
           <Link to="/browse/artists"
@@ -30,8 +32,15 @@ const BrowseNav = (props) => {
           </Link>
         </li>
       </ul>
+      <div className="rela-block open-modal-button">
+        <button className="button slim resizing" onClick={props.openModal}>New Playlist</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default BrowseNav
+const mapDispatchToProps = dispatch => ({
+  openModal: () => dispatch(openModal()),
+})
+
+export default connect(null,mapDispatchToProps)(BrowseNav);

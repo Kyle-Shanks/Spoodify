@@ -186,6 +186,10 @@ input:focus::placeholder {
 .button.blue:hover {
   background-color: #3a61b3;
 }
+.button.slim {
+  padding: 11px 25px 9px;
+  font-weight: 300;
+}
 .button.big {
   padding: 14px 40px;
   font-size: 14px;
@@ -326,7 +330,7 @@ ul.errors {
   fill: #fff;
 }
 .main-content-container {
-  min-height: 140vh;
+  min-height: 100vh;
   padding: 20px 20px 120px 240px;
   background-color: rgba(0,0,0,0.2);
   color: #fff;
@@ -492,7 +496,7 @@ ul.errors {
 }
 .modal-input-container p {
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .modal-input {
   font-size: 48px;
@@ -515,7 +519,20 @@ ul.errors {
 }
 .modal-button-container .button {
   margin: 10px;
-  font-weight: 300;
+}
+.open-modal-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+@media screen and (max-width: 1240px) {
+  .open-modal-button {
+    position: relative;
+    top: none;
+    right: none;
+    transform: none;
+  }
 }
 .audio-player-container {
   position: fixed;

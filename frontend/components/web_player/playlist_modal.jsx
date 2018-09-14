@@ -38,10 +38,10 @@ class PlaylistModal extends React.Component {
               placeholder="Start typing..." onChange={this.handleChange}/>
           </div>
           <div className="rela-block modal-button-container">
-            <button className="rela-inline button outline resizing" onClick={this.close}>
+            <button className="rela-inline button outline slim resizing" onClick={this.close}>
               Cancel
             </button>
-            <button className="rela-inline button resizing" onClick={this.submitInfo}>
+            <button className="rela-inline button slim resizing" onClick={this.submitInfo}>
               Create
             </button>
           </div>

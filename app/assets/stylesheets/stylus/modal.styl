@@ -54,4 +54,16 @@
 
 .modal-button-container .button
   margin 10px
-  font-weight 300
+
+.open-modal-button
+  position absolute
+  top 50%
+  right 0
+  transform translateY(-50%)
+
+@media screen and (max-width: 1240px)
+  .open-modal-button
+    position relative
+    top none
+    right none
+    transform none
