@@ -1,0 +1,57 @@
+// main: _main.styl
+
+.playlist-modal
+  z-index 100
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background-color rgba(0,0,0,0.9)
+  text-align center
+  color $white
+  &.hidden
+    z-index -1
+    opacity 0
+    pointer-events none
+
+.modal-content-container
+  position absolute
+  top 45%
+  left 0
+  right 0
+  transform translateY(-50%)
+
+.modal-header
+  margin 20px
+  font-size 48px
+  letter-spacing 1px
+
+.modal-input-container
+  padding 30px 30px 20px
+  background-color $dark-grey
+  margin-bottom 20px
+  text-align left
+  & p
+    margin-bottom 10px
+    font-size 12px
+
+.modal-input
+  font-size 48px
+  line-height 56px
+  background-color $dark-grey
+  color $white
+  border none
+  font-weight 700
+  padding 0
+  caret-color $green
+  &::placeholder
+    color $placeholder-grey
+  &:focus
+    border none
+    &::placeholder
+      color $placeholder-grey
+
+.modal-button-container .button
+  margin 10px
+  font-weight 300

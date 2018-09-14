@@ -58,6 +58,15 @@ input
   &.big
     padding 14px 40px
     font-size 14px
+  &.resizing:hover
+    transform scale(1.06)
+  &.outline
+    border 1px solid $light-transparent
+    color $white
+    background-color transparent
+    &:hover
+      background-color transparent
+      border 1px solid $white
 
 footer
   background-color $black
@@ -69,4 +78,5 @@ footer
 @import 'sidebar.styl';
 @import 'svg.styl';
 @import 'content.styl';
+@import 'modal.styl';
 @import 'audio_player.styl';

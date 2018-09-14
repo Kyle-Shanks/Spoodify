@@ -190,6 +190,18 @@ input:focus::placeholder {
   padding: 14px 40px;
   font-size: 14px;
 }
+.button.resizing:hover {
+  transform: scale(1.06);
+}
+.button.outline {
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
+  background-color: transparent;
+}
+.button.outline:hover {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
 footer {
   background-color: #191414;
   color: #fff;
@@ -218,7 +230,7 @@ footer {
   min-height: 400px;
 }
 .nav-bar {
-  z-index: 100;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
@@ -314,7 +326,7 @@ ul.errors {
   fill: #fff;
 }
 .main-content-container {
-  min-height: 100vh;
+  min-height: 140vh;
   padding: 20px 20px 120px 240px;
   background-color: rgba(0,0,0,0.2);
   color: #fff;
@@ -443,6 +455,67 @@ ul.errors {
 .track-duration {
   font-size: 14px;
   color: rgba(255,255,255,0.6);
+}
+.playlist-modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+  color: #fff;
+}
+.playlist-modal.hidden {
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-content-container {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+.modal-header {
+  margin: 20px;
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+.modal-input-container {
+  padding: 30px 30px 20px;
+  background-color: #282828;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.modal-input-container p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.modal-input {
+  font-size: 48px;
+  line-height: 56px;
+  background-color: #282828;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  padding: 0;
+  caret-color: #1db954;
+}
+.modal-input::placeholder {
+  color: #535353;
+}
+.modal-input:focus {
+  border: none;
+}
+.modal-input:focus::placeholder {
+  color: #535353;
+}
+.modal-button-container .button {
+  margin: 10px;
+  font-weight: 300;
 }
 .audio-player-container {
   position: fixed;

@@ -1,4 +1,4 @@
-import Sidebar from './sidebar.jsx';
+import Sidebar from './sidebar';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 
