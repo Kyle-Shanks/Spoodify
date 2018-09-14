@@ -91,6 +91,7 @@ a.upper {
 }
 .flex-parent {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 .flex {
