@@ -19,6 +19,11 @@ h4 {
   font-size: 18px;
   line-height: 24px;
 }
+h5 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 p {
   font-size: 16px;
   line-height: 1.5;
@@ -197,6 +202,9 @@ input:focus::placeholder {
 .button.resizing:hover {
   transform: scale(1.06);
 }
+.button.resizing:active {
+  transform: scale(1);
+}
 .button.outline {
   border: 1px solid rgba(255,255,255,0.6);
   color: #fff;
@@ -329,12 +337,19 @@ ul.errors {
   stroke-width: 0;
   fill: #fff;
 }
+.main-background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(#3c3e5d, #060609 85%);
+}
 .main-content-container {
   min-height: 100vh;
   padding: 20px 20px 120px 240px;
-  background-color: rgba(0,0,0,0.2);
   color: #fff;
-  background-image: linear-gradient(#3c3e5d, #060609 85%);
 }
 .content-nav {
   margin: 0 20px 20px;
@@ -363,6 +378,9 @@ ul.errors {
   width: 30px;
   background-color: #1db954;
 }
+.content-nav-list {
+  margin-bottom: 10px;
+}
 .content-item {
   margin: 10px;
   width: 200px;
@@ -370,11 +388,12 @@ ul.errors {
 }
 .content-item .content-img {
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .content-item .img-container {
   margin-bottom: 10px;
+  min-height: 200px;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .content-item .img-container::after {
   content: "";
@@ -411,12 +430,12 @@ ul.errors {
 .content-item.artist .img-container::after {
   border-radius: 100%;
 }
-.content-item .playlist-img {
+.playlist-img {
   padding-top: 100%;
   background-color: #f037a5;
   background: linear-gradient(#f037a5 -60%, #fae62d 140%);
 }
-.content-item .playlist-img::before {
+.playlist-img::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -428,7 +447,7 @@ ul.errors {
   background: linear-gradient(#fae62d -60%, #f037a5 140%);
   border-radius: 100%;
 }
-.content-item .playlist-img .playlist-title {
+.playlist-img .playlist-title {
   padding: 10px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -543,4 +562,36 @@ ul.errors {
   padding: 20px;
   background-color: #282828;
   color: #fff;
+}
+.show-item-info {
+  position: fixed;
+  top: 40px;
+  left: 250px;
+  width: 280px;
+  text-align: center;
+}
+.show-item-info h2 {
+  margin: 10px 0;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 0px;
+}
+.show-img-container {
+  width: 100%;
+  padding-top: 100%;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.show-img-container.playlist {
+  padding-top: 0;
+}
+.show-item-tracks {
+  padding: 20px;
+  padding-left: 300px;
+}
+.show-button-container {
+  margin: 20px 0;
+}
+.show-button-container * + * {
+  margin-top: 10px;
 }

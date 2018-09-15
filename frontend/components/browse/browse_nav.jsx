@@ -6,7 +6,7 @@ import { openModal } from '../../actions/ui_actions';
 const BrowseNav = (props) => {
   return (
     <div className="rela-block content-nav">
-      <ul>
+      <ul className="content-nav-list">
         <li className="rela-inline">
           <Link to="/browse/artists"
             className={"rela-block app-link" + ((props.match.params.section === 'artists') ? ' active' : '')}>

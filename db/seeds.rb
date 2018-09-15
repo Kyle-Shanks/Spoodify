@@ -94,6 +94,7 @@ track3.save!
 Playlist.create([
   { title: 'Chill', user_id: 2 },
   { title: 'Hype', user_id: 4 },
+  { title: 'Trap', user_id: 3 },
 ])
 
 PlaylistTrack.create([

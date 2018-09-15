@@ -1,5 +1,9 @@
-export const fetchTracks = () => {
-  return $.ajax(`api/tracks`);
+export const fetchTracks = ids => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/tracks`,
+    data : { track_ids: ids }
+  });
 };
 
 export const fetchTrack = id => {

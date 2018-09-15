@@ -3,9 +3,19 @@ import { connect } from 'react-redux';
 import { requestTracks } from '../../../actions/track_actions';
 import TrackIndexItem from './track_index_item';
 
+const arrayEq = (a1, a2) => {
+  return ( a1.length === a2.length && a1.every((val, idx) => val === a2[idx]) );
+};
+
 class TrackIndex extends React.Component {
   componentDidMount() {
-    this.props.requestTracks();
+    this.props.requestTracks(this.props.trackIds);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.trackIds && !arrayEq(this.props.trackIds,nextProps.trackIds)) {
+      this.props.requestTracks(nextProps.trackIds);
+    }
   }
 
   render () {
@@ -27,7 +37,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTracks: () => dispatch(requestTracks()),
+  requestTracks: (ids) => dispatch(requestTracks(ids)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackIndex);

@@ -19,8 +19,8 @@ const receiveTrack = track => {
 };
 
 // Thunk actions
-export const requestTracks = () => {
-  return dispatch => TrackAPIUtil.fetchTracks().then(
+export const requestTracks = ids => {
+  return dispatch => TrackAPIUtil.fetchTracks(ids).then(
     res => dispatch(receiveTracks(res))
   );
 };

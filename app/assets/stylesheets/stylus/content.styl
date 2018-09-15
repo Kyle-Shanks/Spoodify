@@ -1,11 +1,18 @@
 // main: _main.styl
 
+.main-background
+  z-index -1
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background-image linear-gradient(#3c3e5d, #060609 85%)
+
 .main-content-container
   min-height 100vh
   padding 20px 20px 120px 240px
-  background-color rgba(0,0,0,0.2)
   color $white
-  background-image linear-gradient(#3c3e5d, #060609 85%)
 
 .content-nav
   margin 0 20px 20px
@@ -30,16 +37,20 @@
           width 30px
           background-color $green
 
+.content-nav-list
+  margin-bottom 10px
+
 .content-item
   margin 10px
   width 200px
   text-align center
   & .content-img
     width 100%
-    background-color rgba(0,0,0,0.5)
-    box-shadow 0 0 10px rgba(0,0,0,0.3)
   & .img-container
     margin-bottom 10px
+    min-height 200px
+    background-color rgba(0,0,0,0.3)
+    box-shadow 0 0 10px rgba(0,0,0,0.3)
     &::after
       content ""
       position absolute
@@ -69,28 +80,29 @@
   &.artist .img-container,
   &.artist .img-container::after
     border-radius 100%
-  & .playlist-img
-    padding-top 100%
-    background-color #f037a5
-    background linear-gradient(#f037a5 -60%,#fae62d 140%)
-    &::before
-      content ""
-      position absolute
-      top 50%
-      left 50%
-      transform translate(-50%,-50%)
-      height 60%
-      width 60%
-      background-color #fae62d
-      background linear-gradient(#fae62d -60%,#f037a5 140%)
-      border-radius 100%
-    & .playlist-title
-      padding 10px
-      text-transform uppercase
-      letter-spacing 3px
-      font-size 14px
-      border 2px solid
-      width 85%
+
+.playlist-img
+  padding-top 100%
+  background-color #f037a5
+  background linear-gradient(#f037a5 -60%,#fae62d 140%)
+  &::before
+    content ""
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%,-50%)
+    height 60%
+    width 60%
+    background-color #fae62d
+    background linear-gradient(#fae62d -60%,#f037a5 140%)
+    border-radius 100%
+  & .playlist-title
+    padding 10px
+    text-transform uppercase
+    letter-spacing 3px
+    font-size 14px
+    border 2px solid
+    width 85%
 
 .content-secondary-text
   color $light-transparent

@@ -1,6 +1,6 @@
 class Api::TracksController < ApplicationController
   def index
-    @tracks = Track.all
+    @tracks = track_ids ? Track.where(id: track_ids) : Track.all
   end
 
   def show
@@ -10,5 +10,9 @@ class Api::TracksController < ApplicationController
     else
       render json: ['Track could not be found'], status: 404
     end
+  end
+
+  def track_ids
+    params[:track_ids]
   end
 end
