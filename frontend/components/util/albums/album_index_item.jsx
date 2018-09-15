@@ -7,7 +7,7 @@ const AlbumIndexItem = (props) => {
     <li>
       <div className="rela-block content-item">
         <div className="rela-block img-container">
-          <Link className="abs-center app-link content-play" to="/browse/albums">
+          <Link className="abs-center app-link content-play" to={`/albums/${props.album.id}`}>
             <div className="rela-inline svg-container item">
               <svg viewBox="0 0 300 300" className="rela-block svg item">
                 <circle cx="150" cy="150" r="100" strokeWidth="3"/>

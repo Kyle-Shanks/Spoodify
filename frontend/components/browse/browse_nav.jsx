@@ -4,30 +4,31 @@ import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/ui_actions';
 
 const BrowseNav = (props) => {
+  const section = props.match.params.section;
   return (
     <div className="rela-block content-nav">
       <ul className="content-nav-list">
         <li className="rela-inline">
           <Link to="/browse/artists"
-            className={"rela-block app-link" + ((props.match.params.section === 'artists') ? ' active' : '')}>
+            className={"rela-block app-link" + ((section === 'artists') ? ' active' : '')}>
             Artists
           </Link>
         </li>
         <li className="rela-inline">
           <Link to="/browse/albums"
-            className={"rela-block app-link" + ((props.match.params.section === 'albums') ? ' active' : '')}>
+            className={"rela-block app-link" + ((section === 'albums') ? ' active' : '')}>
             Albums
           </Link>
         </li>
         <li className="rela-inline">
           <Link to="/browse/tracks"
-            className={"rela-block app-link" + ((props.match.params.section === 'tracks') ? ' active' : '')}>
+            className={"rela-block app-link" + ((section === 'tracks') ? ' active' : '')}>
             Tracks
           </Link>
         </li>
         <li className="rela-inline">
           <Link to="/browse/playlists"
-            className={"rela-block app-link" + ((props.match.params.section === 'playlists') ? ' active' : '')}>
+            className={"rela-block app-link" + ((section === 'playlists') ? ' active' : '')}>
             Playlists
           </Link>
         </li>

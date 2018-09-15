@@ -59,6 +59,12 @@ a.app-link.active .svg {
 a.app-link.active .svg.home {
   fill: #1db954;
 }
+a.app-link.border {
+  border-bottom: 1px solid transparent;
+}
+a.app-link.border:hover {
+  border-bottom: 1px solid #fff;
+}
 a.thick {
   font-weight: 500;
 }
@@ -470,10 +476,6 @@ ul.errors {
 }
 .track-item a {
   font-size: 14px;
-  border-bottom: 1px solid transparent;
-}
-.track-item a:hover {
-  border-bottom: 1px solid #fff;
 }
 .track-duration {
   font-size: 14px;
@@ -572,18 +574,22 @@ ul.errors {
 }
 .show-item-info h2 {
   margin: 10px 0;
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 32px;
+  line-height: 40px;
   letter-spacing: 0px;
 }
+.show-item-info h5 {
+  margin-bottom: 10px;
+}
 .show-img-container {
-  width: 100%;
-  padding-top: 100%;
+  width: 280px;
+  height: 280px;
   background-color: rgba(0,0,0,0.3);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin-bottom: 10px;
 }
-.show-img-container.playlist {
-  padding-top: 0;
+.show-img-container .show-img {
+  width: 100%;
 }
 .show-item-tracks {
   padding: 20px;

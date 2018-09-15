@@ -4,8 +4,9 @@ import Browse from '../browse/browse';
 import Search from '../search/search';
 import Collection from '../collection/collection';
 import SidebarContainer from '../sidebar/sidebar_container';
-import PlaylistModalContainer from './playlist_modal_container';
+import PlaylistCreateModalContainer from './playlist_create_modal_container';
 import PlaylistShow from '../util/playlists/playlist_show_container';
+import AlbumShow from '../util/albums/album_show_container';
 
 const WebPlayer = (props) => {
   return (
@@ -19,13 +20,14 @@ const WebPlayer = (props) => {
           <Route path="/collection" component={ Collection } />
 
           <Route path="/playlists/:playlistId" component={ PlaylistShow } />
+          <Route path="/albums/:albumId" component={ AlbumShow } />
         </div>
       </div>
       <div className="audio-player-container">
         <p>Audio player goes here</p>
       </div>
 
-      <PlaylistModalContainer closeModal={props.closeModal} isOpen={props.modalOpen}/>
+      <PlaylistCreateModalContainer closeModal={props.closeModal} isOpen={props.modalOpen}/>
     </div>
   )
 }

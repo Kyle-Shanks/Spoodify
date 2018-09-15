@@ -1,4 +1,4 @@
-import PlaylistModal from './playlist_modal';
+import PlaylistCreateModal from './playlist_create_modal';
 import { connect } from 'react-redux';
 import { createPlaylist } from '../../actions/playlist_actions';
 
@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch) => ({
   createPlaylist: playlist => dispatch(createPlaylist(playlist))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistModal);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistCreateModal);

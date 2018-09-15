@@ -1,6 +1,6 @@
 import React from 'react'
 
-class PlaylistModal extends React.Component {
+class PlaylistCreateModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,4 +51,4 @@ class PlaylistModal extends React.Component {
   }
 }
 
-export default PlaylistModal
+export default PlaylistCreateModal
