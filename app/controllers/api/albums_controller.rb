@@ -1,6 +1,6 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = album_ids ? Album.where(id: album_ids) : Album.all
   end
 
   def show
@@ -10,5 +10,9 @@ class Api::AlbumsController < ApplicationController
     else
       render json: ['Album could not be found'], status: 404
     end
+  end
+
+  def album_ids
+    params[:album_ids]
   end
 end

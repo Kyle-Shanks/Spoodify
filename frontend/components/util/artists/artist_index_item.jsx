@@ -7,7 +7,7 @@ const ArtistIndexItem = (props) => {
     <li>
       <div className="rela-block content-item artist">
         <div className="rela-block img-container">
-          <Link className="abs-center app-link content-play" to="/browse/artists">
+          <Link className="abs-center app-link content-play" to={`/artists/${props.artist.id}`}>
             <div className="rela-inline svg-container item">
               <svg viewBox="0 0 300 300" className="rela-block svg item">
                 <circle cx="150" cy="150" r="100" strokeWidth="3"/>

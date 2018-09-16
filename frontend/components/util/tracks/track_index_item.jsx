@@ -10,7 +10,7 @@ const TrackIndexItem = (props) => {
         <div className="flex track-info">
           <p className="rela-block">{props.track.title}</p>
           <p className="rela-block content-secondary-text">
-            <Link className="app-link border" to="/browse/tracks">{props.track.artist.name}</Link>
+            <Link className="app-link border" to={`/artists/${props.track.artist.id}`}>{props.track.artist.name}</Link>
             <span className="spacing-m">•</span>
             <Link className="app-link border" to={`/albums/${props.track.album.id}`}>{props.track.album.title}</Link>
           </p>

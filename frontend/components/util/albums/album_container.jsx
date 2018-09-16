@@ -3,9 +3,19 @@ import { connect } from 'react-redux';
 import { requestAlbums } from '../../../actions/album_actions';
 import AlbumIndexItem from './album_index_item';
 
+const arrayEq = (a1, a2) => {
+  return ( a1.length === a2.length && a1.every((val, idx) => val === a2[idx]) );
+};
+
 class AlbumIndex extends React.Component {
   componentDidMount() {
-    this.props.requestAlbums();
+    this.props.requestAlbums(this.props.albumIds);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.albumIds && !arrayEq(this.props.albumIds,nextProps.albumIds)) {
+      this.props.requestAlbums(nextProps.albumIds);
+    }
   }
 
   render () {
@@ -27,7 +37,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAlbums: () => dispatch(requestAlbums()),
+  requestAlbums: ids => dispatch(requestAlbums(ids)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumIndex);

@@ -32,7 +32,7 @@ class AlbumShow extends React.Component {
           </div>
           <h2 className="rela-block content-primary-text">{this.props.album.title}</h2>
           <h5 className="rela-block">
-            <Link to={`/albums/${this.props.album.id}`} className="rela-inline app-link border">
+            <Link to={`/artists/${this.props.album.artist.id}`} className="rela-inline app-link border">
               {this.props.album.artist.name}
             </Link>
           </h5>

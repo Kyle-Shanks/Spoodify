@@ -7,6 +7,7 @@ import SidebarContainer from '../sidebar/sidebar_container';
 import PlaylistCreateModalContainer from './playlist_create_modal_container';
 import PlaylistShow from '../util/playlists/playlist_show_container';
 import AlbumShow from '../util/albums/album_show_container';
+import ArtistShow from '../util/artists/artist_show_container';
 
 const WebPlayer = (props) => {
   return (
@@ -21,6 +22,7 @@ const WebPlayer = (props) => {
 
           <Route path="/playlists/:playlistId" component={ PlaylistShow } />
           <Route path="/albums/:albumId" component={ AlbumShow } />
+          <Route path="/artists/:artistId" component={ ArtistShow } />
         </div>
       </div>
       <div className="audio-player-container">

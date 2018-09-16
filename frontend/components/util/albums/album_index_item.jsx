@@ -17,8 +17,17 @@ const AlbumIndexItem = (props) => {
           </Link>
           <img className="rela-block content-img" src={props.album.photoUrl}/>
         </div>
-        <p className="rela-block content-primary-text">{props.album.title}</p>
-        <p className="rela-block content-secondary-text">{props.album.artistName}</p>
+        <p className="rela-block content-primary-text">
+          <Link className="white" to={`/albums/${props.album.id}`}>
+            {props.album.title}
+          </Link>
+        </p>
+        <p className="rela-block content-secondary-text">
+          <Link to={`/artists/${props.album.artist.id}`}
+            className="rela-inline app-link border">
+            {props.album.artist.name}
+          </Link>
+        </p>
       </div>
     </li>
   );
