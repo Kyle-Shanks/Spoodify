@@ -15,6 +15,14 @@ const TrackIndexItem = (props) => {
             <Link className="app-link border" to={`/albums/${props.track.album.id}`}>{props.track.album.title}</Link>
           </p>
         </div>
+        <div className="track-menu"
+          onClick={() => {
+            props.openModal();
+            props.setModalComponent('add');
+            props.setModalProps({ trackId: props.track.id });
+          }}>
+          • • •
+        </div>
         <div className="track-duration">0<span className="spacing-s">:</span>00</div>
       </div>
     </li>

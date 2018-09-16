@@ -29,14 +29,14 @@ User.create([
 ])
 
 # Artist.create([
-#   { name: 'Slacker', description: 'lofi', img_url: '' },
-#   { name: 'Anamanaguchi', description: 'chiptunes', img_url: '' },
+#   { name: 'Slacker', description: 'lofi', img_url: 'slacker_avatar.jpg' },
+#   { name: 'Anamanaguchi', description: 'chiptunes', img_url: 'anamanaguchi_avatar.png' },
 # ])
 #
 # Album.create([
-#   { title: 'OP-1', artist_id: 1, release_date: '2017', img_url: '' },
-#   { title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: '' },
-#   { title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: '' },
+#   { title: 'OP-1', artist_id: 1, release_date: '2017', img_url: 'slacker_op-1_avatar.jpg' },
+#   { title: 'Endless Fantasy', artist_id: 2, release_date: '2013', img_url: 'anamanaguchi_endless_fantasy_avatar.jpg' },
+#   { title: 'Power Supply', artist_id: 2, release_date: '2006', img_url: 'anamanaguchi_power_supply_avatar.jpg' },
 # ])
 
 art = Artist.new({ name: 'Slacker', description: 'lofi', img_url: '' })

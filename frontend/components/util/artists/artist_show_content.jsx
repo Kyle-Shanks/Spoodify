@@ -46,7 +46,9 @@ const ArtistShowContent = (props) => {
           <div className="artist-about">
             <div className="rela-block artist-section">
               <h2 className="rela-block section-header">About</h2>
-              <p>{props.artist.description}</p>
+              <div className="artist-desc">
+                <p>{props.artist.description}</p>
+              </div>
             </div>
           </div>
         )

@@ -8,7 +8,9 @@ class PlaylistDeleteModal extends React.Component {
   }
 
   confirmDelete() {
-    const playlistId = (/playlists\/(\d+)/).exec(this.props.location.pathname)[1];
+    // const playlistId = (/playlists\/(\d+)/).exec(this.props.location.pathname)[1];
+    console.log(this.props);
+    const playlistId = this.props.modalProps.playlistId;
     this.props.deletePlaylist(playlistId);
     this.props.closeModal();
   }

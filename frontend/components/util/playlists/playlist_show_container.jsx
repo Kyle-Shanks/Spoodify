@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestPlaylist } from '../../../actions/playlist_actions';
-import { openModal, setModalComponent } from '../../../actions/ui_actions';
+import { openModal, setModalComponent, setModalProps } from '../../../actions/ui_actions';
 import { Link } from 'react-router-dom';
 import TrackIndex from '../tracks/track_container';
 
@@ -39,12 +39,16 @@ class PlaylistShow extends React.Component {
           </div>
           <h2 className="rela-block content-primary-text">{this.props.playlist.title}</h2>
           <h5 className="rela-block content-secondary-text">{this.props.playlist.user.username}</h5>
-          <h5 className="rela-block content-secondary-text">{this.props.playlist.track_ids.length} Songs</h5>
+          <h5 className="rela-block content-secondary-text">{this.props.playlist.track_ids.length} Song(s)</h5>
 
           <div className="rela-block show-button-container">
             <button className="rela-inline button slim resizing">Play</button>
             <button className="rela-inline button outline slim resizing"
-              onClick={() => { this.props.openModal(); this.props.setModalComponent('delete'); }}>
+              onClick={() => {
+                this.props.openModal();
+                this.props.setModalComponent('delete');
+                this.props.setModalProps({ playlistId: this.props.playlist.id })
+              }}>
               Delete
             </button>
           </div>
@@ -62,6 +66,7 @@ const mapDispatchToProps = dispatch => ({
   requestPlaylist: id => dispatch(requestPlaylist(id)),
   openModal: () => dispatch(openModal()),
   setModalComponent: comp => dispatch(setModalComponent(comp)),
+  setModalProps: props => dispatch(setModalProps(props)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

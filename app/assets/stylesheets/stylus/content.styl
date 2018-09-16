@@ -114,11 +114,35 @@
   font-weight 300
   & .content-secondary-text
     line-height 1
-  &:hover
-    background-color rgba(0,0,0,0.3)
   & a
     font-size 14px
+  &:hover
+    background-color rgba(0,0,0,0.3)
+    & .track-menu
+      display inline-block
 
 .track-duration
   font-size 14px
   color $light-transparent
+
+.track-menu
+  display none
+  margin 0 20px
+  cursor pointer
+  color $light-transparent
+  font-size 14px
+  &:hover
+    color $white
+
+.playlist-select
+  padding 0 40px
+  max-height 400px
+  overflow-y auto
+  &::-webkit-scrollbar
+    width 8px
+    background-color transparent
+  &::-webkit-scrollbar-track
+    background-color rgba(255,255,255,0.1)
+  &::-webkit-scrollbar-thumb
+    background-color $light-transparent
+    border-radius 8px

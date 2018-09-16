@@ -36,7 +36,7 @@ class AlbumShow extends React.Component {
               {this.props.album.artist.name}
             </Link>
           </h5>
-          <h5 className="rela-block content-secondary-text">{this.props.album.track_ids.length} Songs</h5>
+          <h5 className="rela-block content-secondary-text">{this.props.album.track_ids.length} Song(s)</h5>
 
           <div className="rela-block show-button-container">
             <button className="rela-inline button slim resizing">Play</button>

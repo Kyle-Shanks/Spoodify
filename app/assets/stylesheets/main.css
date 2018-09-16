@@ -340,7 +340,6 @@ ul.errors {
   transition: 0s;
 }
 .svg.item path {
-  stroke-width: 0;
   fill: #fff;
 }
 .main-background {
@@ -475,15 +474,44 @@ ul.errors {
 .track-item .content-secondary-text {
   line-height: 1;
 }
+.track-item a {
+  font-size: 14px;
+}
 .track-item:hover {
   background-color: rgba(0,0,0,0.3);
 }
-.track-item a {
-  font-size: 14px;
+.track-item:hover .track-menu {
+  display: inline-block;
 }
 .track-duration {
   font-size: 14px;
   color: rgba(255,255,255,0.6);
+}
+.track-menu {
+  display: none;
+  margin: 0 20px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+.track-menu:hover {
+  color: #fff;
+}
+.playlist-select {
+  padding: 0 40px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.playlist-select::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+.playlist-select::-webkit-scrollbar-track {
+  background-color: rgba(255,255,255,0.1);
+}
+.playlist-select::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 8px;
 }
 .playlist-modal {
   z-index: 100;
@@ -633,4 +661,8 @@ ul.errors {
   line-height: 48px;
   margin-bottom: 20px;
   text-align: center;
+}
+.artist-desc {
+  padding: 20px;
+  background-color: rgba(255,255,255,0.12);
 }
