@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { openModal } from '../../actions/ui_actions';
+import { openModal, setModalComponent } from '../../actions/ui_actions';
 
 const BrowseNav = (props) => {
   const section = props.match.params.section;
@@ -34,7 +34,10 @@ const BrowseNav = (props) => {
         </li>
       </ul>
       <div className="rela-block open-modal-button">
-        <button className="button slim resizing" onClick={props.openModal}>New Playlist</button>
+        <button className="button slim resizing"
+          onClick={() => { props.openModal(); props.setModalComponent('create') }}>
+          New Playlist
+        </button>
       </div>
     </div>
   );
@@ -42,6 +45,7 @@ const BrowseNav = (props) => {
 
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal()),
+  setModalComponent: comp => dispatch(setModalComponent(comp)),
 })
 
 export default connect(null,mapDispatchToProps)(BrowseNav);

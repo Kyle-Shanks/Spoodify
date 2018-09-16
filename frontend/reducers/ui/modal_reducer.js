@@ -1,15 +1,25 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/ui_actions';
+import { OPEN_MODAL, CLOSE_MODAL, SET_MODAL_COMPONENT } from '../../actions/ui_actions';
 
 const defaultState = {
-  isOpen: false
+  isOpen: false,
+  component: 'create',
 };
 
 const modalReducer = ( state = defaultState, action ) => {
+  Object.freeze(state);
   switch (action.type) {
     case OPEN_MODAL:
-      return { isOpen: true };
+      const openState = Object.assign({}, state);
+      openState.isOpen = true;
+      return openState;
     case CLOSE_MODAL:
-      return { isOpen: false };
+      const closedState = Object.assign({}, state);
+      closedState.isOpen = false;
+      return closedState;
+    case SET_MODAL_COMPONENT:
+      const newState = Object.assign({}, state);
+      newState.component = action.component;
+      return newState;
     default:
       return state;
   }

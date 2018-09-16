@@ -2,6 +2,7 @@ export const START_LOADING = 'START_LOADING';
 export const STOP_LOADING = 'STOP_LOADING';
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const SET_MODAL_COMPONENT = 'SET_MODAL_COMPONENT';
 
 // Loading Actions
 export const startLoading = () => {
@@ -17,4 +18,10 @@ export const openModal = () => {
 };
 export const closeModal = () => {
   return { type: CLOSE_MODAL };
+};
+export const setModalComponent = component => {
+  return {
+    type: SET_MODAL_COMPONENT,
+    component
+  }
 };

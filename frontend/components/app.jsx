@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import Splash from './splash/splash';
-import WebPlayerContainer from './web_player/web_player_container';
+import WebPlayer from './web_player/web_player';
 
 const App = (props) => {
   return (
@@ -14,7 +14,7 @@ const App = (props) => {
         <AuthRoute path="/login" component={ LoginFormContainer } />
         <AuthRoute path="/signup" component={ SignupFormContainer } />
 
-        <ProtectedRoute path="/:section" component={WebPlayerContainer}/>
+        <ProtectedRoute path="/:section" component={WebPlayer}/>
       </Switch>
     </div>
   )
