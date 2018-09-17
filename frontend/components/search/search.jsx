@@ -27,7 +27,7 @@ class Search extends React.Component {
     } else {
       results = (
         <div className="search-info">
-          <h2>Search Spotify</h2>
+          <h2>Search Spoodify</h2>
           <p>Find your favorite songs, artists, albums, podcasts and playlists.</p>
         </div>
       );

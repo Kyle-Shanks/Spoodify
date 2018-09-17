@@ -7,12 +7,7 @@ class AudioPlayer extends React.Component {
     if (this.props.currentTrack) {
       audio.src = this.props.currentTrack.src
     }
-    if (this.props.isPlaying) {
-      console.log('banana bread');
-      console.log(audio);
-      console.log(audio.currentSrc);
-      audio.play();
-    }
+    if (this.props.isPlaying) audio.play();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,12 +16,11 @@ class AudioPlayer extends React.Component {
         ((!this.props.currentTrack) || nextProps.currentTrack.id !== this.props.currentTrack.id)) {
       audio.src = nextProps.currentTrack.src
     }
-    nextProps.isPlaying ? audio.play() : audio.pause();
+    if (nextProps.isPlaying && !this.props.isPlaying) audio.play();
+    if (!nextProps.isPlaying && this.props.isPlaying) audio.pause();
   }
 
   render () {
-    console.log(this.props);
-    console.log(document.getElementById('audio'));
     return (
       <div className="audio-player">
         <audio id="audio"></audio>
