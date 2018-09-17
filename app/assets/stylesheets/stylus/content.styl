@@ -7,11 +7,24 @@
   left 0
   right 0
   bottom 0
-  background-image linear-gradient(#3c3e5d, #060609 85%)
+  animation none
+  background-color $black
+  &.blue
+    background-image linear-gradient(#3c3e5d, #060609 85%)
+  &.green
+    background-image linear-gradient(#719702, #0b0f00 85%)
+  &.grey
+    background-image linear-gradient(#445546, #070807 85%)
+  &.red
+    background-image linear-gradient(#683138, #0a0506 85%)
+  &.black
+    background-color $black
+  &.darkers
+    background-color $dark-black
 
 .main-content-container
   min-height 100vh
-  padding 20px 20px 120px 240px
+  padding 0 0 100px 220px
   color $white
   & *
     animation fadeIn 0.4s ease-in-out
@@ -116,6 +129,9 @@
 
 .content-secondary-text
   color $light-transparent
+
+.browse-container
+  padding 20px
 
 .track-item
   padding 10px 20px 14px

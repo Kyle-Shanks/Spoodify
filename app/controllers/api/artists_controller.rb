@@ -11,4 +11,10 @@ class Api::ArtistsController < ApplicationController
       render json: ['Artist could not be found'], status: 404
     end
   end
+
+  private
+
+  def search_term
+    params[:search_term]
+  end
 end

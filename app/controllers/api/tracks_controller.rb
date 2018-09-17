@@ -12,7 +12,13 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  private
+
   def track_ids
     params[:track_ids]
+  end
+
+  def search_term
+    params[:search_term]
   end
 end

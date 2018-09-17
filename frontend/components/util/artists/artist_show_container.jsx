@@ -22,6 +22,9 @@ class ArtistShow extends React.Component {
 
     return (
       <div className="rela-block artist-show">
+        <div className="artist-background">
+          <img className="abs-center" src={this.props.artist.photoUrl} />
+        </div>
         <div className="rela-block artist-header">
           <h1 className="artist-name">{this.props.artist.name}</h1>
           <div className="rela-block artist-button-container">

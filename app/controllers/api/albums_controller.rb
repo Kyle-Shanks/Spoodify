@@ -12,7 +12,13 @@ class Api::AlbumsController < ApplicationController
     end
   end
 
+  private
+
   def album_ids
     params[:album_ids]
+  end
+
+  def search_term
+    params[:search_term]
   end
 end

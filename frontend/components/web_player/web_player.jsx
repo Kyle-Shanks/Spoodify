@@ -13,11 +13,21 @@ import ArtistShow from '../util/artists/artist_show_container';
 import { closeDropdown } from '../../actions/ui_actions';
 
 const WebPlayer = (props) => {
-  console.log(props);
+  let colorClass;
+  switch (props.match.url) {
+    case '/browse': colorClass = ' blue'; break;
+    case '/artists': colorClass = ' black'; break;
+    case '/albums': colorClass = ' grey'; break;
+    case '/playlists': colorClass = ' red'; break;
+    case '/search': colorClass = ' darker'; break;
+    case '/collection': colorClass = ' green'; break;
+    default: colorClass = ' blue';
+  }
+
   return (
     <div className="web-player-container" onClick={props.closeDropdown}>
       <div className="top-container">
-        <div className="main-background"></div>
+        <div className={"main-background" + colorClass}></div>
         <Route path="/:section" component={ SidebarContainer } />
         <div className="main-content-container">
           <Route path="/browse" component={ Browse } />

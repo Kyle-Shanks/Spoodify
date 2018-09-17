@@ -37,4 +37,8 @@ class Api::PlaylistsController < ApplicationController
   def playlist_params
     params.require(:playlist).permit(:title, :user_id)
   end
+
+  def search_term
+    params[:search_term]
+  end
 end
