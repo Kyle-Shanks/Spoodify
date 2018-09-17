@@ -33,7 +33,7 @@ const BrowseNav = (props) => {
           </Link>
         </li>
       </ul>
-      <div className="rela-block open-modal-button">
+      <div className="rela-block create-modal-button">
         <button className="button slim resizing"
           onClick={() => { props.openModal(); props.setModalComponent('create') }}>
           New Playlist

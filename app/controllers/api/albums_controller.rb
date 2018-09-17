@@ -3,7 +3,7 @@ class Api::AlbumsController < ApplicationController
     if album_ids
       @albums = Album.where(id: album_ids)
     elsif search_term
-      @albums = Album.where('title LIKE ?', search_term)
+      @albums = Album.where('lower(title) LIKE ?', "%#{search_term}%")
     else
       @albums = Album.all
     end

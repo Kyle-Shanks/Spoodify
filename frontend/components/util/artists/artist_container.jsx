@@ -34,7 +34,7 @@ class ArtistIndex extends React.Component {
     return (
       <div className="artist-index">
         <ul className="flex-parent">
-          {artists}
+          {artists.length ? artists : <p className="flex centered">- No Artists -</p>}
         </ul>
       </div>
     );
@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestArtists: () => dispatch(requestArtists()),
+  requestArtists: props => dispatch(requestArtists(props)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistIndex);

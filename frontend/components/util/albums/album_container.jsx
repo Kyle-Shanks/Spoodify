@@ -34,7 +34,7 @@ class AlbumIndex extends React.Component {
     return (
       <div className="album-index">
         <ul className="flex-parent">
-          {albums}
+          {albums.length ? albums : <p className="flex centered">- No Albums -</p>}
         </ul>
       </div>
     );

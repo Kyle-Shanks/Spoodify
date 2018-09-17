@@ -34,7 +34,7 @@ class PlaylistIndex extends React.Component {
     return (
       <div className="playlist-index">
         <ul className="flex-parent">
-          {playlists}
+          {playlists.length ? playlists : <p className="flex centered">- No Playlists -</p>}
         </ul>
       </div>
     );
@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPlaylists: () => dispatch(requestPlaylists()),
+  requestPlaylists: props => dispatch(requestPlaylists(props)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex);

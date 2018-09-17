@@ -39,7 +39,7 @@ class TrackIndex extends React.Component {
     return (
       <div className="track-index">
         <ul>
-          {tracks}
+          {tracks.length ? tracks : <p className="flex centered">- No Tracks -</p>}
         </ul>
       </div>
     );

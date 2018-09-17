@@ -122,6 +122,9 @@ a.upper {
   position: relative;
   flex: 1 1 0;
 }
+.centered {
+  text-align: center;
+}
 .gutter-container {
   width: 100%;
   padding: 0 40px;
@@ -616,7 +619,7 @@ ul.errors {
   background-color: #282828;
   color: #fff;
   border: none;
-  font-weight: 700;
+  font-weight: 500;
   padding: 0;
   caret-color: #1db954;
 }
@@ -632,14 +635,14 @@ ul.errors {
 .modal-button-container .button {
   margin: 10px;
 }
-.open-modal-button {
+.create-modal-button {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
 }
 @media screen and (max-width: 1240px) {
-  .open-modal-button {
+  .create-modal-button {
     position: relative;
     top: none;
     right: none;
@@ -767,4 +770,26 @@ ul.errors {
 .artist-desc {
   padding: 20px;
   background-color: rgba(255,255,255,0.12);
+}
+.search-container .modal-input-container p {
+  font-size: 14px;
+}
+.search-results {
+  padding: 20px;
+}
+.search-info {
+  padding: 20px;
+  text-align: center;
+}
+.search-info h2 {
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.search-section {
+  margin-bottom: 40px;
+}
+.search-section h2 {
+  text-align: center;
 }
