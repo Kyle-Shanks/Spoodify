@@ -10,6 +10,10 @@ export const SET_MODAL_PROPS = 'SET_MODAL_PROPS';
 export const OPEN_DROPDOWN = 'OPEN_DROPDOWN';
 export const CLOSE_DROPDOWN = 'CLOSE_DROPDOWN';
 export const SET_DROPDOWN_PROPS = 'SET_DROPDOWN_PROPS';
+// Audio Player Constants
+export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
+export const PLAY_AUDIO = 'PLAY_AUDIO';
+export const PAUSE_AUDIO = 'PAUSE_AUDIO';
 
 // Loading Actions
 export const startLoading = () => {
@@ -54,4 +58,18 @@ export const setDropdownProps = props => {
     type: SET_DROPDOWN_PROPS,
     props
   };
+};
+
+// Audio Player Actions
+export const setCurrentTrack = trackId => {
+  return {
+    type: SET_CURRENT_TRACK,
+    trackId
+  };
+};
+export const playAudio = () => {
+  return { type: PLAY_AUDIO };
+};
+export const pauseAudio = () => {
+  return { type: PAUSE_AUDIO };
 };

@@ -10,6 +10,7 @@ import DropdownContainer from './dropdown_container';
 import PlaylistShow from '../util/playlists/playlist_show_container';
 import AlbumShow from '../util/albums/album_show_container';
 import ArtistShow from '../util/artists/artist_show_container';
+import AudioPlayer from './audio_player/audio_player';
 import { closeDropdown } from '../../actions/ui_actions';
 
 const WebPlayer = (props) => {
@@ -40,7 +41,7 @@ const WebPlayer = (props) => {
         </div>
       </div>
       <div className="audio-player-container">
-        <p>Audio player goes here</p>
+        <AudioPlayer />
       </div>
 
       <DropdownContainer />

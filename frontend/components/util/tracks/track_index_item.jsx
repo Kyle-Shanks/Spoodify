@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setCurrentTrack, playAudio } from '../../../actions/ui_actions';
 
 const TrackIndexItem = (props) => {
   if(!props.track) return null;
@@ -8,7 +10,12 @@ const TrackIndexItem = (props) => {
       <div className="rela-block flex-parent track-item">
         <div className="track-icon"></div>
         <div className="flex track-info">
-          <p className="rela-block">{props.track.title}</p>
+          <p className="rela-block" onDoubleClick={() => {
+              props.setTrack(props.track.id);
+              props.playTrack();
+            }}>
+            {props.track.title}
+          </p>
           <p className="rela-block content-secondary-text">
             <Link className="app-link border" to={`/artists/${props.track.artist.id}`}>{props.track.artist.name}</Link>
             <span className="spacing-m">•</span>
@@ -29,4 +36,9 @@ const TrackIndexItem = (props) => {
   );
 };
 
-export default TrackIndexItem;
+const mapDispatchToProps = dispatch => ({
+  setTrack: id => dispatch(setCurrentTrack(id)),
+  playTrack: () => dispatch(playAudio()),
+});
+
+export default connect(null, mapDispatchToProps)(TrackIndexItem);
