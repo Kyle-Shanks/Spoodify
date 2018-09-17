@@ -9,12 +9,21 @@ const arrayEq = (a1, a2) => {
 
 class AlbumIndex extends React.Component {
   componentDidMount() {
-    this.props.requestAlbums(this.props.albumIds);
+    this.props.requestAlbums({
+      album_ids: this.props.albumIds,
+      search_term: this.props.searchTerm
+    });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.albumIds && !arrayEq(this.props.albumIds,nextProps.albumIds)) {
-      this.props.requestAlbums(nextProps.albumIds);
+    if (
+      (nextProps.albumIds && !arrayEq(this.props.albumIds,nextProps.albumIds)) ||
+      (nextProps.searchTerm && this.props.searchTerm !== nextProps.searchTerm)
+    ) {
+      this.props.requestAlbums({
+        album_ids: nextProps.albumIds,
+        search_term: nextProps.searchTerm
+      });
     }
   }
 
@@ -37,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAlbums: ids => dispatch(requestAlbums(ids)),
+  requestAlbums: props => dispatch(requestAlbums(props)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumIndex);

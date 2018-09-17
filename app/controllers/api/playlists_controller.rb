@@ -1,6 +1,6 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = Playlist.all
+    @playlists = search_term ? Playlist.where('name LIKE ?', search_term) : Playlist.all
   end
 
   def show

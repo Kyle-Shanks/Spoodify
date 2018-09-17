@@ -1,6 +1,12 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = album_ids ? Album.where(id: album_ids) : Album.all
+    if album_ids
+      @albums = Album.where(id: album_ids)
+    elsif search_term
+      @albums = Album.where('title LIKE ?', search_term)
+    else
+      @albums = Album.all
+    end
   end
 
   def show

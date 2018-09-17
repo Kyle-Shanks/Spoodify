@@ -27,8 +27,8 @@ const removePlaylist = playlistId => {
 };
 
 // Thunk actions
-export const requestPlaylists = () => {
-  return dispatch => PlaylistAPIUtil.fetchPlaylists().then(
+export const requestPlaylists = props => {
+  return dispatch => PlaylistAPIUtil.fetchPlaylists(props).then(
     res => dispatch(receivePlaylists(res))
   );
 };

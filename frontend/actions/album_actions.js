@@ -19,8 +19,8 @@ const receiveAlbum = album => {
 };
 
 // Thunk actions
-export const requestAlbums = ids => {
-  return dispatch => AlbumAPIUtil.fetchAlbums(ids).then(
+export const requestAlbums = props => {
+  return dispatch => AlbumAPIUtil.fetchAlbums(props).then(
     res => dispatch(receiveAlbums(res))
   );
 };

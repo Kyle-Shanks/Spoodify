@@ -19,8 +19,8 @@ const receiveArtist = artist => {
 };
 
 // Thunk actions
-export const requestArtists = () => {
-  return dispatch => ArtistAPIUtil.fetchArtists().then(
+export const requestArtists = props => {
+  return dispatch => ArtistAPIUtil.fetchArtists(props).then(
     res => dispatch(receiveArtists(res))
   );
 };

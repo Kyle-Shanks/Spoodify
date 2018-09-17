@@ -10,12 +10,21 @@ const arrayEq = (a1, a2) => {
 
 class TrackIndex extends React.Component {
   componentDidMount() {
-    this.props.requestTracks(this.props.trackIds);
+    this.props.requestTracks({
+      track_ids: this.props.trackIds,
+      search_term: this.props.searchTerm
+    });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.trackIds && !arrayEq(this.props.trackIds,nextProps.trackIds)) {
-      this.props.requestTracks(nextProps.trackIds);
+    if (
+      (nextProps.trackIds && !arrayEq(this.props.trackIds,nextProps.trackIds)) ||
+      (nextProps.searchTerm && this.props.searchTerm !== nextProps.searchTerm)
+    ) {
+      this.props.requestTracks({
+        track_ids: nextProps.trackIds,
+        search_term: nextProps.searchTerm
+      });
     }
   }
 
@@ -42,7 +51,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTracks: (ids) => dispatch(requestTracks(ids)),
+  requestTracks: props => dispatch(requestTracks(props)),
   openDropdown: pos => dispatch(openDropdown(pos)),
   setDropdownProps: props => dispatch(setDropdownProps(props)),
 });

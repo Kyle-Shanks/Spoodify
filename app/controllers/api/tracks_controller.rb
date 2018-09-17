@@ -1,6 +1,12 @@
 class Api::TracksController < ApplicationController
   def index
-    @tracks = track_ids ? Track.where(id: track_ids) : Track.all
+    if track_ids
+      @tracks = Track.where(id: track_ids)
+    elsif search_term
+      @tracks = Track.where('title LIKE ?', search_term)
+    else
+      @tracks = Track.all
+    end
   end
 
   def show

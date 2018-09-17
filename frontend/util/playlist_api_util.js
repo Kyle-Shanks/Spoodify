@@ -1,5 +1,9 @@
-export const fetchPlaylists = () => {
-  return $.ajax(`api/playlists`);
+export const fetchPlaylists = props => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/playlists`,
+    data : props
+  });
 };
 
 export const fetchPlaylist = id => {

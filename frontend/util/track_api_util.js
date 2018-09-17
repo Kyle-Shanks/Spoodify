@@ -1,8 +1,8 @@
-export const fetchTracks = ids => {
+export const fetchTracks = props => {
   return $.ajax({
     method: 'GET',
     url: `api/tracks`,
-    data : { track_ids: ids }
+    data : props
   });
 };
 
