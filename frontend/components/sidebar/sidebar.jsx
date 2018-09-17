@@ -14,8 +14,8 @@ const Sidebar = (props) => {
             className={"app-link thick"+((props.match.params.section === "search") ? " active" : "")}>
             <div className="rela-inline svg-container nav">
               <svg viewBox="0 0 140 140" className="rela-block svg search">
-                <circle cx="60" cy="60" r="50"/>
-                <path d="M 95 95 L 125 125"/>
+                <circle cx="60" cy="60" r="45"/>
+                <path d="M 90 90 L 125 125"/>
               </svg>
             </div>
             Search
@@ -48,8 +48,11 @@ const Sidebar = (props) => {
       </ul>
 
       <div className="rela-block user-info">
-        <h2>Hello, {props.currentUser.username}!</h2>
-        <button onClick={props.logout}>Log Out</button>
+        <button className="rela-inline button small outline resizing"onClick={props.logout}>Log Out</button>
+        <div className="rela-inline flex-parent user-container">
+          <div className="user-img"></div>
+          <p>{props.currentUser.username}</p>
+        </div>
       </div>
     </div>
   );

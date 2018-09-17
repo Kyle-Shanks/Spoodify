@@ -18,7 +18,7 @@ class Search extends React.Component {
     if (this.state.searchTerm) {
       results = (
         <div className="search-results-container">
-          <Route exact path="/search" render={() => <Redirect to="/search/artists" />} />
+          <Route exact path="/search" render={() => <Redirect to="/search/top" />} />
           <Route path="/search/:section" render={
               () => <SearchResults searchTerm={this.state.searchTerm} />
           }/>

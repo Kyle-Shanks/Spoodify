@@ -14,6 +14,12 @@ class SearchResults extends React.Component {
         <div className="rela-block content-nav">
           <ul className="content-nav-list">
             <li className="rela-inline">
+              <Link to={`/search/top`}
+                className={"rela-block app-link" + ((section === 'top') ? ' active' : '')}>
+                Top Results
+              </Link>
+            </li>
+            <li className="rela-inline">
               <Link to={`/search/artists`}
                 className={"rela-block app-link" + ((section === 'artists') ? ' active' : '')}>
                 Artists
@@ -41,17 +47,37 @@ class SearchResults extends React.Component {
         </div>
 
         <div className="rela-block search-section">
+          <Route path="/search/top" render={() => (
+            <div className="top-results">
+              <div className="rela-block search-section">
+                <h2>Artists</h2>
+                <ArtistIndex searchTerm={this.props.searchTerm} />
+              </div>
+              <div className="rela-block search-section">
+                <h2>Albums</h2>
+                <AlbumIndex searchTerm={this.props.searchTerm} />
+              </div>
+              <div className="rela-block search-section">
+                <h2>Playlists</h2>
+                <PlaylistIndex searchTerm={this.props.searchTerm} />
+              </div>
+              <div className="rela-block search-section">
+                <h2>Tracks</h2>
+                <TrackIndex searchTerm={this.props.searchTerm} />
+              </div>
+            </div>
+          )}/>
           <Route path="/search/artists" render={
-              () => <ArtistIndex searchTerm={this.props.searchTerm} />
+            () => <ArtistIndex searchTerm={this.props.searchTerm} />
           }/>
-        <Route path="/search/tracks" render={
-              () => <TrackIndex searchTerm={this.props.searchTerm} />
+          <Route path="/search/tracks" render={
+            () => <TrackIndex searchTerm={this.props.searchTerm} />
           }/>
-        <Route path="/search/albums" render={
-              () => <AlbumIndex searchTerm={this.props.searchTerm} />
+          <Route path="/search/albums" render={
+            () => <AlbumIndex searchTerm={this.props.searchTerm} />
           }/>
-        <Route path="/search/playlists" render={
-              () => <PlaylistIndex searchTerm={this.props.searchTerm} />
+          <Route path="/search/playlists" render={
+            () => <PlaylistIndex searchTerm={this.props.searchTerm} />
           }/>
         </div>
       </div>

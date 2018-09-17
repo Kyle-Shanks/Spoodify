@@ -204,6 +204,11 @@ input:focus::placeholder {
   padding: 11px 25px 9px;
   font-weight: 300;
 }
+.button.small {
+  padding: 9px 20px 7px;
+  min-width: 140px;
+  font-weight: 300;
+}
 .button.big {
   padding: 14px 40px;
   font-size: 14px;
@@ -321,6 +326,29 @@ ul.errors {
 }
 .side-bar-nav li + li {
   margin-top: 25px;
+}
+.user-info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 100px;
+  text-align: center;
+}
+.user-container {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+.user-container p {
+  line-height: 30px;
+}
+.user-img {
+  height: 30px;
+  width: 30px;
+  background-color: #282828;
+  border-radius: 100%;
+  margin-right: 10px;
+  vertical-align: bottom;
 }
 .svg-container.item {
   height: 100%;
@@ -620,6 +648,7 @@ ul.errors {
   color: #fff;
   border: none;
   font-weight: 500;
+  letter-spacing: -1px;
   padding: 0;
   caret-color: #1db954;
 }
@@ -775,7 +804,7 @@ ul.errors {
   font-size: 14px;
 }
 .search-results {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 .search-info {
   padding: 20px;
@@ -784,8 +813,13 @@ ul.errors {
 .search-info h2 {
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 500;
+}
+.search-info p {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  font-weight: 300;
 }
 .search-section {
   margin-bottom: 40px;
