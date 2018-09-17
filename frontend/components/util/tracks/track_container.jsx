@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestTracks } from '../../../actions/track_actions';
-import { openModal, setModalComponent, setModalProps } from '../../../actions/ui_actions';
+import { openDropdown, setDropdownProps } from '../../../actions/ui_actions';
 import TrackIndexItem from './track_index_item';
 
 const arrayEq = (a1, a2) => {
@@ -23,9 +23,9 @@ class TrackIndex extends React.Component {
     const tracks = this.props.tracks.map(track => (
       <TrackIndexItem
         key={track.id} track={track}
-        openModal={this.props.openModal}
-        setModalComponent={this.props.setModalComponent}
-        setModalProps={this.props.setModalProps} />
+        playlistId={this.props.playlistId}
+        openDropdown={this.props.openDropdown}
+        setDropdownProps={this.props.setDropdownProps} />
     ));
     return (
       <div className="track-index">
@@ -43,9 +43,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestTracks: (ids) => dispatch(requestTracks(ids)),
-  openModal: () => dispatch(openModal()),
-  setModalComponent: comp => dispatch(setModalComponent(comp)),
-  setModalProps: props => dispatch(setModalProps(props)),
+  openDropdown: pos => dispatch(openDropdown(pos)),
+  setDropdownProps: props => dispatch(setDropdownProps(props)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackIndex);

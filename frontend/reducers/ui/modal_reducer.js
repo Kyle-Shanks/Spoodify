@@ -23,7 +23,7 @@ const modalReducer = ( state = defaultState, action ) => {
       return newState;
     case SET_MODAL_PROPS:
       const propState = Object.assign({}, state);
-      propState.modalProps = action.props
+      propState.modalProps = action.props;
       return propState;
     default:
       return state;

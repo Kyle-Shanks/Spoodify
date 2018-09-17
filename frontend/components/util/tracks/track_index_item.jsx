@@ -16,10 +16,10 @@ const TrackIndexItem = (props) => {
           </p>
         </div>
         <div className="track-menu"
-          onClick={() => {
-            props.openModal();
-            props.setModalComponent('add');
-            props.setModalProps({ trackId: props.track.id });
+          onClick={(e) => {
+            e.stopPropagation();
+            props.openDropdown({ x: e.clientX - 100, y: e.clientY});
+            props.setDropdownProps({ trackId: props.track.id, playlistId: props.playlistId });
           }}>
           • • •
         </div>

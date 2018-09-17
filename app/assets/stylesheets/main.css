@@ -356,6 +356,9 @@ ul.errors {
   padding: 20px 20px 120px 240px;
   color: #fff;
 }
+.main-content-container * {
+  animation: fadeIn 0.4s ease-in-out;
+}
 .content-nav {
   margin: 0 20px 20px;
   text-align: center;
@@ -411,6 +414,7 @@ ul.errors {
 }
 .content-item .img-container .content-play {
   opacity: 0;
+  display: none;
   pointer-events: none;
   text-align: center;
   width: 50%;
@@ -420,6 +424,7 @@ ul.errors {
 .content-item .img-container:hover .content-play {
   z-index: 3;
   opacity: 1;
+  display: block;
   pointer-events: all;
 }
 .content-item .img-container:hover::after {
@@ -513,7 +518,39 @@ ul.errors {
   background-color: rgba(255,255,255,0.6);
   border-radius: 8px;
 }
-.playlist-modal {
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.modal {
   z-index: 100;
   position: fixed;
   top: 0;
@@ -524,7 +561,7 @@ ul.errors {
   text-align: center;
   color: #fff;
 }
-.playlist-modal.hidden {
+.modal.hidden {
   z-index: -1;
   opacity: 0;
   pointer-events: none;
@@ -586,6 +623,26 @@ ul.errors {
     right: none;
     transform: none;
   }
+}
+.dropdown-menu {
+  z-index: 100;
+  position: fixed;
+  background-color: #282828;
+  color: rgba(255,255,255,0.6);
+  padding: 5px 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+.dropdown-menu.hidden {
+  display: none;
+}
+.dropdown-actions li {
+  padding: 10px;
+  cursor: default;
+}
+.dropdown-actions li:hover {
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
 }
 .audio-player-container {
   position: fixed;

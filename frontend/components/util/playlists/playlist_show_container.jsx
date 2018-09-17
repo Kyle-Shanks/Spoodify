@@ -29,7 +29,7 @@ class PlaylistShow extends React.Component {
     return (
       <div className="rela-block playlist-show">
         <div className="rela-block show-item-tracks">
-          <TrackIndex trackIds={ids}/>
+          <TrackIndex trackIds={ids} playlistId={this.props.playlist.id}/>
         </div>
         <div className="show-item-info">
           <div className="show-img-container playlist">

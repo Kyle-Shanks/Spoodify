@@ -20,7 +20,7 @@ const Modal = (props) => {
   }
 
   return (
-    <div className={"playlist-modal" + (props.modal.isOpen ? "" : " hidden")} onClick={props.close}>
+    <div className={"modal" + (props.modal.isOpen ? "" : " hidden")} onClick={props.close}>
       <div className="modal-content-container" onClick={(e) => { e.stopPropagation(); }}>
         {component}
       </div>

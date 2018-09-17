@@ -1,0 +1,19 @@
+// main: _main.styl
+
+.dropdown-menu
+  z-index 100
+  position fixed
+  background-color $dark-grey
+  color $light-transparent
+  padding 5px 0
+  font-size 14px
+  font-weight 300
+  &.hidden
+    display none
+
+.dropdown-actions li
+  padding 10px
+  cursor default
+  &:hover
+    color $white
+    background-color rgba(255,255,255,0.1)

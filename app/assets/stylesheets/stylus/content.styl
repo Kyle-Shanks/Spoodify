@@ -13,6 +13,12 @@
   min-height 100vh
   padding 20px 20px 120px 240px
   color $white
+  & *
+    animation fadeIn 0.4s ease-in-out
+
+@keyframes fadeIn
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 
 .content-nav
   margin 0 20px 20px
@@ -61,6 +67,7 @@
       transition 0.2s ease-in-out
     & .content-play
       opacity 0
+      display none
       pointer-events none
       text-align center
       width 50%
@@ -70,6 +77,7 @@
       & .content-play
         z-index 3
         opacity 1
+        display block
         pointer-events all
       &::after
         background-color rgba(0,0,0,0.85)
