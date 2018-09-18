@@ -619,6 +619,9 @@ ul.errors {
   margin-right: 10px;
   cursor: pointer;
 }
+.track-icon .svg {
+  stroke-width: 10;
+}
 .modal {
   z-index: 100;
   position: fixed;

@@ -12,8 +12,8 @@ const TrackIndexItem = (props) => {
       <svg viewBox="0 0 200 200" className="rela-block svg" onClick={() => {
           props.pauseTrack();
         }}>
-        <rect x="50" y="40" width="40" height="120" rx="5" ry="5" />
-        <rect x="110" y="40" width="40" height="120" rx="5" ry="5" />
+        <rect x="50" y="40" width="40" height="120" rx="8" ry="8" />
+        <rect x="120" y="40" width="40" height="120" rx="8" ry="8" />
       </svg>
     );
   } else {
