@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { requestPlaylists } from '../../../actions/playlist_actions';
 import PlaylistIndexItem from './playlist_index_item';
+import Loader from '../loader';
+import { startPlaylistsLoading, stopPlaylistsLoading } from '../../../actions/ui_actions';
 
 const arrayEq = (a1, a2) => {
   return ( a1.length === a2.length && a1.every((val, idx) => val === a2[idx]) );
@@ -9,6 +11,7 @@ const arrayEq = (a1, a2) => {
 
 class PlaylistIndex extends React.Component {
   componentDidMount() {
+    this.props.startLoading();
     this.props.requestPlaylists({
       playlist_ids: this.props.playlistIds,
       search_term: this.props.searchTerm
@@ -28,6 +31,8 @@ class PlaylistIndex extends React.Component {
   }
 
   render () {
+    if (this.props.loading) return <Loader />;
+
     const playlists = this.props.playlists.map(playlist => (
       <PlaylistIndexItem key={playlist.id} playlist={playlist} />
     ));
@@ -42,11 +47,13 @@ class PlaylistIndex extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.ui.loading.playlists,
   playlists: Object.values(state.entities.playlists),
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPlaylists: props => dispatch(requestPlaylists(props)),
+  startLoading: () => dispatch(startPlaylistsLoading()),
+  requestPlaylists: props => dispatch(requestPlaylists(props)).then(() => {dispatch(stopPlaylistsLoading())}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex);

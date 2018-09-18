@@ -97,18 +97,18 @@ class AudioPlayer extends React.Component {
           <div className="flex player-controls">
             <div className="rela-block control-svg-container">
               <div className="rela-inline svg-container">
-                <svg viewBox="0 0 300 300" className="rela-block svg player" onClick={this.handlePrev}>
-                  <path d="M 190 105 L 190 195 Q 190 200 184 199 L 97 153
-                           Q 95 150 97 147 L 184 102 Q 190 100 190 105 Z" strokeWidth="0"/>
-                  <rect x="65" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+                <svg viewBox="0 0 500 500" className="rela-block svg player" onClick={this.handlePrev}>
+                  <path d="M 290 205 L 290 295 Q 290 300 284 299 L 197 253
+                           Q 195 250 197 247 L 284 202 Q 290 200 290 205 Z" strokeWidth="0"/>
+                  <rect x="165" y="205" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
                 </svg>
               </div>
               <div className="rela-inline svg-container play-pause">{svg}</div>
               <div className="rela-inline svg-container">
-                <svg viewBox="0 0 300 300" className="rela-block svg player" onClick={this.handleNext}>
-                  <path d="M 115 105 L 115 195 Q 115 200 121 199 L 203 153
-                           Q 205 150 203 147 L 121 102 Q 115 100 115 105 Z" strokeWidth="0"/>
-                  <rect x="210" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+                <svg viewBox="0 0 500 500" className="rela-block svg player" onClick={this.handleNext}>
+                  <path d="M 215 205 L 215 295 Q 215 300 221 299 L 303 253
+                           Q 305 250 303 247 L 221 202 Q 215 200 215 205 Z" strokeWidth="0"/>
+                  <rect x="310" y="205" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
                 </svg>
               </div>
             </div>

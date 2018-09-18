@@ -16,6 +16,41 @@ body
   line-height 1.5
   transition 0s
 
+.logo-img
+  height 39px
+  width @height
+  vertical-align bottom
+  margin-right 5px
+
+.loader
+  text-align center
+  & ul
+    width 100px
+    height 40px
+    margin 0 auto
+    & .dot
+      position absolute
+      top 35%
+      height 8px
+      width 8px
+      border-radius 100%
+      background-color $white
+      animation wave 0.5s ease-in-out infinite alternate
+    & .dot1
+      left 21%
+    & .dot2
+      left 46%
+    & .dot3
+      left 71%
+
+for num in (1..3)
+  .loader ul li:nth-child({num})
+    animation-delay (0.15s * num)
+
+@keyframes wave
+  0% { top: 35% }
+  100% { top: 65% }
+
 input
   width 100%
   padding 8px 12px

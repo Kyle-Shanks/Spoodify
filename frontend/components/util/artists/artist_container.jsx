@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { requestArtists } from '../../../actions/artist_actions';
 import ArtistIndexItem from './artist_index_item';
+import Loader from '../loader';
+import { startArtistsLoading, stopArtistsLoading } from '../../../actions/ui_actions';
 
 const arrayEq = (a1, a2) => {
   return ( a1.length === a2.length && a1.every((val, idx) => val === a2[idx]) );
@@ -9,6 +11,7 @@ const arrayEq = (a1, a2) => {
 
 class ArtistIndex extends React.Component {
   componentDidMount() {
+    this.props.startLoading();
     this.props.requestArtists({
       artist_ids: this.props.artistIds,
       search_term: this.props.searchTerm
@@ -28,6 +31,8 @@ class ArtistIndex extends React.Component {
   }
 
   render () {
+    if (this.props.loading) return <Loader />;
+
     const artists = this.props.artists.map(artist => (
       <ArtistIndexItem key={artist.id} artist={artist} />
     ));
@@ -42,11 +47,13 @@ class ArtistIndex extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.ui.loading.artists,
   artists: Object.values(state.entities.artists),
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestArtists: props => dispatch(requestArtists(props)),
+  startLoading: () => dispatch(startArtistsLoading()),
+  requestArtists: props => dispatch(requestArtists(props)).then(() => {dispatch(stopArtistsLoading())}),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistIndex);

@@ -5,7 +5,7 @@ const Sidebar = (props) => {
   return (
     <div className="side-bar">
       <h1 className="rela-block logo white small">
-        <Link to="/browse">Spoodify</Link>
+        <Link to="/browse"><img className="logo-img" src={window.whiteSpot} />Spoodify</Link>
       </h1>
 
       <ul className="rela-block side-bar-nav">

@@ -1,6 +1,12 @@
 // Loader Constants
-export const START_LOADING = 'START_LOADING';
-export const STOP_LOADING = 'STOP_LOADING';
+export const START_ARTISTS_LOADING = 'START_ARTISTS_LOADING';
+export const STOP_ARTISTS_LOADING = 'STOP_ARTISTS_LOADING';
+export const START_ALBUMS_LOADING = 'START_ALBUMS_LOADING';
+export const STOP_ALBUMS_LOADING = 'STOP_ALBUMS_LOADING';
+export const START_TRACKS_LOADING = 'START_TRACKS_LOADING';
+export const STOP_TRACKS_LOADING = 'STOP_TRACKS_LOADING';
+export const START_PLAYLISTS_LOADING = 'START_PLAYLISTS_LOADING';
+export const STOP_PLAYLISTS_LOADING = 'STOP_PLAYLISTS_LOADING';
 // Modal Constants
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
@@ -22,11 +28,29 @@ export const PREV_TRACK = 'PREV_TRACK';
 export const CLEAR_PLAYER = 'CLEAR_PLAYER';
 
 // Loading Actions
-export const startLoading = () => {
-  return { type: START_LOADING };
+export const startArtistsLoading = () => {
+  return { type: START_ARTISTS_LOADING };
 };
-export const stopLoading = () => {
-  return { type: STOP_LOADING };
+export const stopArtistsLoading = () => {
+  return { type: STOP_ARTISTS_LOADING };
+};
+export const startAlbumsLoading = () => {
+  return { type: START_ALBUMS_LOADING };
+};
+export const stopAlbumsLoading = () => {
+  return { type: STOP_ALBUMS_LOADING };
+};
+export const startTracksLoading = () => {
+  return { type: START_TRACKS_LOADING };
+};
+export const stopTracksLoading = () => {
+  return { type: STOP_TRACKS_LOADING };
+};
+export const startPlaylistsLoading = () => {
+  return { type: START_PLAYLISTS_LOADING };
+};
+export const stopPlaylistsLoading = () => {
+  return { type: STOP_PLAYLISTS_LOADING };
 };
 
 // Modal Actions

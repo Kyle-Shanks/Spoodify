@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { requestTracks } from '../../../actions/track_actions';
 import { openDropdown, setDropdownProps } from '../../../actions/ui_actions';
 import TrackIndexItem from './track_index_item';
+import Loader from '../loader';
+import { startTracksLoading, stopTracksLoading } from '../../../actions/ui_actions';
 
 const arrayEq = (a1, a2) => {
   return ( a1.length === a2.length && a1.every((val, idx) => val === a2[idx]) );
@@ -10,6 +12,7 @@ const arrayEq = (a1, a2) => {
 
 class TrackIndex extends React.Component {
   componentDidMount() {
+    this.props.startLoading();
     this.props.requestTracks({
       track_ids: this.props.trackIds,
       search_term: this.props.searchTerm
@@ -29,6 +32,8 @@ class TrackIndex extends React.Component {
   }
 
   render () {
+    if (this.props.loading) return <Loader />;
+
     let filteredTracks;
     let ids;
     if (this.props.trackIds) {
@@ -57,11 +62,13 @@ class TrackIndex extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.ui.loading.tracks,
   tracks: Object.values(state.entities.tracks),
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTracks: props => dispatch(requestTracks(props)),
+  startLoading: () => dispatch(startTracksLoading()),
+  requestTracks: props => dispatch(requestTracks(props)).then(() => {dispatch(stopTracksLoading())}),
   openDropdown: pos => dispatch(openDropdown(pos)),
   setDropdownProps: props => dispatch(setDropdownProps(props)),
 });
