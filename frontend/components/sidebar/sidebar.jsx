@@ -48,7 +48,10 @@ const Sidebar = (props) => {
       </ul>
 
       <div className="rela-block user-info">
-        <button className="rela-inline button small outline resizing"onClick={props.logout}>Log Out</button>
+        <button className="rela-inline button small outline resizing"
+                onClick={() => { props.logout(); props.clearPlayer(); }}>
+          Log Out
+        </button>
         <div className="rela-inline flex-parent user-container">
           <div className="user-img"></div>
           <p>{props.currentUser.username}</p>

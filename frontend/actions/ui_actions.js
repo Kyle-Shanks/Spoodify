@@ -19,6 +19,7 @@ export const ADD_TRACK_QUEUE = 'ADD_TRACK_QUEUE';
 export const GET_QUEUE_POS = 'GET_QUEUE_POS';
 export const NEXT_TRACK = 'NEXT_TRACK';
 export const PREV_TRACK = 'PREV_TRACK';
+export const CLEAR_PLAYER = 'CLEAR_PLAYER';
 
 // Loading Actions
 export const startLoading = () => {
@@ -98,4 +99,7 @@ export const nextTrack = () => {
 };
 export const prevTrack = () => {
   return { type: PREV_TRACK };
+};
+export const clearPlayer = () => {
+  return { type: CLEAR_PLAYER };
 };

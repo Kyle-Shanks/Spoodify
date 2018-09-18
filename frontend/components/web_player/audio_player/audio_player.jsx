@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { playAudio, pauseAudio, nextTrack, prevTrack } from '../../../actions/ui_actions';
+import { playAudio, pauseAudio, nextTrack, prevTrack, clearPlayer } from '../../../actions/ui_actions';
 import { requestTrack } from '../../../actions/track_actions';
 
 class AudioPlayer extends React.Component {
@@ -10,15 +10,6 @@ class AudioPlayer extends React.Component {
     this.state = { currentTrack: null };
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
-  }
-
-  componentDidMount() {
-    const audio = document.getElementById('audio');
-    if (this.props.currentTrack) {
-      audio.src = this.props.currentTrack.src
-      this.setState({ currentTrack: this.props.currentTrack })
-    }
-    if (this.props.isPlaying) audio.play();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,10 +24,20 @@ class AudioPlayer extends React.Component {
   }
 
   handleNext(e) {
-    this.props.next(this.props.nextTrackId);
+    if (this.props.nextTrackId) {
+      this.props.next(this.props.nextTrackId);
+    } else {
+      this.setState({ currentTrack: null });
+      this.props.clearPlayer();
+    }
   }
   handlePrev(e) {
-    this.props.prev(this.props.prevTrackId);
+    if (this.props.prevTrackId) {
+      this.props.prev(this.props.prevTrackId);
+    } else {
+      this.setState({ currentTrack: null });
+      this.props.clearPlayer();
+    }
   }
 
   render () {
@@ -130,6 +131,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   play: () => dispatch(playAudio()),
   pause: () => dispatch(pauseAudio()),
+  clearPlayer: () => dispatch(clearPlayer()),
   next: id => {
     dispatch(nextTrack());
     if (id) dispatch(requestTrack(id));

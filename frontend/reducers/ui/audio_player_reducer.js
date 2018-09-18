@@ -1,6 +1,6 @@
 import { SET_CURRENT_TRACK, PLAY_AUDIO, PAUSE_AUDIO,
          SET_TRACK_QUEUE, ADD_TRACK_QUEUE, GET_QUEUE_POS,
-         NEXT_TRACK, PREV_TRACK } from '../../actions/ui_actions';
+         NEXT_TRACK, PREV_TRACK, CLEAR_PLAYER } from '../../actions/ui_actions';
 
 const defaultState = {
   currentTrackId: null,
@@ -58,6 +58,8 @@ const audioPlayerReducer = ( state = defaultState, action ) => {
         prevState.currentTrackId = prevState.queue[prevState.queuePos];
       }
       return prevState;
+    case CLEAR_PLAYER:
+      return defaultState;
     default:
       return state;
   }
