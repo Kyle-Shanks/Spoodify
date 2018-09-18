@@ -12,9 +12,9 @@ class AudioPlayer extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const audio = document.getElementById('audio');
-    if ( nextProps.currentTrack &&
-        ((!this.props.currentTrack) || nextProps.currentTrack.id !== this.props.currentTrack.id)) {
-      audio.src = nextProps.currentTrack.src
+    if ( nextProps.currentTrack && ((!audio.src) || !audio.src.includes(nextProps.currentTrack.src))) {
+      audio.src = nextProps.currentTrack.src;
+      if(nextProps.isPlaying) audio.play();
     }
     if (nextProps.isPlaying && !this.props.isPlaying) audio.play();
     if (!nextProps.isPlaying && this.props.isPlaying) audio.pause();
@@ -30,8 +30,8 @@ class AudioPlayer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentTrack: state.entities.tracks[state.ui.audioPlayer.currentTrack],
-  isPlaying: state.ui.audioPlayer.playing
+  currentTrack: state.entities.tracks[state.ui.audioPlayer.currentTrackId],
+  isPlaying: state.ui.audioPlayer.isPlaying
 });
 
 export default connect(mapStateToProps)(AudioPlayer);

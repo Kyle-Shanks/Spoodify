@@ -1,8 +1,8 @@
 import { SET_CURRENT_TRACK, PLAY_AUDIO, PAUSE_AUDIO } from '../../actions/ui_actions';
 
 const defaultState = {
-  currentTrack: null,
-  playing: false,
+  currentTrackId: null,
+  isPlaying: false,
 };
 
 const audioPlayerReducer = ( state = defaultState, action ) => {
@@ -10,15 +10,15 @@ const audioPlayerReducer = ( state = defaultState, action ) => {
   switch (action.type) {
     case SET_CURRENT_TRACK:
       const newState = Object.assign({}, state);
-      newState.currentTrack = action.trackId;
+      newState.currentTrackId = action.trackId;
       return newState;
     case PLAY_AUDIO:
       const playState = Object.assign({}, state);
-      playState.playing = true;
+      playState.isPlaying = true;
       return playState;
     case PAUSE_AUDIO:
       const pauseState = Object.assign({}, state);
-      pauseState.playing = false;
+      pauseState.isPlaying = false;
       return pauseState;
     default:
       return state;

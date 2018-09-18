@@ -150,6 +150,7 @@ body {
   font-family: 'Rubik', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  transition: 0s;
 }
 input {
   width: 100%;
@@ -525,36 +526,6 @@ ul.errors {
 .browse-container {
   padding: 20px;
 }
-.track-item {
-  padding: 10px 20px 14px;
-  font-weight: 300;
-}
-.track-item .content-secondary-text {
-  line-height: 1;
-}
-.track-item a {
-  font-size: 14px;
-}
-.track-item:hover {
-  background-color: rgba(0,0,0,0.3);
-}
-.track-item:hover .track-menu {
-  display: inline-block;
-}
-.track-duration {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-}
-.track-menu {
-  display: none;
-  margin: 0 20px;
-  cursor: pointer;
-  color: rgba(255,255,255,0.6);
-  font-size: 14px;
-}
-.track-menu:hover {
-  color: #fff;
-}
 .playlist-select {
   padding: 0 40px;
   max-height: 400px;
@@ -602,6 +573,51 @@ ul.errors {
   100% {
     opacity: 1;
   }
+}
+.track-item {
+  padding: 10px 20px 14px;
+  font-weight: 300;
+  cursor: default;
+}
+.track-item .content-secondary-text {
+  line-height: 1;
+}
+.track-item a {
+  font-size: 14px;
+}
+.track-item:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+.track-item:hover .track-menu {
+  display: inline-block;
+}
+.track-item.playing .track-duration,
+.track-item.playing .track-info p {
+  color: #1ed760;
+}
+.track-item.playing .track-icon .svg {
+  stroke: #1ed760;
+}
+.track-duration {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+.track-menu {
+  display: none;
+  margin: 0 20px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+.track-menu:hover {
+  color: #fff;
+}
+.track-icon {
+  height: 30px;
+  width: 30px;
+  line-height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 .modal {
   z-index: 100;

@@ -1,0 +1,39 @@
+// main: _main.styl
+
+.track-item
+  padding 10px 20px 14px
+  font-weight 300
+  cursor default
+  & .content-secondary-text
+    line-height 1
+  & a
+    font-size 14px
+  &:hover
+    background-color rgba(0,0,0,0.3)
+    & .track-menu
+      display inline-block
+  &.playing
+    & .track-duration, & .track-info p
+      color $hover-green
+    & .track-icon .svg
+      stroke $hover-green
+
+.track-duration
+  font-size 14px
+  color $light-transparent
+
+.track-menu
+  display none
+  margin 0 20px
+  cursor pointer
+  color $light-transparent
+  font-size 14px
+  &:hover
+    color $white
+
+.track-icon
+  height 30px
+  width @height
+  line-height 40px
+  margin-right 10px
+  cursor pointer
