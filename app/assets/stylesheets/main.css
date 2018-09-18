@@ -59,10 +59,10 @@ a.app-link.active .svg {
 a.app-link.active .svg.home {
   fill: #1db954;
 }
-a.app-link.border {
+a.border {
   border-bottom: 1px solid transparent;
 }
-a.app-link.border:hover {
+a.border:hover {
   border-bottom: 1px solid #fff;
 }
 a.thick {
@@ -364,6 +364,9 @@ ul.errors {
   margin-right: 10px;
   vertical-align: bottom;
 }
+.svg-container.play-pause:hover {
+  transform: scale(1.1);
+}
 .svg {
   width: 100%;
   stroke: rgba(255,255,255,0.6);
@@ -372,6 +375,27 @@ ul.errors {
   transition: 0s;
 }
 .svg.item path {
+  fill: #fff;
+}
+.svg.player,
+.svg.play-pause {
+  width: 100%;
+  stroke: rgba(255,255,255,0.6);
+}
+.svg.player path,
+.svg.play-pause path,
+.svg.player rect,
+.svg.play-pause rect {
+  fill: rgba(255,255,255,0.6);
+}
+.svg.player:hover,
+.svg.play-pause:hover {
+  stroke: #fff;
+}
+.svg.player:hover path,
+.svg.play-pause:hover path,
+.svg.player:hover rect,
+.svg.play-pause:hover rect {
   fill: #fff;
 }
 .main-background {
@@ -613,8 +637,8 @@ ul.errors {
   color: #fff;
 }
 .track-icon {
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   line-height: 40px;
   margin-right: 10px;
   cursor: pointer;
@@ -723,13 +747,64 @@ ul.errors {
   right: 0;
   bottom: 0;
   height: 100px;
-  padding: 20px;
+  padding: 0 20px;
   background-color: #282828;
   color: #fff;
 }
+.player-info,
+.player-alt-controls {
+  width: 30%;
+  min-width: 180px;
+  padding: 20px 0;
+}
+.player-artwork {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+  vertical-align: bottom;
+}
+.player-artwork img {
+  width: 100%;
+}
+.player-info-text {
+  color: #fff;
+  vertical-align: super;
+}
+.player-info-text p,
+.player-info-text a {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.3;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.player-info-text a,
+.player-info-text a:hover,
+.player-info-text .small-text a:hover {
+  color: #fff;
+}
+.player-info-text .small-text a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+.player-controls {
+  padding: 10px 0;
+}
+.control-svg-container {
+  background-color: rgba(255,255,255,0.05);
+  text-align: center;
+  height: 45px;
+}
+.control-svg-container .svg-container {
+  height: 45px;
+  width: 45px;
+  margin: 0 10px;
+}
 .show-item-info {
   position: fixed;
-  top: 40px;
+  top: 30px;
   left: 250px;
   width: 280px;
   text-align: center;
@@ -754,8 +829,11 @@ ul.errors {
   width: 100%;
 }
 .show-item-tracks {
-  padding: 40px 20px 20px 40px;
-  padding-left: 320px;
+  padding: 30px 30px 30px 20px;
+  padding-left: 330px;
+}
+.show-item-tracks .track-item {
+  padding-left: 10px;
 }
 .show-button-container {
   margin: 20px 0;
@@ -787,7 +865,7 @@ ul.errors {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(transparent -200%, #181818);
+  background: linear-gradient(transparent -100%, #181818);
 }
 .artist-header {
   margin-bottom: 60px;

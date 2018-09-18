@@ -29,9 +29,19 @@ class TrackIndex extends React.Component {
   }
 
   render () {
-    const tracks = this.props.tracks.map(track => (
+    let filteredTracks;
+    let ids;
+    if (this.props.trackIds) {
+      filteredTracks = this.props.tracks.filter(t => this.props.trackIds.includes(t.id));
+      ids = this.props.trackIds;
+    } else {
+      filteredTracks = this.props.tracks;
+      ids = this.props.tracks.map(t => t.id);
+    }
+
+    const tracks = filteredTracks.map(track => (
       <TrackIndexItem
-        key={track.id} track={track}
+        key={track.id} track={track} queueIds={ids}
         playlistId={this.props.playlistId}
         openDropdown={this.props.openDropdown}
         setDropdownProps={this.props.setDropdownProps} />

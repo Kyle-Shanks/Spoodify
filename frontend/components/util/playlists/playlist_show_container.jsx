@@ -4,10 +4,13 @@ import { requestPlaylist } from '../../../actions/playlist_actions';
 import { openModal, setModalComponent, setModalProps } from '../../../actions/ui_actions';
 import { Link } from 'react-router-dom';
 import TrackIndex from '../tracks/track_container';
+import { playAudio, setTrackQueue, setCurrentTrack, getQueuePos } from '../../../actions/ui_actions';
+
 
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   componentDidMount() {
@@ -17,6 +20,15 @@ class PlaylistShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ( !this.props.playlist || this.props.playlist.id !== parseInt(nextProps.match.params.playlistId) ) {
       this.props.requestPlaylist(nextProps.match.params.playlistId);
+    }
+  }
+
+  handlePlay(e) {
+    if (this.props.playlist.track_ids) {
+      this.props.setTrackQueue(this.props.playlist.track_ids);
+      this.props.setCurrentTrack(this.props.playlist.track_ids[0]);
+      this.props.playAudio();
+      this.props.getQueuePos();
     }
   }
 
@@ -42,7 +54,10 @@ class PlaylistShow extends React.Component {
           <h5 className="rela-block content-secondary-text">{this.props.playlist.track_ids.length} Song(s)</h5>
 
           <div className="rela-block show-button-container">
-            <button className="rela-inline button slim resizing">Play</button>
+            <button className="rela-inline button slim resizing"
+              onClick={this.handlePlay}>
+              Play
+            </button>
             <button className="rela-inline button outline slim resizing"
               onClick={() => {
                 this.props.openModal();
@@ -67,6 +82,10 @@ const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal()),
   setModalComponent: comp => dispatch(setModalComponent(comp)),
   setModalProps: props => dispatch(setModalProps(props)),
+  playAudio: () => dispatch(playAudio()),
+  setTrackQueue: arr => dispatch(setTrackQueue(arr)),
+  setCurrentTrack: id => dispatch(setCurrentTrack(id)),
+  getQueuePos: () => dispatch(getQueuePos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

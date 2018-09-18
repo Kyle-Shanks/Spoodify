@@ -11,6 +11,8 @@
     width @height
     margin-right 10px
     vertical-align bottom
+  &.play-pause:hover
+    transform scale(1.1)
 
 .svg
   width 100%
@@ -20,3 +22,12 @@
   transition 0s
   &.item path
     fill $white
+  &.player, &.play-pause
+    width 100%
+    stroke $light-transparent
+    & path, & rect
+      fill $light-transparent
+    &:hover
+      stroke $white
+      & path, & rect
+        fill $white

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setCurrentTrack, playAudio, pauseAudio } from '../../../actions/ui_actions';
+import { setCurrentTrack, setTrackQueue, getQueuePos, playAudio, pauseAudio } from '../../../actions/ui_actions';
 
 const TrackIndexItem = (props) => {
   if(!props.track) return null;
@@ -10,7 +10,7 @@ const TrackIndexItem = (props) => {
   if (props.player.currentTrackId === props.track.id && props.player.isPlaying) {
     svg = (
       <svg viewBox="0 0 200 200" className="rela-block svg" onClick={() => {
-          props.pauseTrack();
+          props.pauseAudio();
         }}>
         <rect x="50" y="40" width="40" height="120" rx="8" ry="8" />
         <rect x="120" y="40" width="40" height="120" rx="8" ry="8" />
@@ -19,8 +19,12 @@ const TrackIndexItem = (props) => {
   } else {
     svg = (
       <svg viewBox="0 0 200 200" className="rela-block svg" onClick={() => {
-          props.setTrack(props.track.id);
-          props.playTrack();
+          props.setCurrentTrack(props.track.id);
+          if (props.queueIds) {
+            props.setTrackQueue(props.queueIds);
+            props.getQueuePos();
+          }
+          props.playAudio();
         }}>
         <path d="M 60 45 L 60 155 Q 60 160 66 159 L 158 103 Q 160 100 158 97 L 66 42 Q 60 40 60 45" />
       </svg>
@@ -36,8 +40,12 @@ const TrackIndexItem = (props) => {
         </div>
         <div className="flex track-info">
           <p className="rela-block" onDoubleClick={() => {
-              props.setTrack(props.track.id);
-              props.playTrack();
+              props.setCurrentTrack(props.track.id);
+              if (props.queueIds) {
+                props.setTrackQueue(props.queueIds);
+                props.getQueuePos();
+              }
+              props.playAudio();
             }}>
             {props.track.title}
           </p>
@@ -66,9 +74,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setTrack: id => dispatch(setCurrentTrack(id)),
-  playTrack: () => dispatch(playAudio()),
-  pauseTrack: () => dispatch(pauseAudio()),
+  setCurrentTrack: id => dispatch(setCurrentTrack(id)),
+  setTrackQueue: arr => dispatch(setTrackQueue(arr)),
+  playAudio: () => dispatch(playAudio()),
+  pauseAudio: () => dispatch(pauseAudio()),
+  getQueuePos: () => dispatch(getQueuePos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackIndexItem);

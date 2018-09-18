@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import { requestAlbum } from '../../../actions/album_actions';
 import { Link } from 'react-router-dom';
 import TrackIndex from '../tracks/track_container';
+import { playAudio, setTrackQueue, setCurrentTrack, getQueuePos } from '../../../actions/ui_actions';
 
 class AlbumShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePlay = this.handlePlay.bind(this);
+  }
+
   componentDidMount() {
     this.props.requestAlbum(this.props.match.params.albumId);
   }
@@ -12,6 +18,15 @@ class AlbumShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ( !this.props.album || this.props.album.id !== parseInt(nextProps.match.params.albumId) ) {
       this.props.requestAlbum(nextProps.match.params.albumId);
+    }
+  }
+
+  handlePlay(e) {
+    if (this.props.album.track_ids) {
+      this.props.setTrackQueue(this.props.album.track_ids);
+      this.props.setCurrentTrack(this.props.album.track_ids[0]);
+      this.props.playAudio();
+      this.props.getQueuePos();
     }
   }
 
@@ -39,7 +54,10 @@ class AlbumShow extends React.Component {
           <h5 className="rela-block content-secondary-text">{this.props.album.track_ids.length} Song(s)</h5>
 
           <div className="rela-block show-button-container">
-            <button className="rela-inline button slim resizing">Play</button>
+            <button className="rela-inline button slim resizing"
+              onClick={this.handlePlay}>
+              Play
+            </button>
           </div>
         </div>
       </div>
@@ -53,6 +71,10 @@ const mapStateToProps = (state,ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAlbum: id => dispatch(requestAlbum(id)),
+  playAudio: () => dispatch(playAudio()),
+  setTrackQueue: arr => dispatch(setTrackQueue(arr)),
+  setCurrentTrack: id => dispatch(setCurrentTrack(id)),
+  getQueuePos: () => dispatch(getQueuePos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumShow);

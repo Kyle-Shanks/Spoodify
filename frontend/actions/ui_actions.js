@@ -14,6 +14,11 @@ export const SET_DROPDOWN_PROPS = 'SET_DROPDOWN_PROPS';
 export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
 export const PLAY_AUDIO = 'PLAY_AUDIO';
 export const PAUSE_AUDIO = 'PAUSE_AUDIO';
+export const SET_TRACK_QUEUE = 'SET_TRACK_QUEUE';
+export const ADD_TRACK_QUEUE = 'ADD_TRACK_QUEUE';
+export const GET_QUEUE_POS = 'GET_QUEUE_POS';
+export const NEXT_TRACK = 'NEXT_TRACK';
+export const PREV_TRACK = 'PREV_TRACK';
 
 // Loading Actions
 export const startLoading = () => {
@@ -72,4 +77,25 @@ export const playAudio = () => {
 };
 export const pauseAudio = () => {
   return { type: PAUSE_AUDIO };
+};
+export const setTrackQueue = queue => {
+  return {
+    type: SET_TRACK_QUEUE,
+    queue
+  };
+};
+export const addTrackQueue = trackId => {
+  return {
+    type: ADD_TRACK_QUEUE,
+    trackId
+  };
+};
+export const getQueuePos = () => {
+  return { type: GET_QUEUE_POS };
+};
+export const nextTrack = () => {
+  return { type: NEXT_TRACK };
+};
+export const prevTrack = () => {
+  return { type: PREV_TRACK };
 };

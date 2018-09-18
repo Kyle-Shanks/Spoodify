@@ -3,15 +3,26 @@ import { connect } from 'react-redux';
 import { requestArtist } from '../../../actions/artist_actions';
 import { Redirect, Route, Link } from 'react-router-dom';
 import ArtistShowContent from './artist_show_content';
+import { playAudio, setTrackQueue, setCurrentTrack, getQueuePos } from '../../../actions/ui_actions';
 
 class ArtistShow extends React.Component {
   componentDidMount() {
     this.props.requestArtist(this.props.match.params.artistId);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if ( !this.props.artist || this.props.artist.id !== parseInt(nextProps.match.params.artistId) ) {
       this.props.requestArtist(nextProps.match.params.artistId);
+    }
+  }
+
+  handlePlay(e) {
+    if (this.props.artist.track_ids) {
+      this.props.setTrackQueue(this.props.artist.track_ids);
+      this.props.setCurrentTrack(this.props.artist.track_ids[0]);
+      this.props.playAudio();
+      this.props.getQueuePos();
     }
   }
 
@@ -28,7 +39,10 @@ class ArtistShow extends React.Component {
         <div className="rela-block artist-header">
           <h1 className="artist-name">{this.props.artist.name}</h1>
           <div className="rela-block artist-button-container">
-            <button className="rela-inline button slim resizing">Play</button>
+            <button className="rela-inline button slim resizing"
+              onClick={this.handlePlay}>
+              Play
+            </button>
             <button className="rela-inline button slim outline resizing">Follow</button>
           </div>
         </div>
@@ -48,6 +62,10 @@ const mapStateToProps = (state,ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   requestArtist: id => dispatch(requestArtist(id)),
+  playAudio: () => dispatch(playAudio()),
+  setTrackQueue: arr => dispatch(setTrackQueue(arr)),
+  setCurrentTrack: id => dispatch(setCurrentTrack(id)),
+  getQueuePos: () => dispatch(getQueuePos()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistShow);
