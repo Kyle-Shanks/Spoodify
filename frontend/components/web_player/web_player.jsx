@@ -11,6 +11,7 @@ import PlaylistShow from '../util/playlists/playlist_show_container';
 import AlbumShow from '../util/albums/album_show_container';
 import ArtistShow from '../util/artists/artist_show_container';
 import AudioPlayer from './audio_player/audio_player';
+import Queue from './audio_player/queue';
 import { closeDropdown } from '../../actions/ui_actions';
 
 const WebPlayer = (props) => {
@@ -22,6 +23,7 @@ const WebPlayer = (props) => {
     case '/playlists': colorClass = ' red'; break;
     case '/search': colorClass = ' darker'; break;
     case '/collection': colorClass = ' green'; break;
+    case '/queue': colorClass = ' darker'; break;
     default: colorClass = ' blue';
   }
 
@@ -38,6 +40,7 @@ const WebPlayer = (props) => {
           <Route path="/playlists/:playlistId" component={ PlaylistShow } />
           <Route path="/albums/:albumId" component={ AlbumShow } />
           <Route path="/artists/:artistId" component={ ArtistShow } />
+          <Route path="/queue" component={Queue} />
         </div>
       </div>
       <div className="audio-player-container">

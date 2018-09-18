@@ -113,7 +113,9 @@ class AudioPlayer extends React.Component {
               </div>
             </div>
           </div>
-          <div className="player-alt-controls"></div>
+          <div className="player-alt-controls">
+            <Link to="/queue" className="app-link">Queue</Link>
+          </div>
         </div>
         <audio id="audio" onEnded={this.handleNext}></audio>
       </div>

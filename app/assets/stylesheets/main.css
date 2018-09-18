@@ -599,7 +599,7 @@ ul.errors {
   }
 }
 .track-item {
-  padding: 10px 20px 14px;
+  padding: 10px 20px 14px 10px;
   font-weight: 300;
   cursor: default;
 }
@@ -741,6 +741,13 @@ ul.errors {
   color: #fff;
   background-color: rgba(255,255,255,0.1);
 }
+.queue-container {
+  padding: 40px;
+}
+.queue-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
 .audio-player-container {
   position: fixed;
   left: 0;
@@ -803,6 +810,9 @@ ul.errors {
   height: 45px;
   width: 45px;
   margin: 0 5px;
+}
+.player-alt-controls {
+  text-align: right;
 }
 .show-item-info {
   position: fixed;
