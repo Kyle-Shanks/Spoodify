@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { playAudio, pauseAudio, nextTrack } from '../../../actions/ui_actions';
+import { playAudio, pauseAudio, nextTrack, prevTrack } from '../../../actions/ui_actions';
 import { requestTrack } from '../../../actions/track_actions';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currentTrack: null };
-    this.handleEnded = this.handleEnded.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    this.handlePrev = this.handlePrev.bind(this);
   }
 
   componentDidMount() {
@@ -31,8 +32,11 @@ class AudioPlayer extends React.Component {
     if (!nextProps.isPlaying && this.props.isPlaying) audio.pause();
   }
 
-  handleEnded(e) {
+  handleNext(e) {
     this.props.next(this.props.nextTrackId);
+  }
+  handlePrev(e) {
+    this.props.prev(this.props.prevTrackId);
   }
 
   render () {
@@ -91,13 +95,26 @@ class AudioPlayer extends React.Component {
           </div>
           <div className="flex player-controls">
             <div className="rela-block control-svg-container">
+              <div className="rela-inline svg-container">
+                <svg viewBox="0 0 300 300" className="rela-block svg player" onClick={this.handlePrev}>
+                  <path d="M 190 105 L 190 195 Q 190 200 184 199 L 97 153
+                           Q 95 150 97 147 L 184 102 Q 190 100 190 105 Z" strokeWidth="0"/>
+                  <rect x="65" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+                </svg>
+              </div>
               <div className="rela-inline svg-container play-pause">{svg}</div>
+              <div className="rela-inline svg-container">
+                <svg viewBox="0 0 300 300" className="rela-block svg player" onClick={this.handleNext}>
+                  <path d="M 115 105 L 115 195 Q 115 200 121 199 L 203 153
+                           Q 205 150 203 147 L 121 102 Q 115 100 115 105 Z" strokeWidth="0"/>
+                  <rect x="210" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+                </svg>
+              </div>
             </div>
-            {audio ? String(audio.duration) : '0:00'}
           </div>
           <div className="player-alt-controls"></div>
         </div>
-        <audio id="audio" onEnded={this.handleEnded}></audio>
+        <audio id="audio" onEnded={this.handleNext}></audio>
       </div>
     );
   }
@@ -106,6 +123,7 @@ class AudioPlayer extends React.Component {
 const mapStateToProps = state => ({
   currentTrack: state.entities.tracks[state.ui.audioPlayer.currentTrackId],
   nextTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos + 1],
+  prevTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos - 1],
   isPlaying: state.ui.audioPlayer.isPlaying,
 });
 
@@ -114,6 +132,10 @@ const mapDispatchToProps = dispatch => ({
   pause: () => dispatch(pauseAudio()),
   next: id => {
     dispatch(nextTrack());
+    if (id) dispatch(requestTrack(id));
+  },
+  prev: id => {
+    dispatch(prevTrack());
     if (id) dispatch(requestTrack(id));
   },
 });
