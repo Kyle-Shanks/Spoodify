@@ -31,6 +31,11 @@ const TrackIndexItem = (props) => {
     );
   }
 
+  const dura_parts = props.track.duration.split(':');
+  const duration = (
+    <div>{dura_parts[0]}<span className="spacing-s">:</span>{dura_parts[1]}</div>
+  );
+
   return (
     <li>
       <div className={ "rela-block flex-parent track-item" +
@@ -63,7 +68,7 @@ const TrackIndexItem = (props) => {
           }}>
           • • •
         </div>
-        <div className="track-duration">0<span className="spacing-s">:</span>00</div>
+        <div className="track-duration">{duration}</div>
       </div>
     </li>
   );

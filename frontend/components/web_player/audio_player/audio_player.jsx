@@ -248,7 +248,7 @@ class AudioPlayer extends React.Component {
             <div className="flex-parent seek-bar-outer-container">
               <p>{time}</p>
               <div className="flex progress-bar seek-bar-container" onClick={this.setSeek}>
-                <div className="outer-bar" >
+                <div className="outer-bar">
                   <div className="inner-bar" style={{width: `${(this.state.currentTime*100/(this.state.duration || 1))}%`}}></div>
                 </div>
               </div>

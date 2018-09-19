@@ -53,7 +53,9 @@ const Sidebar = (props) => {
           Log Out
         </button>
         <div className="rela-inline flex-parent user-container">
-          <div className="user-img"></div>
+          <div className="user-img">
+            <img src={window.userImg}/>
+          </div>
           <p>{props.currentUser.username}</p>
         </div>
       </div>

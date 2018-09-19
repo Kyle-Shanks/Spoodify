@@ -393,6 +393,10 @@ ul.errors {
   border-radius: 100%;
   margin-right: 10px;
   vertical-align: bottom;
+  overflow: hidden;
+}
+.user-img img {
+  width: 100%;
 }
 .svg-container.item {
   height: 100%;
@@ -598,9 +602,6 @@ ul.errors {
 .collection-container {
   padding: 20px;
 }
-.artist-index .flex-parent,
-.playlist-index .flex-parent,
-.album-index .flex-parent,
 .playlist-select .flex-parent {
   justify-content: space-around;
   justify-content: space-evenly;
@@ -1017,6 +1018,10 @@ ul.errors {
   line-height: 48px;
   margin-bottom: 20px;
   text-align: center;
+}
+.artist-section .flex-parent {
+  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .artist-desc {
   padding: 20px;
