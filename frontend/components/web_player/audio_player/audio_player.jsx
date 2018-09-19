@@ -11,10 +11,12 @@ class AudioPlayer extends React.Component {
       currentTrack: null,
       duration: 0,
       currentTime: 0,
+      muted: false,
     };
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleMute = this.handleMute.bind(this);
     this.setSeek = this.setSeek.bind(this);
     this.setVolume = this.setVolume.bind(this);
     this.updateInterval = setInterval(this.handleUpdate, 333);
@@ -51,6 +53,12 @@ class AudioPlayer extends React.Component {
       duration: audio.duration || 0,
       currentTime: audio.currentTime || 0,
     });
+  }
+
+  handleMute(e) {
+    const audio = document.getElementById('audio');
+    this.setState({ muted: !this.state.muted});
+    audio.muted = !audio.muted;
   }
 
   handleNext(e) {
@@ -111,6 +119,41 @@ class AudioPlayer extends React.Component {
       );
     }
 
+    let volumeSvg;
+    if (this.state.muted) {
+      volumeSvg = (
+        <svg viewBox="0 0 400 400" className="rela-block svg">
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
+          <path d="M 240 160 L 320 240" strokeWidth="20" />
+          <path d="M 240 240 L 320 160" strokeWidth="20" />
+        </svg>
+      );
+    } else if (!audio || audio.volume > 0.67) {
+      volumeSvg = (
+        <svg viewBox="0 0 400 400" className="rela-block svg">
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
+          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
+          <path d="M 270 320 Q 420 195 270 70 " stroke-width="20" fill="none" />
+       </svg>
+      );
+    } else if (audio.volume > 0.33) {
+      volumeSvg = (
+        <svg viewBox="0 0 400 400" className="rela-block svg">
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
+          <path d="M 260 290 Q 350 195 260 100 " stroke-width="20" fill="none" />
+          <path d="M 260 290 Q 350 195 260 100 " stroke-width="20" fill="none" />
+        </svg>
+      );
+    } else {
+      volumeSvg = (
+        <svg viewBox="0 0 400 400" className="rela-block svg">
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
+          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
+          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
+        </svg>
+      );
+    }
+
     return (
       <div className="audio-player">
         <div className="flex-parent player-controls-container">
@@ -157,7 +200,7 @@ class AudioPlayer extends React.Component {
               <p>{time}</p>
               <div className="flex progress-bar seek-bar-container" onClick={this.setSeek}>
                 <div className="outer-bar" >
-                  <div className="inner-bar" style={{width: `${(this.state.currentTime*100/this.state.duration)}%`}}></div>
+                  <div className="inner-bar" style={{width: `${(this.state.currentTime*100/(this.state.duration || 1))}%`}}></div>
                 </div>
               </div>
               <p>{duration}</p>
@@ -166,7 +209,7 @@ class AudioPlayer extends React.Component {
 
           <div className="player-alt-controls">
             <div className="rela-inline svg-container">
-              <Link to="/queue" className="rela-inline app-link queue-svg">
+              <Link to="/queue" className="rela-inline app-link alt-svg">
                 <svg viewBox="0 0 400 400" className="rela-block svg">
                   <path d="M 60 65 L 60 175 Q 60 180 66 179 L 158 123
                            Q 160 120 158 117 L 66 62 Q 60 60 60 65" strokeWidth="0"/>
@@ -176,9 +219,14 @@ class AudioPlayer extends React.Component {
                 </svg>
               </Link>
             </div>
+            <div className="rela-inline svg-container">
+              <div className="rela-inline app-link alt-svg" onClick={this.handleMute}>
+                {volumeSvg}
+              </div>
+            </div>
             <div className="rela-inline progress-bar volume-bar-container" onClick={this.setVolume}>
               <div className="outer-bar">
-                <div className="inner-bar" style={{width: `${audio ? audio.volume*100 : 100}%`}}></div>
+                <div className={"inner-bar" + (this.state.muted ? ' disabled' : '')} style={{width: `${audio ? audio.volume*100 : 100}%`}}></div>
               </div>
             </div>
           </div>

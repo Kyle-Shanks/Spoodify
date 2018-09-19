@@ -62,14 +62,15 @@
 
 .player-alt-controls
   text-align right
+  padding 25px 0
 
-.queue-svg
-  height 26px
+.alt-svg
+  height 22px
   width @height
-  margin 16px
+  margin 12px 6px
   & .svg
-    fill $light-transparent
-    stroke $light-transparent
+    fill #a9a9a9
+    stroke #a9a9a9
     width 100%
   &:hover .svg
     fill $white
@@ -89,10 +90,12 @@
     transition 0s
   &:hover .inner-bar
     background-color $green
+  & .inner-bar.disabled
+    background-color #404040
 
 .volume-bar-container
   width 100px
-  margin 18px 10px
+  margin 10px
 
 .seek-bar-container
   margin 0 10px

@@ -862,18 +862,19 @@ ul.errors {
 }
 .player-alt-controls {
   text-align: right;
+  padding: 25px 0;
 }
-.queue-svg {
-  height: 26px;
-  width: 26px;
-  margin: 16px;
+.alt-svg {
+  height: 22px;
+  width: 22px;
+  margin: 12px 6px;
 }
-.queue-svg .svg {
-  fill: rgba(255,255,255,0.6);
-  stroke: rgba(255,255,255,0.6);
+.alt-svg .svg {
+  fill: #a9a9a9;
+  stroke: #a9a9a9;
   width: 100%;
 }
-.queue-svg:hover .svg {
+.alt-svg:hover .svg {
   fill: #fff;
   stroke: #fff;
 }
@@ -896,9 +897,12 @@ ul.errors {
 .progress-bar:hover .inner-bar {
   background-color: #1db954;
 }
+.progress-bar .inner-bar.disabled {
+  background-color: #404040;
+}
 .volume-bar-container {
   width: 100px;
-  margin: 18px 10px;
+  margin: 10px;
 }
 .seek-bar-container {
   margin: 0 10px;
