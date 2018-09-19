@@ -19,6 +19,9 @@ class AudioPlayer extends React.Component {
     this.handleMute = this.handleMute.bind(this);
     this.setSeek = this.setSeek.bind(this);
     this.setVolume = this.setVolume.bind(this);
+  }
+
+  componentDidMount() {
     this.updateInterval = setInterval(this.handleUpdate, 333);
   }
 
@@ -31,6 +34,10 @@ class AudioPlayer extends React.Component {
     }
     if (nextProps.isPlaying && !this.props.isPlaying) audio.play();
     if (!nextProps.isPlaying && this.props.isPlaying) audio.pause();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.updateInterval);
   }
 
   setSeek(e) {

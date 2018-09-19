@@ -19,16 +19,17 @@ const WebPlayer = (props) => {
   switch (props.match.url) {
     case '/browse': colorClass = ' blue'; break;
     case '/artists': colorClass = ' black'; break;
-    case '/albums': colorClass = ' grey'; break;
+    case '/albums': colorClass = ' green'; break;
     case '/playlists': colorClass = ' red'; break;
     case '/search': colorClass = ' darker'; break;
-    case '/collection': colorClass = ' green'; break;
+    case '/collection': colorClass = ' grey'; break;
     case '/queue': colorClass = ' darker'; break;
     default: colorClass = ' blue';
   }
 
   return (
-    <div className="web-player-container" onClick={props.closeDropdown}>
+    <div className="web-player-container"
+      onClick={() => {if(props.dropdownOpen) props.closeDropdown();}}>
       <div className="top-container">
         <div className={"main-background" + colorClass}></div>
         <Route path="/:section" component={ SidebarContainer } />
@@ -53,8 +54,11 @@ const WebPlayer = (props) => {
   )
 }
 
+const mapStateToProps = state => ({
+  dropdownOpen: state.ui.dropdown.isOpen,
+});
 const mapDispatchToProps = dispatch => ({
   closeDropdown: () => dispatch(closeDropdown()),
 });
 
-export default connect(null,mapDispatchToProps)(WebPlayer);
+export default connect(mapStateToProps,mapDispatchToProps)(WebPlayer);

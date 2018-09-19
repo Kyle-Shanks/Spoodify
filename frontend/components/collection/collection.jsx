@@ -8,6 +8,10 @@ import TrackIndex from '../util/tracks/track_container';
 import PlaylistIndex from '../util/playlists/playlist_container';
 
 const Collection = (props) => {
+  const artistIds = props.currentUser.followed_artist_ids.length ? props.currentUser.followed_artist_ids : [-1];
+  const playlistIds = props.currentUser.followed_playlist_ids.length ? props.currentUser.followed_playlist_ids : [-1];
+  const albumIds = props.currentUser.liked_album_ids.length ? props.currentUser.liked_album_ids : [-1];
+  const trackIds = props.currentUser.liked_track_ids.length ? props.currentUser.liked_track_ids : [-1];
   return (
     <div className="collection-container">
       <Route exact path="/collection" render={() => <Redirect to="/collection/artists" />} />
@@ -15,16 +19,16 @@ const Collection = (props) => {
 
       <div className="collection-content">
         <Route path="/collection/artists" render={
-          () => <ArtistIndex artistIds={props.currentUser.followed_artist_ids} />
+          () => <ArtistIndex artistIds={artistIds} />
         }/>
         <Route path="/collection/tracks" render={
-          () => <TrackIndex trackIds={props.currentUser.liked_track_ids} />
+          () => <TrackIndex trackIds={trackIds} />
         }/>
         <Route path="/collection/albums" render={
-          () => <AlbumIndex albumIds={props.currentUser.liked_album_ids} />
+          () => <AlbumIndex albumIds={albumIds} />
         }/>
         <Route path="/collection/playlists" render={
-          () => <PlaylistIndex playlistIds={props.currentUser.followed_playlist_ids} />
+          () => <PlaylistIndex playlistIds={playlistIds} />
         }/>
       </div>
     </div>
