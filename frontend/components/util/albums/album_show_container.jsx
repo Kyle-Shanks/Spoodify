@@ -4,11 +4,13 @@ import { requestAlbum } from '../../../actions/album_actions';
 import { Link } from 'react-router-dom';
 import TrackIndex from '../tracks/track_container';
 import { playAudio, setTrackQueue, setCurrentTrack, getQueuePos } from '../../../actions/ui_actions';
+import { createLike, deleteLike } from '../../../actions/like_actions';
 
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,17 @@ class AlbumShow extends React.Component {
       this.props.playAudio();
       this.props.getQueuePos();
     }
+  }
+
+  handleLike(e) {
+    const liked = this.props.currentUser.liked_album_ids.includes(this.props.album.id);
+    const like = {
+      user_id: this.props.currentUser.id,
+      likeable_id: this.props.album.id,
+      likeable_type: 'Album'
+    };
+
+    liked ? this.props.deleteLike(like) : this.props.createLike(like);
   }
 
   render () {
@@ -58,6 +71,10 @@ class AlbumShow extends React.Component {
               onClick={this.handlePlay}>
               Play
             </button>
+            <button className="rela-inline button slim outline resizing"
+              onClick={this.handleLike}>
+              {this.props.currentUser.liked_album_ids.includes(this.props.album.id) ? 'Remove from Library' : 'Save to Library'}
+            </button>
           </div>
         </div>
       </div>
@@ -67,6 +84,7 @@ class AlbumShow extends React.Component {
 
 const mapStateToProps = (state,ownProps) => ({
   album: state.entities.albums[ownProps.match.params.albumId],
+  currentUser: state.entities.users[state.session.currentUserId],
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -75,6 +93,8 @@ const mapDispatchToProps = dispatch => ({
   setTrackQueue: arr => dispatch(setTrackQueue(arr)),
   setCurrentTrack: id => dispatch(setCurrentTrack(id)),
   getQueuePos: () => dispatch(getQueuePos()),
+  createLike: like => dispatch(createLike(like)),
+  deleteLike: like => dispatch(deleteLike(like)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumShow);

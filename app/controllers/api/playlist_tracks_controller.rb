@@ -5,7 +5,7 @@ class Api::PlaylistTracksController < ApplicationController
     if @playlist_track.save
       render 'api/playlist_tracks/show'
     else
-      render json: ["Invalid credentials"], status: 401
+      render json: ["Could not process request"], status: 401
     end
   end
 

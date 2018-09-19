@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deletePlaylistTrack } from '../../actions/playlist_track_actions';
 import { closeDropdown, openModal, setModalComponent, setModalProps } from '../../actions/ui_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
 
 class Dropdown extends React.Component {
   render () {
@@ -21,7 +22,35 @@ class Dropdown extends React.Component {
           this.props.closeDropdown();
         },
       });
-      if (this.props.dropdown.dropdownProps.playlistId) {
+
+      // Save / Remove
+      const like = {
+        user_id: this.props.currentUser.id,
+        likeable_id: this.props.dropdown.dropdownProps.trackId,
+        likeable_type: 'Track',
+      };
+      if (this.props.currentUser.liked_track_ids.includes(this.props.dropdown.dropdownProps.trackId)) {
+        // Remove
+        actions.push({
+          title: 'Remove from Library',
+          func: () => {
+            this.props.deleteLike(like);
+            this.props.closeDropdown();
+          },
+        });
+      } else {
+        // Save
+        actions.push({
+          title: 'Save to Library',
+          func: () => {
+            this.props.createLike(like);
+            this.props.closeDropdown();
+          },
+        });
+      }
+
+      if (this.props.dropdown.dropdownProps.playlistId &&
+          (this.props.currentUser.id === this.props.playlists[this.props.dropdown.dropdownProps.playlistId].user.id)) {
         actions.push({
           title: 'Remove from this Playlist',
           func: () => {
@@ -50,7 +79,9 @@ class Dropdown extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  dropdown: state.ui.dropdown
+  dropdown: state.ui.dropdown,
+  currentUser: state.entities.users[state.session.currentUserId],
+  playlists: state.entities.playlists
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,6 +90,8 @@ const mapDispatchToProps = dispatch => ({
   setModalProps: props => dispatch(setModalProps(props)),
   setModalComponent: comp => dispatch(setModalComponent(comp)),
   deletePT: pt => dispatch(deletePlaylistTrack(pt)),
+  createLike: like => dispatch(createLike(like)),
+  deleteLike: like => dispatch(deleteLike(like)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Dropdown);

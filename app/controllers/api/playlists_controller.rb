@@ -1,6 +1,12 @@
 class Api::PlaylistsController < ApplicationController
   def index
-    @playlists = search_term ? Playlist.where('lower(title) LIKE ?', "%#{search_term.downcase}%") : Playlist.all
+    if playlist_ids
+      @playlists = Playlist.where(id: playlist_ids)
+    elsif search_term
+      @playlists = Playlist.where('lower(title) LIKE ?', "%#{search_term.downcase}%")
+    else
+      @playlists = Playlist.all
+    end
   end
 
   def show
@@ -17,7 +23,7 @@ class Api::PlaylistsController < ApplicationController
     if @playlist.save
       render 'api/playlists/show'
     else
-      render json: ["Invalid credentials"], status: 401
+      render json: ["Could not process request"], status: 401
     end
   end
 
@@ -36,6 +42,10 @@ class Api::PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:title, :user_id)
+  end
+
+  def playlist_ids
+    params[:playlist_ids]
   end
 
   def search_term

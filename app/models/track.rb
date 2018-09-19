@@ -17,4 +17,7 @@ class Track < ApplicationRecord
   has_many :playlist_tracks, dependent: :destroy
   has_many :playlists, through: :playlist_tracks
   has_one_attached :src
+
+  has_many :likes, as: :likeable, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
 end

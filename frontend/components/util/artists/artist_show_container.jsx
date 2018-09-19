@@ -4,11 +4,17 @@ import { requestArtist } from '../../../actions/artist_actions';
 import { Redirect, Route, Link } from 'react-router-dom';
 import ArtistShowContent from './artist_show_content';
 import { playAudio, setTrackQueue, setCurrentTrack, getQueuePos } from '../../../actions/ui_actions';
+import { createFollow, deleteFollow } from '../../../actions/follow_actions';
 
 class ArtistShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
+  }
+
   componentDidMount() {
     this.props.requestArtist(this.props.match.params.artistId);
-    this.handlePlay = this.handlePlay.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -24,6 +30,17 @@ class ArtistShow extends React.Component {
       this.props.playAudio();
       this.props.getQueuePos();
     }
+  }
+
+  handleFollow(e) {
+    const following = this.props.currentUser.followed_artist_ids.includes(this.props.artist.id);
+    const follow = {
+      user_id: this.props.currentUser.id,
+      followable_id: this.props.artist.id,
+      followable_type: 'Artist'
+    };
+
+    following ? this.props.deleteFollow(follow) : this.props.createFollow(follow);
   }
 
   render () {
@@ -43,7 +60,10 @@ class ArtistShow extends React.Component {
               onClick={this.handlePlay}>
               Play
             </button>
-            <button className="rela-inline button slim outline resizing">Follow</button>
+            <button className="rela-inline button slim outline resizing"
+              onClick={this.handleFollow}>
+              {this.props.currentUser.followed_artist_ids.includes(this.props.artist.id) ? 'Unfollow' : 'Follow'}
+            </button>
           </div>
         </div>
 
@@ -58,6 +78,7 @@ class ArtistShow extends React.Component {
 
 const mapStateToProps = (state,ownProps) => ({
   artist: state.entities.artists[ownProps.match.params.artistId],
+  currentUser: state.entities.users[state.session.currentUserId],
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -66,6 +87,8 @@ const mapDispatchToProps = dispatch => ({
   setTrackQueue: arr => dispatch(setTrackQueue(arr)),
   setCurrentTrack: id => dispatch(setCurrentTrack(id)),
   getQueuePos: () => dispatch(getQueuePos()),
+  createFollow: follow => dispatch(createFollow(follow)),
+  deleteFollow: follow => dispatch(deleteFollow(follow)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistShow);

@@ -594,7 +594,8 @@ ul.errors {
 .content-secondary-text {
   color: rgba(255,255,255,0.6);
 }
-.browse-container {
+.browse-container,
+.collection-container {
   padding: 20px;
 }
 .artist-index .flex-parent,
@@ -885,6 +886,7 @@ ul.errors {
   height: 22px;
   width: 22px;
   margin: 12px 0 12px 12px;
+  cursor: default;
 }
 .alt-svg .svg {
   fill: #a9a9a9;

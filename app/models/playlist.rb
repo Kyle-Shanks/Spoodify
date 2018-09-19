@@ -15,4 +15,7 @@ class Playlist < ApplicationRecord
   belongs_to :user
   has_many :playlist_tracks, dependent: :destroy
   has_many :tracks, through: :playlist_tracks
+
+  has_many :follows, as: :followable, dependent: :destroy
+  has_many :followers, through: :follows, source: :user
 end

@@ -58,7 +58,7 @@ const TrackIndexItem = (props) => {
         <div className="track-menu"
           onClick={(e) => {
             e.stopPropagation();
-            props.openDropdown({ x: e.clientX - 100, y: e.clientY});
+            props.openDropdown({ x: e.clientX - 100, y: e.clientY + 3});
             props.setDropdownProps({ trackId: props.track.id, playlistId: props.playlistId });
           }}>
           • • •

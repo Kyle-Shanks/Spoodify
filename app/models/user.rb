@@ -23,6 +23,14 @@ class User < ApplicationRecord
   has_many :playlists
   has_one_attached :photo
 
+  has_many :likes
+  has_many :liked_tracks, through: :likes, source: :likeable, source_type: 'Track'
+  has_many :liked_albums, through: :likes, source: :likeable, source_type: 'Album'
+
+  has_many :follows
+  has_many :followed_artists, through: :follows, source: :followable, source_type: 'Artist'
+  has_many :followed_playlists, through: :follows, source: :followable, source_type: 'Playlist'
+
   attr_reader :password
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

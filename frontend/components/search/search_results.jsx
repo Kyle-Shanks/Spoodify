@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 import ArtistIndex from '../util/artists/artist_container';
 import AlbumIndex from '../util/albums/album_container';
 import TrackIndex from '../util/tracks/track_container';

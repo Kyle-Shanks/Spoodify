@@ -17,4 +17,7 @@ class Album < ApplicationRecord
   belongs_to :artist
   has_many :tracks
   has_one_attached :photo
+
+  has_many :likes, as: :likeable, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
 end
