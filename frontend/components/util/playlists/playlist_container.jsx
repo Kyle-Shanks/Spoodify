@@ -21,7 +21,8 @@ class PlaylistIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (
       (nextProps.playlistIds && !arrayEq(this.props.playlistIds,nextProps.playlistIds)) ||
-      (nextProps.searchTerm && this.props.searchTerm !== nextProps.searchTerm)
+      (nextProps.searchTerm && this.props.searchTerm !== nextProps.searchTerm) ||
+      (nextProps.playlists.length !== this.props.playlists.length)
     ) {
       this.props.requestPlaylists({
         playlist_ids: nextProps.playlistIds,

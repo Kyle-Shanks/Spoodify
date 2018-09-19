@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PlaylistCreateModal extends React.Component {
   constructor(props) {
@@ -47,9 +48,11 @@ class PlaylistCreateModal extends React.Component {
           <button className="rela-inline button outline slim resizing" onClick={this.close}>
             Cancel
           </button>
-          <button className="rela-inline button slim resizing" onClick={this.submitInfo}>
-            Create
-          </button>
+          <Link className="rela-inline" to="/browse/playlists">
+            <button className="rela-inline button slim resizing" onClick={this.submitInfo}>
+              Create
+            </button>
+          </Link>
         </div>
       </div>
     );

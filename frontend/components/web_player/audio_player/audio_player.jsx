@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { playAudio, pauseAudio, nextTrack, prevTrack, clearPlayer } from '../../../actions/ui_actions';
 import { requestTrack } from '../../../actions/track_actions';
+import { createLike, deleteLike } from '../../../actions/like_actions';
 
 class AudioPlayer extends React.Component {
   constructor(props) {
@@ -164,6 +165,39 @@ class AudioPlayer extends React.Component {
       );
     }
 
+
+    let addSvg;
+    if(!this.state.currentTrack) {
+      addSvg = '';
+    } else if (this.props.currentUser.liked_track_ids.includes(this.state.currentTrack.id)) {
+      addSvg = (
+        <svg viewBox="0 0 200 200" className="rela-block svg"
+          onClick={() => {
+            this.props.deleteLike({
+              user_id: this.props.currentUser.id,
+              likeable_id: this.state.currentTrack.id,
+              likeable_type: 'Track',
+            })
+          }}>
+          <path d="M 35 90 L 75 130 L 150 55" strokeWidth="15" fill="none" />
+        </svg>
+      );
+    } else {
+      addSvg = (
+        <svg viewBox="0 0 200 200" className="rela-block svg"
+          onClick={() => {
+            this.props.createLike({
+              user_id: this.props.currentUser.id,
+              likeable_id: this.state.currentTrack.id,
+              likeable_type: 'Track',
+            })
+          }}>
+          <path d="M 100 50 L 100 150" strokeWidth="15" fill="none" />
+          <path d="M 50 100 L 150 100" strokeWidth="15" fill="none" />
+        </svg>
+      );
+    }
+
     return (
       <div className="audio-player">
         <div className="flex-parent player-controls-container">
@@ -185,6 +219,11 @@ class AudioPlayer extends React.Component {
                   {info.artist}
                 </Link>
               </p>
+            </div>
+            <div className="rela-inline svg-container">
+              <div className="rela-inline alt-svg">
+                {addSvg}
+              </div>
             </div>
           </div>
 
@@ -230,7 +269,7 @@ class AudioPlayer extends React.Component {
               </Link>
             </div>
             <div className="rela-inline svg-container">
-              <div className="rela-inline app-link alt-svg" onClick={this.handleMute}>
+              <div className="rela-inline alt-svg" onClick={this.handleMute}>
                 {volumeSvg}
               </div>
             </div>
@@ -249,6 +288,7 @@ class AudioPlayer extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  currentUser: state.entities.users[state.session.currentUserId],
   currentTrack: state.entities.tracks[state.ui.audioPlayer.currentTrackId],
   nextTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos + 1],
   prevTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos - 1],
@@ -259,6 +299,8 @@ const mapDispatchToProps = dispatch => ({
   play: () => dispatch(playAudio()),
   pause: () => dispatch(pauseAudio()),
   clearPlayer: () => dispatch(clearPlayer()),
+  createLike: like => dispatch(createLike(like)),
+  deleteLike: like => dispatch(deleteLike(like)),
   next: id => {
     dispatch(nextTrack());
     if (id) dispatch(requestTrack(id));
