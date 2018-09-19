@@ -17,8 +17,9 @@ const ArtistIndexItem = (props) => {
           </Link>
           <img className="rela-block content-img" src={props.artist.photoUrl}/>
         </div>
-        <p className="rela-block content-primary-text">{props.artist.name}</p>
-        <p className="rela-block content-secondary-text"></p>
+        <Link className="rela-inline app-link" to={`/artists/${props.artist.id}`}>
+          <p className="rela-inline content-primary-text">{props.artist.name}</p>
+        </Link>
       </div>
     </li>
   );

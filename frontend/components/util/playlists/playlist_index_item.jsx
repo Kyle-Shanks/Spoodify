@@ -17,7 +17,9 @@ const PlaylistIndexItem = (props) => {
           </Link>
           <div className="abs-center playlist-title">{props.playlist.title}</div>
         </div>
-        <p className="rela-block content-primary-text">{props.playlist.title}</p>
+        <Link className="rela-inline app-link" to={`/playlists/${props.playlist.id}`}>
+          <p className="rela-inline content-primary-text">{props.playlist.title}</p>
+        </Link>
         <p className="rela-block content-secondary-text">{props.playlist.user.username}</p>
       </div>
     </li>

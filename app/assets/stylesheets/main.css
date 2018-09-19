@@ -555,6 +555,9 @@ ul.errors {
 .content-item .content-secondary-text a:hover {
   color: #fff;
 }
+.content-item .content-primary-text {
+  color: #fff;
+}
 .content-item.artist .content-img,
 .content-item.artist .img-container,
 .content-item.artist .img-container::after {
@@ -593,7 +596,8 @@ ul.errors {
 }
 .artist-index .flex-parent,
 .playlist-index .flex-parent,
-.album-index .flex-parent {
+.album-index .flex-parent,
+.playlist-select .flex-parent {
   justify-content: space-around;
   justify-content: space-evenly;
 }
@@ -851,9 +855,6 @@ ul.errors {
   text-align: center;
   height: 45px;
 }
-.control-svg-container:hover {
-  background-color: rgba(255,255,255,0.05);
-}
 .control-svg-container .svg-container {
   height: 45px;
   width: 45px;
@@ -861,6 +862,50 @@ ul.errors {
 }
 .player-alt-controls {
   text-align: right;
+}
+.queue-svg {
+  height: 26px;
+  width: 26px;
+  margin: 16px;
+}
+.queue-svg .svg {
+  fill: rgba(255,255,255,0.6);
+  stroke: rgba(255,255,255,0.6);
+  width: 100%;
+}
+.queue-svg:hover .svg {
+  fill: #fff;
+  stroke: #fff;
+}
+.progress-bar {
+  height: 26px;
+}
+.progress-bar * {
+  height: 4px;
+  border-radius: 4px;
+}
+.progress-bar .outer-bar {
+  width: 100%;
+  background-color: #404040;
+  margin: 10px 0;
+}
+.progress-bar .inner-bar {
+  background-color: #919496;
+  transition: 0s;
+}
+.progress-bar:hover .inner-bar {
+  background-color: #1db954;
+}
+.volume-bar-container {
+  width: 100px;
+  margin: 18px 10px;
+}
+.seek-bar-container {
+  margin: 0 10px;
+}
+.seek-bar-outer-container p {
+  font-size: 12px;
+  width: 30px;
 }
 .show-item-info {
   position: fixed;

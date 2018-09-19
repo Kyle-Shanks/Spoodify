@@ -53,8 +53,8 @@
 .control-svg-container
   text-align center
   height 45px
-  &:hover
-    background-color rgba(255,255,255,0.05)
+  // &:hover
+  //   background-color rgba(255,255,255,0.05)
   & .svg-container
     height 45px
     width @height
@@ -62,3 +62,41 @@
 
 .player-alt-controls
   text-align right
+
+.queue-svg
+  height 26px
+  width @height
+  margin 16px
+  & .svg
+    fill $light-transparent
+    stroke $light-transparent
+    width 100%
+  &:hover .svg
+    fill $white
+    stroke $white
+
+.progress-bar
+  height 26px
+  & *
+    height 4px
+    border-radius @height
+  & .outer-bar
+    width 100%
+    background-color #404040
+    margin 10px 0
+  & .inner-bar
+    background-color $grey
+    transition 0s
+  &:hover .inner-bar
+    background-color $green
+
+.volume-bar-container
+  width 100px
+  margin 18px 10px
+
+.seek-bar-container
+  margin 0 10px
+
+.seek-bar-outer-container p
+  font-size 12px
+  width 30px

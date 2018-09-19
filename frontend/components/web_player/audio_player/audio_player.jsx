@@ -7,9 +7,17 @@ import { requestTrack } from '../../../actions/track_actions';
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentTrack: null };
+    this.state = {
+      currentTrack: null,
+      duration: 0,
+      currentTime: 0,
+    };
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.setSeek = this.setSeek.bind(this);
+    this.setVolume = this.setVolume.bind(this);
+    this.updateInterval = setInterval(this.handleUpdate, 333);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,6 +29,28 @@ class AudioPlayer extends React.Component {
     }
     if (nextProps.isPlaying && !this.props.isPlaying) audio.play();
     if (!nextProps.isPlaying && this.props.isPlaying) audio.pause();
+  }
+
+  setSeek(e) {
+    if (this.props.currentTrack) {
+      const audio = document.getElementById('audio');
+      const bounds = e.target.getBoundingClientRect();
+      audio.currentTime = (e.clientX - bounds.x)/bounds.width * audio.duration;
+    }
+  }
+
+  setVolume(e) {
+    const audio = document.getElementById('audio');
+    const bounds = e.target.getBoundingClientRect();
+    audio.volume = (e.clientX - bounds.x)/bounds.width;
+  }
+
+  handleUpdate() {
+    const audio = document.getElementById('audio');
+    this.setState({
+      duration: audio.duration || 0,
+      currentTime: audio.currentTime || 0,
+    });
   }
 
   handleNext(e) {
@@ -42,6 +72,15 @@ class AudioPlayer extends React.Component {
 
   render () {
     const audio = document.getElementById('audio');
+
+    const tm = Math.floor(this.state.currentTime/60);
+    const ts = Math.floor(this.state.currentTime%60);
+    const time = String( tm+":"+ ((ts > 9) ? ts : "0"+ts) );
+
+    const dm = Math.floor(this.state.duration/60);
+    const ds = Math.floor(this.state.duration%60);
+    const duration = String( dm+":"+ ((ds > 9) ? ds : "0"+ds) );
+
     let info = { imgSrc: '', title: '', albumId: '', artist: '', artistId: '' };
     if (this.state.currentTrack) {
       info = {
@@ -75,6 +114,7 @@ class AudioPlayer extends React.Component {
     return (
       <div className="audio-player">
         <div className="flex-parent player-controls-container">
+
           <div className="player-info">
             <div className="rela-inline player-artwork">
               <Link to={`/albums/${info.albumId}`}>
@@ -94,6 +134,7 @@ class AudioPlayer extends React.Component {
               </p>
             </div>
           </div>
+
           <div className="flex player-controls">
             <div className="rela-block control-svg-container">
               <div className="rela-inline svg-container">
@@ -112,11 +153,37 @@ class AudioPlayer extends React.Component {
                 </svg>
               </div>
             </div>
+            <div className="flex-parent seek-bar-outer-container">
+              <p>{time}</p>
+              <div className="flex progress-bar seek-bar-container" onClick={this.setSeek}>
+                <div className="outer-bar" >
+                  <div className="inner-bar" style={{width: `${(this.state.currentTime*100/this.state.duration)}%`}}></div>
+                </div>
+              </div>
+              <p>{duration}</p>
+            </div>
           </div>
+
           <div className="player-alt-controls">
-            <Link to="/queue" className="app-link">Queue</Link>
+            <div className="rela-inline svg-container">
+              <Link to="/queue" className="rela-inline app-link queue-svg">
+                <svg viewBox="0 0 400 400" className="rela-block svg">
+                  <path d="M 60 65 L 60 175 Q 60 180 66 179 L 158 123
+                           Q 160 120 158 117 L 66 62 Q 60 60 60 65" strokeWidth="0"/>
+                  <path d="M 180 120 L 340 120" strokeWidth="20" />
+                  <path d="M 60 200 L 340 200" strokeWidth="20" />
+                  <path d="M 60 280 L 340 280" strokeWidth="20" />
+                </svg>
+              </Link>
+            </div>
+            <div className="rela-inline progress-bar volume-bar-container" onClick={this.setVolume}>
+              <div className="outer-bar">
+                <div className="inner-bar" style={{width: `${audio ? audio.volume*100 : 100}%`}}></div>
+              </div>
+            </div>
           </div>
         </div>
+
         <audio id="audio" onEnded={this.handleNext}></audio>
       </div>
     );
