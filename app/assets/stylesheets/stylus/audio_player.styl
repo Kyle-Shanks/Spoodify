@@ -67,7 +67,7 @@
 .alt-svg
   height 22px
   width @height
-  margin 12px 6px
+  margin 12px 0 12px 12px
   & .svg
     fill #a9a9a9
     stroke #a9a9a9
@@ -87,7 +87,7 @@
     margin 10px 0
   & .inner-bar
     background-color $grey
-    transition 0s
+    transition 0.2s ease-in-out, width 0s
   &:hover .inner-bar
     background-color $green
   & .inner-bar.disabled

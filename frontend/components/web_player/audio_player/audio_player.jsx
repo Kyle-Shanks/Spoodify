@@ -70,7 +70,10 @@ class AudioPlayer extends React.Component {
     }
   }
   handlePrev(e) {
-    if (this.props.prevTrackId) {
+    const audio = document.getElementById('audio');
+    if (this.state.currentTime > 3) {
+      audio.currentTime = 0;
+    } else if (this.props.prevTrackId) {
       this.props.prev(this.props.prevTrackId);
     } else {
       this.setState({ currentTrack: null });
@@ -123,33 +126,33 @@ class AudioPlayer extends React.Component {
     if (this.state.muted) {
       volumeSvg = (
         <svg viewBox="0 0 400 400" className="rela-block svg">
-          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
-          <path d="M 240 160 L 320 240" strokeWidth="20" />
-          <path d="M 240 240 L 320 160" strokeWidth="20" />
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="20" fill="none" />
+          <path d="M 260 160 L 340 240" strokeWidth="20" />
+          <path d="M 260 240 L 340 160" strokeWidth="20" />
         </svg>
       );
     } else if (!audio || audio.volume > 0.67) {
       volumeSvg = (
         <svg viewBox="0 0 400 400" className="rela-block svg">
-          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
-          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
-          <path d="M 270 320 Q 420 195 270 70 " stroke-width="20" fill="none" />
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="20" fill="none" />
+          <path d="M 250 260 Q 310 195 250 130 " strokeWidth="20" fill="none" />
+          <path d="M 270 320 Q 420 195 270 70 " strokeWidth="20" fill="none" />
        </svg>
       );
     } else if (audio.volume > 0.33) {
       volumeSvg = (
         <svg viewBox="0 0 400 400" className="rela-block svg">
-          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
-          <path d="M 260 290 Q 350 195 260 100 " stroke-width="20" fill="none" />
-          <path d="M 260 290 Q 350 195 260 100 " stroke-width="20" fill="none" />
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="20" fill="none" />
+          <path d="M 260 290 Q 350 195 260 100 " strokeWidth="20" fill="none" />
+          <path d="M 260 290 Q 350 195 260 100 " strokeWidth="20" fill="none" />
         </svg>
       );
     } else {
       volumeSvg = (
         <svg viewBox="0 0 400 400" className="rela-block svg">
-          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="0" />
-          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
-          <path d="M 250 260 Q 310 195 250 130 " stroke-width="20" fill="none" />
+          <path d="M 60 135 L 60 245 L 140 245 L 210 295 L 210 85 L 140 135 Z" strokeWidth="20" fill="none" />
+          <path d="M 250 260 Q 310 195 250 130 " strokeWidth="20" fill="none" />
+          <path d="M 250 260 Q 310 195 250 130 " strokeWidth="20" fill="none" />
         </svg>
       );
     }

@@ -62,6 +62,17 @@
   right 0
   transform translateY(-50%)
 
+.close-svg
+  height 54px
+  width @height
+  margin 0 auto
+  & .svg
+    stroke #a9a9a9
+  &:hover
+    transform scale(1.06)
+    & .svg
+      stroke $white
+
 @media screen and (max-width: 1240px)
   .create-modal-button
     position relative

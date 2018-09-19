@@ -3,7 +3,7 @@ class Api::TracksController < ApplicationController
     if track_ids
       @tracks = Track.where(id: track_ids)
     elsif search_term
-      @tracks = Track.where('lower(title) LIKE ?', "%#{search_term}%")
+      @tracks = Track.where('lower(title) LIKE ?', "%#{search_term.downcase}%")
     else
       @tracks = Track.all
     end

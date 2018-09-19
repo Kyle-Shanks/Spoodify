@@ -1,6 +1,6 @@
 class Api::ArtistsController < ApplicationController
   def index
-    @artists = search_term ? Artist.where('lower(name) LIKE ?', "%#{search_term}%") : Artist.all
+    @artists = search_term ? Artist.where('lower(name) LIKE ?', "%#{search_term.downcase}%") : Artist.all
   end
 
   def show

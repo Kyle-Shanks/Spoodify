@@ -8,7 +8,6 @@ class PlaylistDeleteModal extends React.Component {
   }
 
   confirmDelete() {
-    // const playlistId = (/playlists\/(\d+)/).exec(this.props.location.pathname)[1];
     const playlistId = this.props.modalProps.playlistId;
     this.props.deletePlaylist(playlistId);
     this.props.closeModal();
@@ -17,7 +16,14 @@ class PlaylistDeleteModal extends React.Component {
   render () {
     return (
       <div className="playlist-delete-modal">
-        <h1 onClick={this.props.closeModal}>X</h1>
+        <h1 onClick={this.props.closeModal}>
+          <div className="svg-container close-svg">
+            <svg viewBox="0 0 200 200" className="rela-block svg">
+              <path d="M 50 50 L 150 150" strokeWidth="8" />
+              <path d="M 150 50 L 50 150" strokeWidth="8" />
+            </svg>
+          </div>
+        </h1>
         <h1 className="rela-block modal-header">Do you really want to delete this playlist?</h1>
         <div className="rela-block modal-button-container">
           <button className="rela-inline button outline slim resizing" onClick={this.props.closeModal}>

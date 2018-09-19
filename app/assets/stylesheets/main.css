@@ -250,6 +250,7 @@ input:focus::placeholder {
   padding: 9px 20px 7px;
   min-width: 140px;
   font-weight: 300;
+  font-size: 11px;
 }
 .button.big {
   padding: 14px 40px;
@@ -280,6 +281,7 @@ footer {
   background: linear-gradient(#f037a5 -60%, #fae62d 140%);
   color: #fff;
   overflow: hidden;
+  transition: 0s;
 }
 .hero-container h4 {
   margin-bottom: 30px;
@@ -506,7 +508,7 @@ ul.errors {
   margin-bottom: 10px;
 }
 .content-item {
-  margin: 10px;
+  margin: 10px 10px 20px;
   width: 200px;
   text-align: center;
 }
@@ -518,6 +520,7 @@ ul.errors {
   min-height: 200px;
   background-color: rgba(0,0,0,0.3);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 .content-item .img-container::after {
   content: "";
@@ -764,6 +767,20 @@ ul.errors {
   right: 0;
   transform: translateY(-50%);
 }
+.close-svg {
+  height: 54px;
+  width: 54px;
+  margin: 0 auto;
+}
+.close-svg .svg {
+  stroke: #a9a9a9;
+}
+.close-svg:hover {
+  transform: scale(1.06);
+}
+.close-svg:hover .svg {
+  stroke: #fff;
+}
 @media screen and (max-width: 1240px) {
   .create-modal-button {
     position: relative;
@@ -867,7 +884,7 @@ ul.errors {
 .alt-svg {
   height: 22px;
   width: 22px;
-  margin: 12px 6px;
+  margin: 12px 0 12px 12px;
 }
 .alt-svg .svg {
   fill: #a9a9a9;
@@ -892,7 +909,7 @@ ul.errors {
 }
 .progress-bar .inner-bar {
   background-color: #919496;
-  transition: 0s;
+  transition: 0.2s ease-in-out, width 0s;
 }
 .progress-bar:hover .inner-bar {
   background-color: #1db954;
