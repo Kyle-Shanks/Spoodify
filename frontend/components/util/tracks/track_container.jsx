@@ -58,6 +58,7 @@ class TrackIndex extends React.Component {
         openDropdown={this.props.openDropdown}
         setDropdownProps={this.props.setDropdownProps} />
     ));
+    
     return (
       <div className="track-index">
         <ul>

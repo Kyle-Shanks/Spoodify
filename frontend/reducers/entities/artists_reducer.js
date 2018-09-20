@@ -5,7 +5,7 @@ const artistsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ARTISTS:
-      return action.artists;
+      return merge({}, state, action.artists);
     case RECEIVE_ARTIST:
       const newState = merge({}, state);
       newState[action.artist.id] = action.artist;

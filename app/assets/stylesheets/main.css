@@ -155,7 +155,7 @@ body {
 .logo-img {
   height: 39px;
   width: 39px;
-  vertical-align: bottom;
+  vertical-align: text-bottom;
   margin-right: 5px;
 }
 .loader {
@@ -297,7 +297,9 @@ footer {
 }
 .splash-footer {
   padding: 80px 0 50px;
-  min-height: 400px;
+}
+.splash-footer .gutter-container {
+  padding: 0 80px;
 }
 .nav-bar {
   z-index: 10;
@@ -323,6 +325,25 @@ footer {
 .nav-links a {
   font-weight: 500;
   padding: 31px 17px;
+}
+.links-container {
+  margin: 0 40px;
+}
+.links-container h4 {
+  color: #919496;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 20px 0;
+}
+.footer-links li {
+  margin: 20px 0;
+}
+.copyright {
+  text-align: right;
+  color: #919496;
+  font-size: 12px;
 }
 .form-container {
   background-color: #fff;
@@ -701,6 +722,10 @@ ul.errors {
 }
 .track-icon .svg {
   stroke-width: 10;
+}
+.queue-content h4 {
+  font-weight: 300;
+  margin: 30px 0 20px;
 }
 .modal {
   z-index: 100;

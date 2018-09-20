@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './footer';
 
 const Splash = (props) => {
   return (
@@ -7,7 +8,7 @@ const Splash = (props) => {
       <div className="nav-bar">
         <div className="gutter-container">
           <h2 className="logo small white">
-            <Link to="/">Spoodify</Link>
+            <Link to="/"><img className="logo-img" src={window.whiteSpot} />Spoodify</Link>
           </h2>
           <div className="nav-links">
             <Link className="white" to='/signup'>Sign Up</Link>
@@ -26,7 +27,7 @@ const Splash = (props) => {
       </div>
       <footer className="rela-block splash-footer">
         <div className="gutter-container">
-          Footer Stuff
+          <Footer />
         </div>
       </footer>
     </div>
