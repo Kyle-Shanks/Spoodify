@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deletePlaylistTrack } from '../../actions/playlist_track_actions';
-import { closeDropdown, openModal, setModalComponent, setModalProps } from '../../actions/ui_actions';
+import { closeDropdown, openModal, setModalComponent, setModalProps, addTrackQueue } from '../../actions/ui_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 class Dropdown extends React.Component {
@@ -20,6 +20,14 @@ class Dropdown extends React.Component {
           this.props.setModalComponent('add');
           this.props.setModalProps({ trackId: this.props.dropdown.dropdownProps.trackId });
           this.props.closeDropdown();
+        },
+      });
+
+      // Add to Queue
+      actions.push({
+        title: 'Add to Queue',
+        func: () => {
+          this.props.addToQueue(this.props.dropdown.dropdownProps.trackId);
         },
       });
 
@@ -92,6 +100,7 @@ const mapDispatchToProps = dispatch => ({
   deletePT: pt => dispatch(deletePlaylistTrack(pt)),
   createLike: like => dispatch(createLike(like)),
   deleteLike: like => dispatch(deleteLike(like)),
+  addToQueue: id => dispatch(addTrackQueue(id)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(Dropdown);

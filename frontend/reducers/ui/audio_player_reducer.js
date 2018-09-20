@@ -26,7 +26,7 @@ const audioPlayerReducer = ( state = defaultState, action ) => {
       return pauseState;
     case SET_TRACK_QUEUE:
       const queueState = Object.assign({}, state);
-      queueState.queue = action.queue.sort((a,b) => a-b);
+      queueState.queue = action.queue;
       return queueState;
     case ADD_TRACK_QUEUE:
       const addedState = Object.assign({}, state);

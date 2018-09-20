@@ -35,16 +35,23 @@ class TrackIndex extends React.Component {
     if (this.props.loading) return <Loader />;
 
     let filteredTracks;
-    let ids;
     if (this.props.trackIds) {
       filteredTracks = this.props.tracks.filter(t => this.props.trackIds.includes(t.id));
-      ids = this.props.trackIds;
     } else {
       filteredTracks = this.props.tracks;
-      ids = this.props.tracks.map(t => t.id);
     }
 
-    const tracks = filteredTracks.map(track => (
+    let sortedTracks;
+    let ids;
+    if (this.props.trackIds && filteredTracks.length && filteredTracks.length === this.props.trackIds.length) {
+      sortedTracks = this.props.trackIds.map(id => filteredTracks.find( obj => obj.id === id ))
+      ids = this.props.trackIds;
+    } else {
+      sortedTracks = filteredTracks;
+      ids = filteredTracks.map(t => t.id);
+    }
+
+    const tracks = sortedTracks.map(track => (
       <TrackIndexItem
         key={track.id} track={track} queueIds={ids}
         playlistId={this.props.playlistId}
