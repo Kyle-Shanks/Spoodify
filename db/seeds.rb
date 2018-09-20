@@ -86,7 +86,6 @@ save_artist({
   url: 'home.jpg'
 })
 
-
 # Albums
 
 save_album({
@@ -238,12 +237,12 @@ save_track({
   url: 'anderson_paak_come_down.mp3'
 })
 save_track({
-  props: { title: 'Lite Weight', album_id: 5, duration: '3:26' },
-  url: 'anderson_paak_lite_weight.mp3'
-})
-save_track({
   props: { title: 'Parking Lot', album_id: 5, duration: '3:54' },
   url: 'anderson_paak_parking_lot.mp3'
+})
+save_track({
+  props: { title: 'Lite Weight', album_id: 5, duration: '3:26' },
+  url: 'anderson_paak_lite_weight.mp3'
 })
 
 save_track({

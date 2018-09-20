@@ -73,8 +73,8 @@ class AudioPlayer extends React.Component {
     if (this.props.nextTrackId) {
       this.props.next(this.props.nextTrackId);
     } else {
-      this.setState({ currentTrack: null });
       this.props.clearPlayer();
+      this.setState({ currentTrack: null });
     }
   }
   handlePrev(e) {
