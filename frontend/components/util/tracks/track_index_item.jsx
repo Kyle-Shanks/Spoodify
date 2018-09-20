@@ -21,7 +21,7 @@ const TrackIndexItem = (props) => {
       <svg viewBox="0 0 200 200" className="rela-block svg" onClick={() => {
           props.setCurrentTrack(props.track.id);
           if (props.queueIds) {
-            props.setTrackQueue(props.queueIds);
+            if (document.location.hash !== '#/queue') props.setTrackQueue(props.queueIds);
             props.getQueuePos();
           }
           props.playAudio();
@@ -47,7 +47,7 @@ const TrackIndexItem = (props) => {
           <p className="rela-block" onDoubleClick={() => {
               props.setCurrentTrack(props.track.id);
               if (props.queueIds) {
-                props.setTrackQueue(props.queueIds);
+                if (document.location.hash !== '#/queue') props.setTrackQueue(props.queueIds);
                 props.getQueuePos();
               }
               props.playAudio();

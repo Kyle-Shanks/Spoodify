@@ -128,27 +128,27 @@ save_album({
 # Tracks
 
 save_track({
-  props: { title: 'daydream', album_id: 1, duration: '3:37' },
+  props: { title: 'Daydream', album_id: 1, duration: '3:37' },
   url: 'slacker_daydream.mp3'
 })
 save_track({
-  props: { title: 'plswaveback', album_id: 1, duration: '2:42' },
+  props: { title: 'Plswaveback', album_id: 1, duration: '2:42' },
   url: 'slacker_plswaveback.mp3'
 })
 save_track({
-  props: { title: 'orange juice', album_id: 1, duration: '1:51' },
+  props: { title: 'Orange juice', album_id: 1, duration: '1:51' },
   url: 'slacker_orange_juice.mp3'
 })
 save_track({
-  props: { title: 'outerside', album_id: 1, duration: '2:10' },
+  props: { title: 'Outerside', album_id: 1, duration: '2:10' },
   url: 'slacker_outerside.mp3'
 })
 save_track({
-  props: { title: '¿whosaround?', album_id: 1, duration: '2:02' },
+  props: { title: '¿Whosaround?', album_id: 1, duration: '2:02' },
   url: 'slacker_whosaround.mp3'
 })
 save_track({
-  props: { title: 'a little darker', album_id: 1, duration: '2:36' },
+  props: { title: 'A Little Darker', album_id: 1, duration: '2:36' },
   url: 'slacker_a_little_darker.mp3'
 })
 
@@ -293,11 +293,15 @@ save_track({
   url: 'anderson_paak_bubblin.mp3'
 })
 
+# Playlists
+
 Playlist.create([
   { title: 'Chill', user_id: 2 },
   { title: 'Hype', user_id: 4 },
   { title: 'Trap', user_id: 3 },
 ])
+
+# Playlist-Track associations
 
 PlaylistTrack.create([
   { playlist_id: 1, track_id: 1 },

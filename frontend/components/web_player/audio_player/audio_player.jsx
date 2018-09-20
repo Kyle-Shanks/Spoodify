@@ -179,7 +179,7 @@ class AudioPlayer extends React.Component {
               likeable_type: 'Track',
             })
           }}>
-          <path d="M 35 90 L 75 130 L 150 55" strokeWidth="15" fill="none" />
+          <path d="M 35 90 L 75 130 L 170 35" strokeWidth="10" fill="none" />
         </svg>
       );
     } else {
@@ -192,8 +192,8 @@ class AudioPlayer extends React.Component {
               likeable_type: 'Track',
             })
           }}>
-          <path d="M 100 50 L 100 150" strokeWidth="15" fill="none" />
-          <path d="M 50 100 L 150 100" strokeWidth="15" fill="none" />
+          <path d="M 100 30 L 100 170" strokeWidth="10" fill="none" />
+          <path d="M 30 100 L 170 100" strokeWidth="10" fill="none" />
         </svg>
       );
     }
@@ -232,11 +232,11 @@ class AudioPlayer extends React.Component {
               <div className="rela-inline svg-container">
                 <svg viewBox="0 0 600 600" className={"rela-block svg arrows" + (this.props.shuffle ? ' green' : '')}
                   onClick={this.props.toggleShuffle}>
-                  <path d="M 405 230 L 405 270 L 450 250 L 405 230 Z" stroke-width="10" className="arrow"/>
-                  <path d="M 390 250 L 350 250 L 250 350 L 210 350" stroke-width="15" />
-                  <path d="M 390 350 L 350 350 330 330" stroke-width="15"/>
-                  <path d="M 210 250 L 250 250 270 270" stroke-width="15"/>
-                  <path d="M 405 330 L 405 370 L 450 350 L 405 330 Z" stroke-width="10" className="arrow"/>
+                  <path d="M 405 230 L 405 270 L 450 250 L 405 230 Z" strokeWidth="10" className="arrow"/>
+                  <path d="M 390 250 L 350 250 L 250 350 L 210 350" strokeWidth="15" />
+                  <path d="M 390 350 L 350 350 330 330" strokeWidth="15"/>
+                  <path d="M 210 250 L 250 250 270 270" strokeWidth="15"/>
+                  <path d="M 405 330 L 405 370 L 450 350 L 405 330 Z" strokeWidth="10" className="arrow"/>
                 </svg>
               </div>
               <div className="rela-inline svg-container">

@@ -40,7 +40,7 @@ const audioPlayerReducer = ( state = defaultState, action ) => {
     case SET_TRACK_QUEUE:
       const queueState = Object.assign({}, state);
       queueState.queue = action.queue;
-      queueState.shuffledQueue = queueState.shuffle ? shuffle(action.queue) : action.queue;
+      queueState.shuffledQueue = queueState.shuffle ? shuffle(action.queue) : action.queue.slice(0);
       return queueState;
     case ADD_TRACK_QUEUE:
       const addedState = Object.assign({}, state);
