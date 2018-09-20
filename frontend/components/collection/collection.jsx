@@ -18,18 +18,26 @@ const Collection = (props) => {
       <Route path="/collection/:section" component={CollectionNav} />
 
       <div className="collection-content">
-        <Route path="/collection/artists" render={
-          () => <ArtistIndex artistIds={artistIds} />
-        }/>
-        <Route path="/collection/tracks" render={
-          () => <TrackIndex trackIds={trackIds} />
-        }/>
-        <Route path="/collection/albums" render={
-          () => <AlbumIndex albumIds={albumIds} />
-        }/>
-        <Route path="/collection/playlists" render={
-          () => <PlaylistIndex playlistIds={playlistIds} />
-        }/>
+        <Route path="/collection/artists"
+          render={() => {
+            document.title = 'Your Library - Artists';
+            return (<ArtistIndex artistIds={artistIds} />);
+          }}/>
+        <Route path="/collection/tracks"
+          render={() => {
+            document.title = 'Your Library - Tracks';
+            return (<TrackIndex trackIds={trackIds} />);
+          }}/>
+        <Route path="/collection/albums"
+          render={() => {
+            document.title = 'Your Library - Albums';
+            return (<AlbumIndex albumIds={albumIds} />);
+          }}/>
+        <Route path="/collection/playlists"
+          render={() => {
+            document.title = 'Your Library - Playlists';
+            return (<PlaylistIndex playlistIds={playlistIds} />);
+          }}/>
       </div>
     </div>
   );

@@ -488,6 +488,9 @@ ul.errors {
 .main-background.red {
   background-image: linear-gradient(#683138, #0a0506 85%);
 }
+.main-background.purple {
+  background-image: linear-gradient(#30202d, #090609 85%);
+}
 .main-background.black {
   background-color: #181818;
 }
@@ -785,7 +788,7 @@ ul.errors {
 .modal-input:focus::placeholder {
   color: #535353;
 }
-.modal-button-container .button {
+.modal-button-container > * {
   margin: 10px;
 }
 .create-modal-button {
@@ -864,6 +867,7 @@ ul.errors {
   height: 60px;
   width: 60px;
   margin-right: 15px;
+  background-color: rgba(0,0,0,0.1);
   vertical-align: bottom;
 }
 .player-artwork img {
@@ -902,7 +906,6 @@ ul.errors {
 .control-svg-container .svg-container {
   height: 45px;
   width: 45px;
-  margin: 0 5px;
 }
 .player-alt-controls {
   text-align: right;
@@ -919,9 +922,15 @@ ul.errors {
   stroke: #a9a9a9;
   width: 100%;
 }
+.alt-svg .check-svg {
+  stroke: #1db954;
+}
 .alt-svg:hover .svg {
   fill: #fff;
   stroke: #fff;
+}
+.alt-svg:hover .check-svg {
+  stroke: #1ed760;
 }
 .progress-bar {
   height: 26px;

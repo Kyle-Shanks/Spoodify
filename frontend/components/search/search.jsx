@@ -15,6 +15,7 @@ class Search extends React.Component {
 
   render () {
     let results;
+    document.title = 'Search';
     if (this.state.searchTerm) {
       results = (
         <div className="search-results-container">

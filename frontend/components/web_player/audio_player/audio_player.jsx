@@ -171,7 +171,7 @@ class AudioPlayer extends React.Component {
       addSvg = '';
     } else if (this.props.currentUser.liked_track_ids.includes(this.state.currentTrack.id)) {
       addSvg = (
-        <svg viewBox="0 0 200 200" className="rela-block svg"
+        <svg viewBox="0 0 200 200" className="rela-block svg check-svg"
           onClick={() => {
             this.props.deleteLike({
               user_id: this.props.currentUser.id,

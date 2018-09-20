@@ -44,9 +44,12 @@ class ArtistShow extends React.Component {
   }
 
   render () {
-    if (!this.props.artist) return (
-      <p>Artist not found :/</p>
-    );
+    if (!this.props.artist) {
+      document.title = 'Artist Not Found';
+      return (<p>Artist not found :/</p>);
+    }
+
+    document.title = this.props.artist.name;
 
     return (
       <div className="rela-block artist-show">

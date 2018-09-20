@@ -44,9 +44,12 @@ class AlbumShow extends React.Component {
   }
 
   render () {
-    if (!this.props.album || !this.props.album.artist) return (
-      <p>Album not found :/</p>
-    );
+    if (!this.props.album || !this.props.album.artist) {
+      document.title = 'Album Not Found';
+      return (<p>Album not found :/</p>);
+    }
+
+    document.title = this.props.album.title;
 
     const ids = this.props.album.track_ids.length ? this.props.album.track_ids : [-1];
     return (

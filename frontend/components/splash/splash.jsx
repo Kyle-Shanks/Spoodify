@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Footer from './footer';
 
 const Splash = (props) => {
+  document.title = 'Spoodify';
   return (
     <div className="splash-container">
       <div className="nav-bar">

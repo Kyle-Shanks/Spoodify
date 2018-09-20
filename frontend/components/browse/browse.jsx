@@ -13,10 +13,22 @@ const Browse = (props) => {
       <Route path="/browse/:section" component={BrowseNav} />
 
       <div className="browse-content">
-        <Route path="/browse/artists" component={ArtistContainer} />
-        <Route path="/browse/albums" component={AlbumContainer} />
-        <Route path="/browse/tracks" component={TrackContainer} />
-        <Route path="/browse/playlists" component={PlaylistContainer} />
+        <Route path="/browse/artists" render={() => {
+            document.title = 'Browse - Artists';
+            return (<ArtistContainer />)
+          }}/>
+        <Route path="/browse/albums" render={() => {
+            document.title = 'Browse - Albums';
+            return (<AlbumContainer />)
+          }}/>
+        <Route path="/browse/tracks" render={() => {
+            document.title = 'Browse - Tracks';
+            return (<TrackContainer />)
+          }}/>
+        <Route path="/browse/playlists" render={() => {
+            document.title = 'Browse - Playlists';
+            return (<PlaylistContainer />)
+          }}/>
       </div>
     </div>
   );

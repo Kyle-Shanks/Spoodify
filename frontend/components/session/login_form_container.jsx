@@ -35,6 +35,7 @@ class LoginForm extends React.Component {
   }
 
   render () {
+    document.title = 'Log In';
     let errors;
     if (this.props.errors) {
       errors = this.props.errors.map((msg,idx) => <li key={idx}>{msg}</li>)

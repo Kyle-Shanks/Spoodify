@@ -45,9 +45,12 @@ class PlaylistShow extends React.Component {
   }
 
   render () {
-    if (!this.props.playlist) return (
-      <p>Playlist not found :/</p>
-    );
+    if (!this.props.playlist) {
+      document.title = 'Playlist Not Found';
+      return (<p>Playlist not found :/</p>);
+    }
+
+    document.title = this.props.playlist.title;
 
     let deleteButton;
     if (this.props.currentUser.id === this.props.playlist.user.id) {

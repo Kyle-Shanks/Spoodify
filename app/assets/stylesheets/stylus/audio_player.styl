@@ -26,6 +26,7 @@
   height 60px
   width @height
   margin-right 15px
+  background-color rgba(0,0,0,0.1)
   vertical-align bottom
   & img
     width 100%
@@ -53,12 +54,9 @@
 .control-svg-container
   text-align center
   height 45px
-  // &:hover
-  //   background-color rgba(255,255,255,0.05)
   & .svg-container
     height 45px
     width @height
-    margin 0 5px
 
 .player-alt-controls
   text-align right
@@ -73,9 +71,14 @@
     fill #a9a9a9
     stroke #a9a9a9
     width 100%
-  &:hover .svg
-    fill $white
-    stroke $white
+  & .check-svg
+    stroke $green
+  &:hover
+    & .svg
+      fill $white
+      stroke $white
+    & .check-svg
+      stroke $hover-green
 
 .progress-bar
   height 26px

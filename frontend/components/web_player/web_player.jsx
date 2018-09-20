@@ -23,7 +23,7 @@ const WebPlayer = (props) => {
     case '/playlists': colorClass = ' red'; break;
     case '/search': colorClass = ' darker'; break;
     case '/collection': colorClass = ' grey'; break;
-    case '/queue': colorClass = ' darker'; break;
+    case '/queue': colorClass = ' purple'; break;
     default: colorClass = ' blue';
   }
 

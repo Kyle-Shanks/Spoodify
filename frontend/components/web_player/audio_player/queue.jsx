@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import TrackIndex from '../../util/tracks/track_container';
 
 const Queue = (props) => {
+  document.title = 'Queue';
 
   let queue;
   if (props.queue.length) {

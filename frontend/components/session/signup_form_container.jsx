@@ -27,6 +27,8 @@ class SignupForm extends React.Component {
   }
 
   render () {
+    document.title = 'Sign Up';
+
     let errors;
     if (this.props.errors) {
       errors = this.props.errors.map((msg,idx) => <li key={idx}>{msg}</li>)
