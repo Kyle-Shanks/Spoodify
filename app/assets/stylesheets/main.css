@@ -466,6 +466,31 @@ ul.errors {
 .svg.play-pause:hover rect {
   fill: #fff;
 }
+.svg.arrows {
+  width: 100%;
+  stroke: rgba(255,255,255,0.6);
+}
+.svg.arrows path.arrow {
+  fill: rgba(255,255,255,0.6);
+}
+.svg.arrows.green {
+  stroke: #1db954;
+}
+.svg.arrows.green path.arrow {
+  fill: #1db954;
+}
+.svg.arrows:hover {
+  stroke: #fff;
+}
+.svg.arrows:hover path.arrow {
+  fill: #fff;
+}
+.svg.arrows:hover.green {
+  stroke: #1ed760;
+}
+.svg.arrows:hover.green path.arrow {
+  fill: #1ed760;
+}
 .main-background {
   z-index: -1;
   position: fixed;
@@ -490,6 +515,12 @@ ul.errors {
 }
 .main-background.purple {
   background-image: linear-gradient(#30202d, #090609 85%);
+}
+.main-background.royal {
+  background-image: linear-gradient(#322772, #05040b 85%);
+}
+.main-background.mid {
+  background-image: linear-gradient(#4d4752, #080708 85%);
 }
 .main-background.black {
   background-color: #181818;
@@ -797,6 +828,13 @@ ul.errors {
   right: 0;
   transform: translateY(-50%);
 }
+.playlist-select .create-modal-button {
+  position: relative;
+  top: none;
+  right: none;
+  transform: none;
+  margin: 20px;
+}
 .close-svg {
   height: 54px;
   width: 54px;
@@ -827,6 +865,7 @@ ul.errors {
   padding: 5px 0;
   font-size: 14px;
   font-weight: 300;
+  transition: 0.2s ease-in-out, top 0s, left 0s;
 }
 .dropdown-menu.hidden {
   display: none;
@@ -958,8 +997,13 @@ ul.errors {
   width: 100px;
   margin: 10px;
 }
+.seek-bar-outer-container p {
+  color: #919496;
+  font-weight: 300;
+  margin: 2px 0;
+}
 .seek-bar-container {
-  margin: 0 10px;
+  margin: 0 10px 0 5px;
 }
 .seek-bar-outer-container p {
   font-size: 12px;

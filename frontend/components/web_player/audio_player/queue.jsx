@@ -19,7 +19,7 @@ const Queue = (props) => {
       </div>
     );
   } else {
-    queue = (<p className="centered">No tracks in the queue</p>);
+    queue = (<p className="centered">- No tracks in the queue -</p>);
   }
 
   return (
@@ -31,7 +31,7 @@ const Queue = (props) => {
 };
 
 const mapStateToProps = state => ({
-  queue: state.ui.audioPlayer.queue,
+  queue: state.ui.audioPlayer.shuffledQueue,
   queuePos: state.ui.audioPlayer.queuePos,
 });
 

@@ -31,3 +31,20 @@
       stroke $white
       & path, & rect
         fill $white
+  &.arrows
+    width 100%
+    stroke $light-transparent
+    & path.arrow
+      fill $light-transparent
+    &.green
+      stroke $green
+      & path.arrow
+        fill $green
+    &:hover
+      stroke $white
+      & path.arrow
+        fill $white
+      &.green
+        stroke $hover-green
+        & path.arrow
+          fill $hover-green

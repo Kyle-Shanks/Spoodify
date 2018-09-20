@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { playAudio, pauseAudio, nextTrack, prevTrack, clearPlayer } from '../../../actions/ui_actions';
+import { playAudio, pauseAudio, nextTrack, prevTrack, clearPlayer,
+         toggleRepeat, toggleShuffle } from '../../../actions/ui_actions';
 import { requestTrack } from '../../../actions/track_actions';
 import { createLike, deleteLike } from '../../../actions/like_actions';
 
@@ -44,14 +45,14 @@ class AudioPlayer extends React.Component {
   setSeek(e) {
     if (this.props.currentTrack) {
       const audio = document.getElementById('audio');
-      const bounds = e.target.getBoundingClientRect();
+      const bounds = e.currentTarget.getBoundingClientRect();
       audio.currentTime = (e.clientX - bounds.x)/bounds.width * audio.duration;
     }
   }
 
   setVolume(e) {
     const audio = document.getElementById('audio');
-    const bounds = e.target.getBoundingClientRect();
+    const bounds = e.currentTarget.getBoundingClientRect();
     audio.volume = (e.clientX - bounds.x)/bounds.width;
   }
 
@@ -84,8 +85,8 @@ class AudioPlayer extends React.Component {
     } else if (this.props.prevTrackId) {
       this.props.prev(this.props.prevTrackId);
     } else {
-      this.setState({ currentTrack: null });
       this.props.clearPlayer();
+      this.setState({ currentTrack: null });
     }
   }
 
@@ -116,8 +117,8 @@ class AudioPlayer extends React.Component {
       svg = (
         <svg viewBox="0 0 300 300" className="rela-block svg play-pause" onClick={this.props.pause}>
           <circle cx="150" cy="150" r="100"/>
-          <rect x="107" y="105" width="25" height="90" rx="8" ry="8" />
-          <rect x="168" y="105" width="25" height="90" rx="8" ry="8" />
+          <rect x="109" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+          <rect x="166" y="105" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
         </svg>
       );
     } else {
@@ -125,7 +126,7 @@ class AudioPlayer extends React.Component {
         <svg viewBox="0 0 300 300" className="rela-block svg play-pause" onClick={this.props.play}>
           <circle cx="150" cy="150" r="100"/>
           <path d="M 115 105 L 115 195 Q 115 200 121 199 L 203 153
-                   Q 205 150 203 147 L 121 102 Q 115 100 115 105 Z"/>
+                   Q 205 150 203 147 L 121 102 Q 115 100 115 105 Z" strokeWidth="0"/>
         </svg>
       );
     }
@@ -164,7 +165,6 @@ class AudioPlayer extends React.Component {
         </svg>
       );
     }
-
 
     let addSvg;
     if(!this.state.currentTrack) {
@@ -230,6 +230,16 @@ class AudioPlayer extends React.Component {
           <div className="flex player-controls">
             <div className="rela-block control-svg-container">
               <div className="rela-inline svg-container">
+                <svg viewBox="0 0 600 600" className={"rela-block svg arrows" + (this.props.shuffle ? ' green' : '')}
+                  onClick={this.props.toggleShuffle}>
+                  <path d="M 405 230 L 405 270 L 450 250 L 405 230 Z" stroke-width="10" className="arrow"/>
+                  <path d="M 390 250 L 350 250 L 250 350 L 210 350" stroke-width="15" />
+                  <path d="M 390 350 L 350 350 330 330" stroke-width="15"/>
+                  <path d="M 210 250 L 250 250 270 270" stroke-width="15"/>
+                  <path d="M 405 330 L 405 370 L 450 350 L 405 330 Z" stroke-width="10" className="arrow"/>
+                </svg>
+              </div>
+              <div className="rela-inline svg-container">
                 <svg viewBox="0 0 500 500" className="rela-block svg player" onClick={this.handlePrev}>
                   <path d="M 290 205 L 290 295 Q 290 300 284 299 L 197 253
                            Q 195 250 197 247 L 284 202 Q 290 200 290 205 Z" strokeWidth="0"/>
@@ -242,6 +252,15 @@ class AudioPlayer extends React.Component {
                   <path d="M 215 205 L 215 295 Q 215 300 221 299 L 303 253
                            Q 305 250 303 247 L 221 202 Q 215 200 215 205 Z" strokeWidth="0"/>
                   <rect x="310" y="205" width="25" height="90" rx="8" ry="8" strokeWidth="0"/>
+                </svg>
+              </div>
+              <div className="rela-inline svg-container">
+                <svg viewBox="0 0 600 600" className={"rela-block svg arrows" + (this.props.repeat ? ' green' : '')}
+                  onClick={this.props.toggleRepeat}>
+                  <path d="M 210 310 Q 210 250 270 250 L 310 250" strokeWidth="15" />
+                  <path d="M 325 230 L 325 270 L 370 250 L 325 230 Z" strokeWidth="10" className="arrow"/>
+                  <path d="M 390 290 Q 390 350 330 350 L 290 350" strokeWidth="15" />
+                  <path d="M 275 330 L 275 370 L 230 350 L 275 330 Z" strokeWidth="10" className="arrow"/>
                 </svg>
               </div>
             </div>
@@ -290,9 +309,13 @@ class AudioPlayer extends React.Component {
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.currentUserId],
   currentTrack: state.entities.tracks[state.ui.audioPlayer.currentTrackId],
-  nextTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos + 1],
-  prevTrackId: state.ui.audioPlayer.queue[state.ui.audioPlayer.queuePos - 1],
+  nextTrackId: state.ui.audioPlayer.shuffledQueue[state.ui.audioPlayer.queuePos + 1] ||
+    (state.ui.audioPlayer.repeat ? state.ui.audioPlayer.shuffledQueue[0] : null),
+  prevTrackId: state.ui.audioPlayer.shuffledQueue[state.ui.audioPlayer.queuePos - 1] ||
+    (state.ui.audioPlayer.repeat ? state.ui.audioPlayer.shuffledQueue[state.ui.audioPlayer.shuffledQueue.length - 1] : null),
   isPlaying: state.ui.audioPlayer.isPlaying,
+  repeat: state.ui.audioPlayer.repeat,
+  shuffle: state.ui.audioPlayer.shuffle,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -301,6 +324,8 @@ const mapDispatchToProps = dispatch => ({
   clearPlayer: () => dispatch(clearPlayer()),
   createLike: like => dispatch(createLike(like)),
   deleteLike: like => dispatch(deleteLike(like)),
+  toggleRepeat: () => dispatch(toggleRepeat()),
+  toggleShuffle: () => dispatch(toggleShuffle()),
   next: id => {
     dispatch(nextTrack());
     if (id) dispatch(requestTrack(id));

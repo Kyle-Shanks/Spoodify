@@ -72,7 +72,7 @@ save_artist({
   url: 'darren_korb.jpg'
 })
 save_artist({
-  props: { name: 'Anderson Paak', img_url: '',
+  props: { name: 'Anderson .Paak', img_url: '',
     description: 'Brandon Paak Anderson (born February 8, 1986), better known by his stage name Anderson Paak (stylized as Anderson .Paak), is an American rapper, singer, songwriter, drummer and record producer from Oxnard, California. He released his debut album, O.B.E. Vol. 1 in 2012, under the pseudonym Breezy Lovejoy. He went on to release Venice in 2014, under his current moniker. Paak followed with Malibu, in 2016, which received a nomination for Best Urban Contemporary Album at the Grammy Awards. Apart from his solo career, Paak is also one-half of NxWorries, alongside record producer Knxwledge. He is accompanied by the band The Free Nationals, who play a variety of instruments such as electric guitar, bass, piano, keyboards and drums and also serve as backing vocalists.'
   },
   url: 'anderson_paak.jpg'
@@ -82,7 +82,7 @@ save_artist({
   url: 'rad_cat.jpg'
 })
 save_artist({
-  props: { name: 'HOME', img_url: '', description: 'Vibes' },
+  props: { name: 'HOME', img_url: '', description: 'Nostalgic space vibes' },
   url: 'home.jpg'
 })
 
@@ -178,12 +178,12 @@ save_track({
   url: 'mf_doom_accordion.mp3'
 })
 save_track({
-  props: { title: 'Curls', album_id: 3, duration: '1:35' },
-  url: 'mf_doom_curls.mp3'
-})
-save_track({
   props: { title: 'Meat Grinder', album_id: 3, duration: '2:12' },
   url: 'mf_doom_meat_grinder.mp3'
+})
+save_track({
+  props: { title: 'Curls', album_id: 3, duration: '1:35' },
+  url: 'mf_doom_curls.mp3'
 })
 save_track({
   props: { title: 'Figaro', album_id: 3, duration: '2:25' },

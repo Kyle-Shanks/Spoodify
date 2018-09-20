@@ -19,7 +19,7 @@ const WebPlayer = (props) => {
   switch (props.match.url) {
     case '/browse': colorClass = ' blue'; break;
     case '/artists': colorClass = ' black'; break;
-    case '/albums': colorClass = ' green'; break;
+    case '/albums': colorClass = ' mid'; break;
     case '/playlists': colorClass = ' red'; break;
     case '/search': colorClass = ' darker'; break;
     case '/collection': colorClass = ' grey'; break;

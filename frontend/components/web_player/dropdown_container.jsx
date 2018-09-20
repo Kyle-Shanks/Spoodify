@@ -40,7 +40,7 @@ class Dropdown extends React.Component {
       if (this.props.currentUser.liked_track_ids.includes(this.props.dropdown.dropdownProps.trackId)) {
         // Remove
         actions.push({
-          title: 'Remove from Library',
+          title: 'Remove from Your Library',
           func: () => {
             this.props.deleteLike(like);
             this.props.closeDropdown();
@@ -49,7 +49,7 @@ class Dropdown extends React.Component {
       } else {
         // Save
         actions.push({
-          title: 'Save to Library',
+          title: 'Add to Your Library',
           func: () => {
             this.props.createLike(like);
             this.props.closeDropdown();
@@ -60,7 +60,7 @@ class Dropdown extends React.Component {
       if (this.props.dropdown.dropdownProps.playlistId &&
           (this.props.currentUser.id === this.props.playlists[this.props.dropdown.dropdownProps.playlistId].user.id)) {
         actions.push({
-          title: 'Remove from this Playlist',
+          title: 'Remove from Playlist',
           func: () => {
             this.props.deletePT({
               playlist_id: this.props.dropdown.dropdownProps.playlistId,

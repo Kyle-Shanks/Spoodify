@@ -26,6 +26,8 @@ export const GET_QUEUE_POS = 'GET_QUEUE_POS';
 export const NEXT_TRACK = 'NEXT_TRACK';
 export const PREV_TRACK = 'PREV_TRACK';
 export const CLEAR_PLAYER = 'CLEAR_PLAYER';
+export const TOGGLE_REPEAT = 'TOGGLE_REPEAT';
+export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';
 
 // Loading Actions
 export const startArtistsLoading = () => {
@@ -126,4 +128,10 @@ export const prevTrack = () => {
 };
 export const clearPlayer = () => {
   return { type: CLEAR_PLAYER };
+};
+export const toggleRepeat = () => {
+  return { type: TOGGLE_REPEAT };
+};
+export const toggleShuffle = () => {
+  return { type: TOGGLE_SHUFFLE };
 };
