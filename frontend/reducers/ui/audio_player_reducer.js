@@ -30,7 +30,9 @@ const audioPlayerReducer = ( state = defaultState, action ) => {
       return queueState;
     case ADD_TRACK_QUEUE:
       const addedState = Object.assign({}, state);
-      addedState.queue.push(action.trackId);
+      if (!addedState.queue.includes(action.trackId)) {
+        addedState.queue.push(action.trackId);
+      }
       return addedState;
     case GET_QUEUE_POS:
       const posState = Object.assign({}, state);
