@@ -1,24 +1,3 @@
-# README
+# Welcome to Spoodify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is Spoodify. A clone of Spotify made in ten days as a full-stack web app project. It was made using a React/Redux front-end built on top of a Rails back-end that utilizes a Postgresql database.
