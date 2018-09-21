@@ -419,6 +419,10 @@ Playlist.create([
   { title: 'Hype', user_id: 5 },
   { title: 'Jamz', user_id: 3 },
   { title: 'Neat Stuff', user_id: 1 }
+  { title: 'Sea Shanties', user_id: 4 }
+  { title: 'D', user_id: 4 }
+  { title: 'A', user_id: 4 }
+  { title: 'N', user_id: 4 }
 ])
 
 # Playlist-Track associations
@@ -476,6 +480,7 @@ PlaylistTrack.create([
   { playlist_id: 4, track_id: 43 },
   { playlist_id: 4, track_id: 51 },
   { playlist_id: 4, track_id: 53 },
+  { playlist_id: 5, track_id: 19 },
 ])
 
 # Follows - Artists
@@ -487,6 +492,12 @@ Follow.create({ user_id: 1, followable_id: 9, followable_type: 'Artist' })
 # Follows - Playlists
 Follow.create({ user_id: 1, followable_id: 2, followable_type: 'Playlist' })
 Follow.create({ user_id: 1, followable_id: 4, followable_type: 'Playlist' })
+Follow.create({ user_id: 5, followable_id: 2, followable_type: 'Playlist' })
+Follow.create({ user_id: 3, followable_id: 3, followable_type: 'Playlist' })
+Follow.create({ user_id: 4, followable_id: 5, followable_type: 'Playlist' })
+Follow.create({ user_id: 4, followable_id: 6, followable_type: 'Playlist' })
+Follow.create({ user_id: 4, followable_id: 7, followable_type: 'Playlist' })
+Follow.create({ user_id: 4, followable_id: 8, followable_type: 'Playlist' })
 
 # Saves - Tracks
 Like.create({ user_id: 1, likeable_id: 4, likeable_type: 'Track' })
