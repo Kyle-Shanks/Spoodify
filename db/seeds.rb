@@ -418,11 +418,11 @@ Playlist.create([
   { title: 'Chill', user_id: 2 },
   { title: 'Hype', user_id: 5 },
   { title: 'Jamz', user_id: 3 },
-  { title: 'Neat Stuff', user_id: 1 }
-  { title: 'Sea Shanties', user_id: 4 }
-  { title: 'D', user_id: 4 }
-  { title: 'A', user_id: 4 }
-  { title: 'N', user_id: 4 }
+  { title: 'Neat Stuff', user_id: 1 },
+  { title: 'Sea Shanties', user_id: 4 },
+  { title: 'D', user_id: 4 },
+  { title: 'A', user_id: 4 },
+  { title: 'N', user_id: 4 },
 ])
 
 # Playlist-Track associations
