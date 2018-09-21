@@ -32,8 +32,15 @@ class AlbumIndex extends React.Component {
 
   render () {
     if (this.props.loading) return <Loader />;
-    
-    const albums = this.props.albums.map(album => (
+
+    let filteredAlbums;
+    if (this.props.searchTerm) {
+      filteredAlbums = this.props.albums.filter(a => a.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
+    } else {
+      filteredAlbums = this.props.albums;
+    }
+
+    const albums = filteredAlbums.map(album => (
       <AlbumIndexItem key={album.id} album={album} />
     ));
     return (

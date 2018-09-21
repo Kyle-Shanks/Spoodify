@@ -33,7 +33,14 @@ class ArtistIndex extends React.Component {
   render () {
     if (this.props.loading) return <Loader />;
 
-    const artists = this.props.artists.map(artist => (
+    let filteredArtists;
+    if (this.props.searchTerm) {
+      filteredArtists = this.props.artists.filter(a => a.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
+    } else {
+      filteredArtists = this.props.artists;
+    }
+
+    const artists = filteredArtists.map(artist => (
       <ArtistIndexItem key={artist.id} artist={artist} />
     ));
     return (

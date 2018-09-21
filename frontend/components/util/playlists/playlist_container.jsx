@@ -34,7 +34,14 @@ class PlaylistIndex extends React.Component {
   render () {
     if (this.props.loading) return <Loader />;
 
-    const playlists = this.props.playlists.map(playlist => (
+    let filteredPlaylists;
+    if (this.props.searchTerm) {
+      filteredPlaylists = this.props.playlists.filter(p => p.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
+    } else {
+      filteredPlaylists = this.props.playlists;
+    }
+
+    const playlists = filteredPlaylists.map(playlist => (
       <PlaylistIndexItem key={playlist.id} playlist={playlist} />
     ));
     return (

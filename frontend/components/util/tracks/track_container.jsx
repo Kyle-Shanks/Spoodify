@@ -34,11 +34,18 @@ class TrackIndex extends React.Component {
   render () {
     if (this.props.loading) return <Loader />;
 
+    let searchedTracks;
+    if (this.props.searchTerm) {
+      searchedTracks = this.props.tracks.filter(t => t.title.toLowerCase().includes(this.props.searchTerm.toLowerCase()));
+    } else {
+      searchedTracks = this.props.tracks;
+    }
+
     let filteredTracks;
     if (this.props.trackIds) {
-      filteredTracks = this.props.tracks.filter(t => this.props.trackIds.includes(t.id));
+      filteredTracks = searchedTracks.filter(t => this.props.trackIds.includes(t.id));
     } else {
-      filteredTracks = this.props.tracks;
+      filteredTracks = searchedTracks;
     }
 
     let sortedTracks;
@@ -58,7 +65,7 @@ class TrackIndex extends React.Component {
         openDropdown={this.props.openDropdown}
         setDropdownProps={this.props.setDropdownProps} />
     ));
-    
+
     return (
       <div className="track-index">
         <ul>
