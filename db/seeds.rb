@@ -85,6 +85,23 @@ save_artist({
   props: { name: 'HOME', img_url: '', description: 'Nostalgic space vibes' },
   url: 'home.jpg'
 })
+save_artist({
+  props: { name: 'Darius', img_url: '', description: 'Electronic things' },
+  url: 'darius.jpg'
+})
+save_artist({
+  props: { name: 'Skylar Spence', img_url: '', description: 'Ryan DeRobertis is an American electronic musician and singer who grew up in Farmingville, New York and attended Boston College for two years studying music. His electronic music project Saint Pepsi began in December 2012. As Saint Pepsi, he released his eighth studio album Hit Vibes in May 2013.' },
+  url: 'skylar_spence.jpg'
+})
+save_artist({
+  props: { name: 'Gorillaz', img_url: '', description: 'Gorillaz are an English virtual band created in 1998 by musician Damon Albarn and artist Jamie Hewlett. The band primarily consists of four animated members: 2-D, Murdoc Niccals, Noodle, and Russel Hobbs. Their fictional universe is explored through music videos, interviews, and other short cartoons.' },
+  url: 'gorillaz.jpg'
+})
+save_artist({
+  props: { name: 'Royal Blood', img_url: '', description: 'Royal Blood are an English rock duo formed in Brighton in 2013. The band\'s sound is reminiscent of and rooted in blues rock and hard rock. Royal Blood consists of only two members, bass player Mike Kerr and drummer Ben Thatcher.' },
+  url: 'royal_blood.jpg'
+})
+
 
 # Albums
 
@@ -124,6 +141,27 @@ save_album({
   props: { title: 'Bubblin', artist_id: 5, release_date: '2018', img_url: '' },
   url: 'anderson_paak_bubblin.jpg'
 })
+save_album({
+  props: { title: 'Velour', artist_id: 8, release_date: '2012', img_url: '' },
+  url: 'darius_velour.jpg'
+})
+save_album({
+  props: { title: 'Romance', artist_id: 8, release_date: '2014', img_url: '' },
+  url: 'darius_romance.jpg'
+})
+save_album({
+  props: { title: 'Prom King', artist_id: 9, release_date: '2015', img_url: '' },
+  url: 'skylar_spence_prom_king.jpg'
+})
+save_album({
+  props: { title: 'Demon Days', artist_id: 10, release_date: '2005', img_url: '' },
+  url: 'gorillaz_demon_dayz.jpg'
+})
+save_album({
+  props: { title: 'Royal Blood', artist_id: 11, release_date: '2014', img_url: '' },
+  url: 'royal_blood_royal_blood.jpg'
+})
+
 
 # Tracks
 
@@ -255,6 +293,23 @@ save_track({
 })
 
 save_track({
+  props: { title: 'Prom King', album_id: 12, duration: '4:15' },
+  url: 'skylar_spence_prom_king.mp3'
+})
+save_track({
+  props: { title: 'I Can\'t Be Your Superman', album_id: 12, duration: '4:20' },
+  url: 'skylar_spence_superman.mp3'
+})
+save_track({
+  props: { title: 'Cash Wednesday', album_id: 12, duration: '2:30' },
+  url: 'skylar_spence_cash_wednesday.mp3'
+})
+save_track({
+  props: { title: 'Fiona Coyne', album_id: 12, duration: '4:04' },
+  url: 'skylar_spence_fiona_coyne.mp3'
+})
+
+save_track({
   props: { title: 'Resonance', album_id: 7, duration: '3:33' },
   url: 'home_resonance.mp3'
 })
@@ -276,6 +331,27 @@ save_track({
 })
 
 save_track({
+  props: { title: 'Constance', album_id: 10, duration: '5:08' },
+  url: 'darius_constance.mp3'
+})
+save_track({
+  props: { title: 'Velour', album_id: 10, duration: '3:39' },
+  url: 'darius_velour.mp3'
+})
+save_track({
+  props: { title: 'Maliblue', album_id: 10, duration: '4:19' },
+  url: 'darius_maliblue.mp3'
+})
+save_track({
+  props: { title: 'Falling In Love', album_id: 10, duration: '3:43' },
+  url: 'darius_falling_in_love.mp3'
+})
+save_track({
+  props: { title: 'Once In A While', album_id: 10, duration: '3:38' },
+  url: 'darius_once_in_a_while.mp3'
+})
+
+save_track({
   props: { title: 'Tres Frais', album_id: 8, duration: '3:42' },
   url: 'trey_frey_tres_frais.mp3'
 })
@@ -293,12 +369,56 @@ save_track({
   url: 'anderson_paak_bubblin.mp3'
 })
 
+save_track({
+  props: { title: 'Espoir', album_id: 11, duration: '4:02' },
+  url: 'darius_espoir.mp3'
+})
+save_track({
+  props: { title: 'Hot Hands', album_id: 11, duration: '4:13' },
+  url: 'darius_hot_hands.mp3'
+})
+save_track({
+  props: { title: 'S/ash', album_id: 11, duration: '4:22' },
+  url: 'darius_sash.mp3'
+})
+save_track({
+  props: { title: 'Vanyll', album_id: 11, duration: '4:00' },
+  url: 'darius_vanyll.mp3'
+})
+
+save_track({
+  props: { title: 'November Has Come', album_id: 13, duration: '2:41' },
+  url: 'gorillaz_november_has_come.mp3'
+})
+save_track({
+  props: { title: 'DARE', album_id: 13, duration: '4:05' },
+  url: 'gorillaz_dare.mp3'
+})
+save_track({
+  props: { title: 'Feel Good Inc.', album_id: 13, duration: '3:42' },
+  url: 'gorillaz_feel_good_inc.mp3'
+})
+save_track({
+  props: { title: 'Dirty Harry', album_id: 13, duration: '3:43' },
+  url: 'gorillaz_dirty_harry.mp3'
+})
+
+save_track({
+  props: { title: 'Little Monster', album_id: 14, duration: '3:48' },
+  url: 'royal_blood_little_monster.mp3'
+})
+save_track({
+  props: { title: 'Out Of The Black', album_id: 14, duration: '4:19' },
+  url: 'royal_blood_out_of_the_black.mp3'
+})
+
 # Playlists
 
 Playlist.create([
   { title: 'Chill', user_id: 2 },
-  { title: 'Hype', user_id: 4 },
-  { title: 'Trap', user_id: 3 },
+  { title: 'Hype', user_id: 5 },
+  { title: 'Jamz', user_id: 3 },
+  { title: 'Neat Stuff', user_id: 1 }
 ])
 
 # Playlist-Track associations
@@ -306,11 +426,84 @@ Playlist.create([
 PlaylistTrack.create([
   { playlist_id: 1, track_id: 1 },
   { playlist_id: 1, track_id: 6 },
-  { playlist_id: 2, track_id: 3 },
+  { playlist_id: 1, track_id: 13 },
+  { playlist_id: 1, track_id: 14 },
+  { playlist_id: 1, track_id: 19 },
+  { playlist_id: 1, track_id: 24 },
+  { playlist_id: 1, track_id: 27 },
+  { playlist_id: 1, track_id: 28 },
+  { playlist_id: 1, track_id: 31 },
+  { playlist_id: 1, track_id: 35 },
+  { playlist_id: 1, track_id: 42 },
+  { playlist_id: 2, track_id: 7 },
   { playlist_id: 2, track_id: 8 },
-  { playlist_id: 2, track_id: 11 },
-  { playlist_id: 3, track_id: 13 },
-  { playlist_id: 3, track_id: 21 },
-  { playlist_id: 3, track_id: 18 },
+  { playlist_id: 2, track_id: 14 },
+  { playlist_id: 2, track_id: 17 },
+  { playlist_id: 2, track_id: 30 },
+  { playlist_id: 2, track_id: 32 },
+  { playlist_id: 2, track_id: 47 },
+  { playlist_id: 2, track_id: 56 },
+  { playlist_id: 2, track_id: 57 },
+  { playlist_id: 3, track_id: 3 },
   { playlist_id: 3, track_id: 7 },
+  { playlist_id: 3, track_id: 10 },
+  { playlist_id: 3, track_id: 11 },
+  { playlist_id: 3, track_id: 13 },
+  { playlist_id: 3, track_id: 18 },
+  { playlist_id: 3, track_id: 24 },
+  { playlist_id: 3, track_id: 26 },
+  { playlist_id: 3, track_id: 28 },
+  { playlist_id: 3, track_id: 31 },
+  { playlist_id: 3, track_id: 33 },
+  { playlist_id: 3, track_id: 35 },
+  { playlist_id: 3, track_id: 41 },
+  { playlist_id: 3, track_id: 46 },
+  { playlist_id: 3, track_id: 49 },
+  { playlist_id: 3, track_id: 51 },
+  { playlist_id: 3, track_id: 52 },
+  { playlist_id: 4, track_id: 6 },
+  { playlist_id: 4, track_id: 9 },
+  { playlist_id: 4, track_id: 11 },
+  { playlist_id: 4, track_id: 15 },
+  { playlist_id: 4, track_id: 20 },
+  { playlist_id: 4, track_id: 23 },
+  { playlist_id: 4, track_id: 26 },
+  { playlist_id: 4, track_id: 29 },
+  { playlist_id: 4, track_id: 32 },
+  { playlist_id: 4, track_id: 35 },
+  { playlist_id: 4, track_id: 40 },
+  { playlist_id: 4, track_id: 42 },
+  { playlist_id: 4, track_id: 43 },
+  { playlist_id: 4, track_id: 51 },
+  { playlist_id: 4, track_id: 53 },
 ])
+
+# Follows - Artists
+Follow.create({ user_id: 1, followable_id: 1, followable_type: 'Artist' })
+Follow.create({ user_id: 1, followable_id: 4, followable_type: 'Artist' })
+Follow.create({ user_id: 1, followable_id: 6, followable_type: 'Artist' })
+Follow.create({ user_id: 1, followable_id: 9, followable_type: 'Artist' })
+
+# Follows - Playlists
+Follow.create({ user_id: 1, followable_id: 2, followable_type: 'Playlist' })
+Follow.create({ user_id: 1, followable_id: 4, followable_type: 'Playlist' })
+
+# Saves - Tracks
+Like.create({ user_id: 1, likeable_id: 4, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 8, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 13, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 14, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 17, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 24, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 27, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 31, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 33, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 38, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 42, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 46, likeable_type: 'Track' })
+Like.create({ user_id: 1, likeable_id: 56, likeable_type: 'Track' })
+
+# Saves - Albums
+Like.create({ user_id: 1, likeable_id: 2, likeable_type: 'Album' })
+Like.create({ user_id: 1, likeable_id: 6, likeable_type: 'Album' })
+Like.create({ user_id: 1, likeable_id: 10, likeable_type: 'Album' })
