@@ -4,6 +4,7 @@ import AlbumIndex from '../util/albums/album_container';
 import TrackIndex from '../util/tracks/track_container';
 import PlaylistIndex from '../util/playlists/playlist_container';
 import { withRouter, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class SearchResults extends React.Component {
   render () {
@@ -48,19 +49,23 @@ class SearchResults extends React.Component {
         <div className="rela-block search-section">
           <Route path="/search/top" render={() => (
             <div className="top-results">
-              <div className="rela-block search-section">
+              <div className="rela-block search-section"
+                style={{order: (this.props.numArtists === 0 ? 2 : 1)}}>
                 <h2>Artists</h2>
                 <ArtistIndex searchTerm={this.props.searchTerm} />
               </div>
-              <div className="rela-block search-section">
+              <div className="rela-block search-section"
+                style={{order: (this.props.numAlbums === 0 ? 2 : 1)}}>
                 <h2>Albums</h2>
                 <AlbumIndex searchTerm={this.props.searchTerm} />
               </div>
-              <div className="rela-block search-section">
+              <div className="rela-block search-section"
+                style={{order: (this.props.numPlaylists === 0 ? 2 : 1)}}>
                 <h2>Playlists</h2>
                 <PlaylistIndex searchTerm={this.props.searchTerm} />
               </div>
-              <div className="rela-block search-section">
+              <div className="rela-block search-section"
+                style={{order: (this.props.numTracks === 0 ? 2 : 1)}}>
                 <h2>Tracks</h2>
                 <TrackIndex searchTerm={this.props.searchTerm} />
               </div>
@@ -84,4 +89,11 @@ class SearchResults extends React.Component {
   }
 }
 
-export default withRouter(SearchResults);
+const mapStateToProps = state => ({
+  numArtists: Object.keys(state.entities.artists).length,
+  numAlbums: Object.keys(state.entities.albums).length,
+  numPlaylists: Object.keys(state.entities.playlists).length,
+  numTracks: Object.keys(state.entities.tracks).length,
+});
+
+export default withRouter(connect(mapStateToProps)(SearchResults));

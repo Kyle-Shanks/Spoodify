@@ -648,6 +648,7 @@ ul.errors {
   letter-spacing: 3px;
   font-size: 14px;
   border: 2px solid;
+  color: #fff;
   width: 85%;
 }
 .content-secondary-text {
@@ -1046,7 +1047,7 @@ ul.errors {
   margin-top: 10px;
 }
 .artist-show {
-  padding: 100px 20px;
+  padding: 100px 20px 20px;
   background-color: #181818;
   min-height: 100vh;
 }
@@ -1109,7 +1110,7 @@ ul.errors {
   font-size: 14px;
 }
 .search-results {
-  padding: 0 20px 20px;
+  padding: 0 20px;
 }
 .search-info {
   padding: 20px;
@@ -1131,6 +1132,13 @@ ul.errors {
 }
 .search-section h2 {
   text-align: center;
+}
+.top-results {
+  display: flex;
+  flex-direction: column;
+}
+.top-results > div {
+  order: 1;
 }
 @-moz-keyframes wave {
   0% {
