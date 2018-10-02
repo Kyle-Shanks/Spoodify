@@ -29,7 +29,7 @@ Both a front-end and back-end authentication system was set up to give the users
 
 ### Audio that plays while navigating the site
 
-A core feature for any music app, the audio player is a top-level component for this app. This allows the user to stream music, change the song being played, and save the song being played to their library and while navigating around the site.
+A core feature for any music app, the audio player is a top-level component for this app. This allows the user to stream music, change the song being played, and save the song being played to their library while navigating around the site.
 
 ![Audio Player](app/assets/images/audio_player.png)
 
