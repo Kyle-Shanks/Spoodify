@@ -25,7 +25,7 @@ class ArtistIndexItem extends React.Component {
   render () {
     if(!this.props.artist) return null;
     return (
-      <li>
+      <li className="index-item">
         <div className="rela-block content-item artist">
           <Link className="rela-block app-link img-container" to={`/artists/${this.props.artist.id}`}>
             <div className="abs-center app-link content-play">

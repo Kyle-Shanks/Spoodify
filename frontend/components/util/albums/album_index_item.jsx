@@ -25,7 +25,7 @@ class AlbumIndexItem extends React.Component {
   render () {
     if (!this.props.album) return null;
     return (
-      <li>
+      <li className="index-item">
         <div className="rela-block content-item">
           <Link className="rela-block app-link img-container" to={`/albums/${this.props.album.id}`}>
             <div className="abs-center content-play">

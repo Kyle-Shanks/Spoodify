@@ -7,7 +7,7 @@ import { createPlaylistTrack } from '../../../actions/playlist_track_actions';
 const PlaylistSelectItem = (props) => {
   if(!props.playlist) return null;
   return (
-    <li>
+    <li className="index-item">
       <div className="rela-block content-item">
         <div className="rela-block img-container playlist-img">
           <Link className="abs-center app-link content-play" to={`/playlists/${props.playlist.id}`}>

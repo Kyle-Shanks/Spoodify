@@ -566,9 +566,33 @@ ul.errors {
 .content-nav-list {
   margin-bottom: 10px;
 }
+.index-item {
+  width: 20%;
+}
+@media screen and (max-width: 1400px) {
+  .index-item {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .index-item {
+    width: 33.3333%;
+  }
+}
+@media screen and (max-width: 920px) {
+  .index-item {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .index-item {
+    width: 100%;
+  }
+}
 .content-item {
-  margin: 10px 10px 20px;
-  width: 200px;
+  margin: 10px auto 20px;
+  width: 100%;
+  max-width: 200px;
   text-align: center;
 }
 .content-item .content-img {
@@ -1161,6 +1185,7 @@ ul.errors {
 }
 .search-section h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 .top-results {
   display: flex;

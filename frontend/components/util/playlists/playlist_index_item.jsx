@@ -25,7 +25,7 @@ class PlaylistIndexItem extends React.Component {
   render () {
     if(!this.props.playlist) return null;
     return (
-      <li>
+      <li className="index-item">
         <div className="rela-block content-item">
           <Link className="rela-block app-link img-container playlist-img" to={`/playlists/${this.props.playlist.id}`}>
             <div className="abs-center content-play">

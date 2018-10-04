@@ -231,7 +231,7 @@ class AudioPlayer extends React.Component {
           <div className="flex player-controls">
             <div className="rela-block control-svg-container">
               <div className="rela-inline svg-container">
-                <svg viewBox="0 0 600 600" className={"rela-block svg arrows" + (this.props.shuffle ? ' green' : '')}
+                <svg viewBox="0 0 610 610" className={"rela-block svg arrows" + (this.props.shuffle ? ' green' : '')}
                   onClick={this.props.toggleShuffle}>
                   <path d="M 405 230 L 405 270 L 450 250 L 405 230 Z" strokeWidth="10" className="arrow"/>
                   <path d="M 390 250 L 350 250 L 250 350 L 210 350" strokeWidth="15" />
@@ -268,7 +268,7 @@ class AudioPlayer extends React.Component {
             <div className="flex-parent seek-bar-outer-container">
               <p>{time}</p>
               <div className="flex progress-bar seek-bar-container">
-                <input className="slider-range" type="range" min="0" max={this.state.duration} step="1" onChange={this.setSeek} value={this.state.currentTime} />
+                <input className="slider-range" type="range" min="0" max={this.state.duration} step="0.25" onChange={this.setSeek} value={this.state.currentTime} />
                 <div className="outer-bar">
                   <div className="inner-bar" style={{width: `${(this.state.currentTime*100/(this.state.duration || 1))}%`}}></div>
                 </div>
