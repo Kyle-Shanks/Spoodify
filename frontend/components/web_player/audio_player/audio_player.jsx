@@ -14,6 +14,7 @@ class AudioPlayer extends React.Component {
       duration: 0,
       currentTime: 0,
       muted: false,
+      volume: 1,
     };
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
@@ -45,15 +46,15 @@ class AudioPlayer extends React.Component {
   setSeek(e) {
     if (this.props.currentTrack) {
       const audio = document.getElementById('audio');
-      const bounds = e.currentTarget.getBoundingClientRect();
-      audio.currentTime = (e.clientX - bounds.x)/bounds.width * audio.duration;
+      audio.currentTime = e.target.value;
+      this.setState({currentTime: e.target.value});
     }
   }
 
   setVolume(e) {
     const audio = document.getElementById('audio');
-    const bounds = e.currentTarget.getBoundingClientRect();
-    audio.volume = (e.clientX - bounds.x)/bounds.width;
+    this.setState({volume: e.target.value});
+    audio.volume = e.target.value;
   }
 
   handleUpdate() {
@@ -266,7 +267,8 @@ class AudioPlayer extends React.Component {
             </div>
             <div className="flex-parent seek-bar-outer-container">
               <p>{time}</p>
-              <div className="flex progress-bar seek-bar-container" onClick={this.setSeek}>
+              <div className="flex progress-bar seek-bar-container">
+                <input className="slider-range" type="range" min="0" max={this.state.duration} step="1" onChange={this.setSeek} value={this.state.currentTime} />
                 <div className="outer-bar">
                   <div className="inner-bar" style={{width: `${(this.state.currentTime*100/(this.state.duration || 1))}%`}}></div>
                 </div>
@@ -292,9 +294,10 @@ class AudioPlayer extends React.Component {
                 {volumeSvg}
               </div>
             </div>
-            <div className="rela-inline progress-bar volume-bar-container" onClick={this.setVolume}>
+            <div className="rela-inline progress-bar volume-bar-container">
+              <input className="slider-range" type="range" min="0" max="1" step="0.01" onChange={this.setVolume} />
               <div className="outer-bar">
-                <div className={"inner-bar" + (this.state.muted ? ' disabled' : '')} style={{width: `${audio ? audio.volume*100 : 100}%`}}></div>
+                <div className={"inner-bar" + (this.state.muted ? ' disabled' : '')} style={{width: `${this.state.volume*100}%`}}></div>
               </div>
             </div>
           </div>

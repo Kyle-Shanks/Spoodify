@@ -112,3 +112,28 @@
 .seek-bar-outer-container p
   font-size 12px
   width 30px
+
+.slider-range
+  position absolute
+  top 47%
+  left -3px
+  width calc(100% + 6px)
+  padding 0
+  margin 0
+  transform translateY(-50%)
+  background-color transparent
+  -webkit-appearance none
+  border none
+  &:focus
+    border none
+    outline none
+  &::-webkit-slider-thumb
+    -webkit-appearance none
+    background-color $white
+    height 10px
+    width 10px
+    border-radius 100%
+    transform scale(0)
+    transition 0.2s ease-out
+  &:hover::-webkit-slider-thumb, &:active::-webkit-slider-thumb
+    transform scale(1)
