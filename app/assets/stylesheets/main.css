@@ -567,7 +567,12 @@ ul.errors {
   margin-bottom: 10px;
 }
 .index-item {
-  width: 20%;
+  width: 16.666%;
+}
+@media screen and (max-width: 1800px) {
+  .index-item {
+    width: 20%;
+  }
 }
 @media screen and (max-width: 1400px) {
   .index-item {
