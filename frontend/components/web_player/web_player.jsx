@@ -14,7 +14,7 @@ import AudioPlayer from './audio_player/audio_player';
 import Queue from './audio_player/queue';
 import { closeDropdown, playAudio, pauseAudio } from '../../actions/ui_actions';
 
-class WebPlayer extends React.Component {  
+class WebPlayer extends React.Component {
   render () {
     let colorClass;
     switch (this.props.match.url) {

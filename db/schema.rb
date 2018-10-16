@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_205858) do
+ActiveRecord::Schema.define(version: 2018_10_16_213221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,8 +80,7 @@ ActiveRecord::Schema.define(version: 2018_09_19_205858) do
     t.integer "track_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_playlist_tracks_on_playlist_id"
-    t.index ["track_id"], name: "index_playlist_tracks_on_track_id"
+    t.index ["playlist_id", "track_id"], name: "index_playlist_tracks_on_playlist_id_and_track_id", unique: true
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -114,9 +113,9 @@ ActiveRecord::Schema.define(version: 2018_09_19_205858) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
-    t.index ["username"], name: "index_users_on_username"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
